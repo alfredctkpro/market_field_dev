@@ -100,7 +100,7 @@
 }
 - (IBAction)pwdDone:(id)sender
 {
-    [WebServiceHelper loginWithUsername:txtUsername.text 
+    [[[WebServiceHelper alloc]init] loginWithUsername:txtUsername.text
                                Password:txtPassword.text 
                                Complete:^(NSString* result) {
                                    
@@ -128,7 +128,7 @@
 }
 
 - (IBAction)btnRequestClick:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"http://www.marketfield.com/mktfldcontact.asp"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"http://ogru.com/blog/ogruappreq.aspx"]];
      
 }
 - (IBAction)btnLoginClick:(id)sender {
@@ -137,7 +137,7 @@
    //  [self performSegueWithIdentifier:@"GoToIndexPage" sender:sender];
     
     self.btnLogin.enabled=FALSE;
-    [WebServiceHelper loginWithUsername:txtUsername.text 
+    [[[WebServiceHelper alloc]init] loginWithUsername:txtUsername.text 
                                Password:txtPassword.text 
                                Complete:^(NSString* result) {
                                    

@@ -39,7 +39,6 @@
 		A61252C515E257460045490F /* semi_transpatent_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = A61252C415E257460045490F /* semi_transpatent_btn.png */; };
 		A6134BA71594D10B00978B2D /* FlipSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = A6134BA61594D10B00978B2D /* FlipSegue.m */; };
 		A615763515E63C9300835E61 /* OG_portrait_Final-Delivery_27.png in Resources */ = {isa = PBXBuildFile; fileRef = A615763415E63C9300835E61 /* OG_portrait_Final-Delivery_27.png */; };
-		A61EF6BD15FF9A8900F4D474 /* OG_portrait_00_LoginPanel_Panel.png in Resources */ = {isa = PBXBuildFile; fileRef = A61EF6BC15FF9A8900F4D474 /* OG_portrait_00_LoginPanel_Panel.png */; };
 		A61EF6C015FF9B0300F4D474 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = A61EF6BF15FF9B0300F4D474 /* login.png */; };
 		A61EF6C315FFA4ED00F4D474 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A61EF6C115FFA4E900F4D474 /* icon@2x.png */; };
 		A61EF6C415FFA4ED00F4D474 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A61EF6C215FFA4EA00F4D474 /* icon.png */; };
@@ -630,7 +629,7 @@
 		BB1031E015932E5200501B83 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0440;
 			};
 			buildConfigurationList = BB1031E315932E5200501B83 /* Build configuration list for PBXProject "MatketField" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -689,7 +688,6 @@
 				A6456A5215E27DDD00E92313 /* Property List.plist in Resources */,
 				A615763515E63C9300835E61 /* OG_portrait_Final-Delivery_27.png in Resources */,
 				A694F19615EBD1D600E31056 /* flipEND_bg.png in Resources */,
-				A61EF6BD15FF9A8900F4D474 /* OG_portrait_00_LoginPanel_Panel.png in Resources */,
 				A61EF6C015FF9B0300F4D474 /* login.png in Resources */,
 				A61EF6C315FFA4ED00F4D474 /* icon@2x.png in Resources */,
 				A61EF6C415FFA4ED00F4D474 /* icon.png in Resources */,

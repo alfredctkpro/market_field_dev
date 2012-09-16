@@ -120,7 +120,7 @@
 		}
 	}else {
 		if (view1 != nil) {		
-			[view1 setFrame:CGRectMake(0, 45, 512,768-45)];
+			[view1 setFrame:CGRectMake(0, 45, 512,712)];
 			[view2 setFrame:CGRectMake(512, 45, 247,351)];
 			
 			[view3 setFrame:CGRectMake(512+247,  45,265,351)];

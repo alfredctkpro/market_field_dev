@@ -266,15 +266,7 @@
 	// shadows
 
 	
-	UIInterfaceOrientation orient = [UIApplication sharedApplication].statusBarOrientation;
 	
-	UIImage* flipImage;
-	
-	if (orient == UIInterfaceOrientationPortrait || orient == UIInterfaceOrientationPortraitUpsideDown) {
-		flipImage = flipIllusionPortrait;
-	}else if (orient == UIInterfaceOrientationLandscapeLeft || orient == UIInterfaceOrientationLandscapeRight) {
-		flipImage = flipIllusionLandscape;
-	}
 	
 	
 	if (flipDirection == AFKPageFlipperDirectionRight) {
@@ -321,7 +313,7 @@
         newImage=nil;
         rightLayer=nil;
         leftLayer=nil;
-        flipImage=nil;
+    
         backLayer=nil;
         frontLayer=nil;
         rightLayer=nil;

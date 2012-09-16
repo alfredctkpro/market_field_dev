@@ -14,7 +14,7 @@
 {
     self = [super init];
     if (self) {
-        currentString=[NSMutableString string];
+        currentString=[[NSMutableString alloc]init];
     }
     return self;
 }
@@ -23,7 +23,7 @@
     [currentString release];
     [super dealloc];
 }
-+(void)loginWithUsername:(NSString *)username Password:(NSString *)password Complete:(void (^)(NSString*))complete Error:(void(^)(NSError* ))error
+-(void)loginWithUsername:(NSString *)username Password:(NSString *)password Complete:(void (^)(NSString*))complete Error:(void(^)(NSError* ))error
 {
 
     NSURL *url=[NSURL URLWithString:@"http://ogru.com"];
@@ -33,17 +33,17 @@
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
                             username, @"UserID",
                             password,@"Pwd",
-                            @"M",@"AppType",
+                            @"O",@"AppType",
                             nil];
     NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET" path:@"blog/validatelogin.aspx" parameters:params];
     
      AFXMLRequestOperation *operation=[AFXMLRequestOperation XMLParserRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, NSXMLParser *XMLParser) {
-        WebServiceHelper* d=[[WebServiceHelper alloc]init];
-        XMLParser.delegate=d;
-     
+    
+        XMLParser.delegate=self;
+    
         [XMLParser parse];
  
-         complete(d.currentString);
+         complete(currentString);
          XMLParser.delegate=nil;
         
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *_error, NSXMLParser *XMLParse) {
@@ -63,7 +63,7 @@
 
 }
  - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
-        [currentString appendString:string];
+        [self.currentString appendString:string];
          
  }
 @end

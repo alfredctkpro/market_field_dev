@@ -12,5 +12,5 @@
 @property (nonatomic,strong)NSMutableString *currentString;
     
 
-+(void)loginWithUsername:(NSString*)username Password:(NSString*)password Complete:(void (^)(NSString* result))complete Error:(void(^)(NSError* error))error;
+-(void)loginWithUsername:(NSString*)username Password:(NSString*)password Complete:(void (^)(NSString* result))complete Error:(void(^)(NSError* error))error;
 @end

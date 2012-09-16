@@ -85,7 +85,7 @@
 	
 	if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown) {
 		if (view1 != nil) {
-			[view1 setFrame:CGRectMake(0, 50, 768, 954 - 20)];
+			[view1 setFrame:CGRectMake(0, 50, 768, 954)];
             borderLeftTop.frame=CGRectMake(0, 0, 15, 1024);
             borderLeftTop2.frame=CGRectMake(0, 45, 768, 15);
             borderRightTop.frame=CGRectMake(753, 0, 15, 1024);
@@ -93,7 +93,7 @@
 		}
 	}else {
 		if (view1 != nil) {		
-			[view1 setFrame:CGRectMake(0, 50, 1024, 698 -20)];
+			[view1 setFrame:CGRectMake(0, 50, 1024, 698)];
             borderLeftTop.frame=CGRectMake(0, 0, 15, 1024);
             borderLeftTop2.frame=CGRectMake(0, 45, 1024, 15);
             borderRightTop.frame=CGRectMake(1024-15, 0, 15, 768);
