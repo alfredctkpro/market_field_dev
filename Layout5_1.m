@@ -41,20 +41,20 @@
 @synthesize view5;
 
 -(void)initalizeViews:(NSDictionary*)viewCollectionDictonary{
+    
     view1=[[TitleAndTextView alloc] initWithMessageModel:(ArticleModel*)[viewCollectionDictonary objectForKey:@"view1"] WithName:@"5_1_1"] ;
     view2=[[TitleAndTextView alloc] initWithMessageModel:(ArticleModel*)[viewCollectionDictonary objectForKey:@"view2"] WithName:@"5_1_2"] ;
     view3=[[TitleAndTextView alloc] initWithMessageModel:(ArticleModel*)[viewCollectionDictonary objectForKey:@"view3"] WithName:@"5_1_3"] ;
     view4=[[TitleAndTextView alloc] initWithMessageModel:(ArticleModel*)[viewCollectionDictonary objectForKey:@"view4"] WithName:@"5_1_4"];
     view5=[[TitleAndTextView alloc] initWithMessageModel:(ArticleModel*)[viewCollectionDictonary objectForKey:@"view5"]WithName:@"5_1_5"] ;
-
-				
-		self.isFullScreen= FALSE;
-		view1.isFullScreen = FALSE;
-		view2.isFullScreen = FALSE;
-		view3.isFullScreen = FALSE;
-		view4.isFullScreen = FALSE;
-		view5.isFullScreen = FALSE;
-	
+    waitFinshViewCount=5;
+    view1.delegate=self;
+    view2.delegate=self;
+	view3.delegate=self;
+    view4.delegate=self;
+    view5.delegate=self;
+    
+    
 	//	view1.isMediaAndTextCapable = TRUE;
 	//	view2.isMediaAndTextCapable = FALSE;
 	//	view3.isMediaAndTextCapable = FALSE;
@@ -93,7 +93,7 @@
 
 -(void)rotate:(UIInterfaceOrientation)orientation animation:(BOOL)animation {
 
-
+currrentInterfaceOrientation = orientation;
   
 	for (UIView* myview in [self subviews]) {
 		if ([myview isKindOfClass:[UIViewExtention class]]) {
@@ -132,12 +132,12 @@
 		if (view1 != nil) {		
 			
 			[view1 setFrame:CGRectMake(0, 45, 512, 702)];
-             view1.userImageView.frame=CGRectMake(30, 30, 468, 320);
+           
 			[view2 setFrame:CGRectMake(512, 45, 247, 351)];
 			
 			[view3 setFrame:CGRectMake(512, 45+351 , 247,351)];
        
-                  view4.userImageView.frame=CGRectMake(15, 30, 220, 145);
+                 
 			[view4 setFrame:CGRectMake(512+247 ,45,265,351)];
 			[view5 setFrame:CGRectMake(512+247, 45+351,265,351)];
             borderLeftTop.frame=CGRectMake(0, 0, 15, 1024);

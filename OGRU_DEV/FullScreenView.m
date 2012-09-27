@@ -65,6 +65,7 @@
 	
 	// set the content size so it can be scrollable
 	[imageScrollView setContentSize:CGSizeMake(( curXLoc), [imageScrollView bounds].size.height)];
+  
 }
 -(id)initWithModel:(NSString*)model {
 	if (self = [super init]) {
@@ -109,7 +110,7 @@
 		timeStampLabel = [[UILabel alloc] init];
 	//	[timeStampLabel setText:messageModel.date];
 		timeStampLabel.font =[UIFont fontWithName:@"HelveticaNeue" size:14];
-		[timeStampLabel setTextColor:RGBCOLOR(11,64,2)];
+		[timeStampLabel setTextColor:RGBCOLOR(0,24,128)];
 		[timeStampLabel setBackgroundColor:[UIColor clearColor]];
 		[timeStampLabel setFrame:CGRectMake(userNameLabel.frame.origin.x, userNameLabel.frame.origin.y, 0, 0)];
 		timeStampLabel.alpha = 0;
@@ -167,15 +168,19 @@
         // load all the images from our bundle and add them to the scroll view
         parser=[[ArticleParser alloc]init ];
         parser.delegate=self;
+     
+    
+        
+        
         NSOperationQueue *queue = [NSOperationQueue new];
         NSInvocationOperation *operation = [[NSInvocationOperation alloc]
                                             initWithTarget:self
                                             selector:@selector(loadContent)
                                             object:nil];
         [queue addOperation:operation];
-      
+    
        
-
+         
 
 	}
 	return self;
@@ -229,7 +234,7 @@
           [regex replaceMatchesInString:str options:0 range:NSMakeRange(0, [str length]) withTemplate:@"<br><br>"];
           [regex2 replaceMatchesInString:str options:0 range:NSMakeRange(0, [str length]) withTemplate:@""];
           NSString *css = [NSString stringWithFormat:
-                           @"<html><head><style>body { background-color: trasparent; text-align: %@; font-size: %ipx; color: black;font-family:HelveticaNeue-Light; margin: 0px 0px 0px 0px;} a { color: #172983; } </style></head><body>",
+                           @"<html><head><style>body { background-color: trasparent; text-align: %@; font-size: %ipx; color: black;font-family:HelveticaNeue-Light;margin: 0px 0px 0px 0px;} a { color: #172983; } </style></head><body>",
                            @"justify",
                            16];
           
@@ -279,15 +284,20 @@
               // pagingEnabled property default is NO, if set the scroller will stop or snap at each photo
               // if you want free-flowing scroll, don't set this property.
               imageScrollView.pagingEnabled = YES;
+              pageControl.currentPage=0;
               imageScrollView.delegate=self;
               [pageControl setFrame:CGRectMake(0,imageScrollView.frame.origin.y  +imageScrollView.frame.size.height+ 10, pageControl.frame.size.width, pageControl.frame.size.height)];
+              //dispatch_async(dispatch_get_main_queue(), ^{
+             //   [self portraitLoadImage];
+             // });
               NSOperationQueue *queue = [NSOperationQueue new];
               NSInvocationOperation *operation = [[NSInvocationOperation alloc]
                                                   initWithTarget:self
                                                   selector:@selector(portraitLoadImage)
                                                   object:nil];
+              
               [queue addOperation:operation];
-
+             // [self portraitLoadImage];
                    }
           
           
@@ -383,8 +393,8 @@
                 imageScrollView.pagingEnabled = YES;
                 imageScrollView.delegate=self;
                 [pageControl setFrame:CGRectMake(0,imageScrollView.frame.origin.y  +imageScrollView.frame.size.height+ 10, pageControl.frame.size.width, pageControl.frame.size.height)];
-
-                NSOperationQueue *queue = [NSOperationQueue new];
+           //     [self    landSpaceLoadImage];
+               NSOperationQueue *queue = [NSOperationQueue new];
                 NSInvocationOperation *operation = [[NSInvocationOperation alloc]
                                                     initWithTarget:self
                                                     selector:@selector(landSpaceLoadImage)
@@ -467,10 +477,11 @@
         [imageScrollView addSubview:imageView];
         //   [imageView release];
     }
-    [self layoutScrollImages];
     [aiv stopAnimating];
     [aiv removeFromSuperview];
     aiv=nil;
+    [self layoutScrollImages];
+  
 }
 -(void)portraitLoadImage
 {
@@ -508,10 +519,14 @@
         [imageScrollView addSubview:imageView];
         //  [imageView release];
     }
-    [self layoutScrollImages];
-    [aiv stopAnimating];
-    [aiv removeFromSuperview];
-    aiv=nil;
+       
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        [aiv stopAnimating];
+        [aiv removeFromSuperview];
+        aiv=nil;
+
+        [self layoutScrollImages];
+    });
 }
 -(void)nextFullScreenView:(id)sender
 {

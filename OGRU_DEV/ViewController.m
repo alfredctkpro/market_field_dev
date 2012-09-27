@@ -26,20 +26,19 @@
 {
     [super viewDidLoad];
     if (self.interfaceOrientation==UIInterfaceOrientationPortrait||self.interfaceOrientation==UIInterfaceOrientationPortraitUpsideDown) {
-        bgImage.frame=CGRectMake(156, 125, 456, 521);
-        txtUsername.frame=CGRectMake(209, 273, 350, 45);
-        txtPassword.frame=CGRectMake(209, 363, 350, 45);
-        btnLogin.frame=CGRectMake(209, 428, 350, 45);
-        btnRequest.frame=CGRectMake(209, 514, 350, 45);
+        bgImage.frame=CGRectMake(143, 125, 481, 560);
+        txtUsername.frame=CGRectMake(207, 306, 350, 45);
+        txtPassword.frame=CGRectMake(207, 395, 350, 45);
+        btnLogin.frame=CGRectMake(207, 479, 350, 49);
+      //  btnRequest.frame=CGRectMake(209, 514, 350, 45);
     }
     else
     {
         
-        bgImage.frame=CGRectMake(274, 15, 456, 521);
-        txtUsername.frame=CGRectMake(327, 163, 350, 45);
-        txtPassword.frame=CGRectMake(327, 253, 350, 45);
-        btnLogin.frame=CGRectMake(327, 318, 350, 45);
-        btnRequest.frame=CGRectMake(327, 404, 350, 45);
+        bgImage.frame=CGRectMake(271, 15, 481, 560);
+        txtUsername.frame=CGRectMake(335, 197, 350, 45);
+        txtPassword.frame=CGRectMake(335, 285, 350, 45);
+        btnLogin.frame=CGRectMake(335, 368, 350, 49);
     }
     NSString* path=[[NSBundle mainBundle]pathForResource:@"Property List" ofType:@"plist"];
     dic= [[NSMutableDictionary alloc]initWithContentsOfFile:path];
@@ -78,20 +77,19 @@
 -(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
     if (toInterfaceOrientation==UIInterfaceOrientationPortrait||toInterfaceOrientation==UIInterfaceOrientationPortraitUpsideDown) {
-        bgImage.frame=CGRectMake(156, 125, 456, 521);
-        txtUsername.frame=CGRectMake(209, 273, 350, 45);
-        txtPassword.frame=CGRectMake(209, 363, 350, 45);
-        btnLogin.frame=CGRectMake(209, 428, 350, 45);
-        btnRequest.frame=CGRectMake(209, 514, 350, 45);
+        bgImage.frame=CGRectMake(143, 125, 481, 560);
+        txtUsername.frame=CGRectMake(207, 306, 350, 45);
+        txtPassword.frame=CGRectMake(207, 395, 350, 45);
+        btnLogin.frame=CGRectMake(207, 479, 350, 49);
+        //  btnRequest.frame=CGRectMake(209, 514, 350, 45);
     }
     else
     {
-       
-        bgImage.frame=CGRectMake(274, 15, 456, 521);
-        txtUsername.frame=CGRectMake(327, 163, 350, 45);
-        txtPassword.frame=CGRectMake(327, 253, 350, 45);
-        btnLogin.frame=CGRectMake(327, 318, 350, 45);
-        btnRequest.frame=CGRectMake(327, 404, 350, 45);
+        
+        bgImage.frame=CGRectMake(271, 15, 481, 560);
+        txtUsername.frame=CGRectMake(335, 197, 350, 45);
+        txtPassword.frame=CGRectMake(335, 285, 350, 45);
+        btnLogin.frame=CGRectMake(335, 368, 350, 49);
     }
 }
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -100,6 +98,7 @@
 }
 - (IBAction)pwdDone:(id)sender
 {
+    self.btnLogin.enabled=NO;
     [[[WebServiceHelper alloc]init] loginWithUsername:txtUsername.text
                                Password:txtPassword.text 
                                Complete:^(NSString* result) {
@@ -112,11 +111,21 @@
                                        [dic writeToFile:path atomically: YES];
                                        
                                        [self performSegueWithIdentifier:@"GoToIndexPage" sender:sender];
+                                        self.btnLogin.enabled=YES;
                                        
                                    }
                                    else   if([result isEqualToString:@"FALSE"]){
                                        
                                        //登入失敗做的事
+                                       UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login Error"
+                                                             
+                                                                                       message:@"We didn't recognize the username or password you entered. Please try again."  //警告訊息內文的設定
+                                                                                      delegate:self // 叫出AlertView之後，要給該ViewController去處理
+                                                             
+                                                                             cancelButtonTitle:@"OK"  //cancel按鈕文字的設定
+                                                                             otherButtonTitles: nil]; // 其他按鈕的設定
+                                       [alert show];
+ self.btnLogin.enabled=YES;
                                    }
                                } 
                                   Error:^(NSError *error) {
@@ -150,6 +159,14 @@
                                    else   if([result isEqualToString:@"FALSE"]){
                                        self.btnLogin.enabled=YES;
                                        //登入失敗做的事
+                                       UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login Error"
+                                                             
+                                                                                       message:@"We didn't recognize the username or password you entered. Please try again."  //警告訊息內文的設定
+                                                                                      delegate:self // 叫出AlertView之後，要給該ViewController去處理
+                                                             
+                                                                             cancelButtonTitle:@"OK"  //cancel按鈕文字的設定
+                                                                             otherButtonTitles: nil]; // 其他按鈕的設定
+                                       [alert show];
                                    }
                                } 
                                Error:^(NSError *error) {

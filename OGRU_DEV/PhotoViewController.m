@@ -191,6 +191,12 @@
     return foundPage;
 }
 
+-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    for (ImageScrollView* page in visiblePages) {
+        [self configurePage:page forIndex:page.index];
+    }
+}
 - (void)configurePage:(ImageScrollView *)page forIndex:(NSUInteger)index
 {
     page.index = index;

@@ -71,6 +71,7 @@
 
 	
 }
+
 //如果flipper要view的時候，依其隨機分配到的layout組合，把view長出來回傳出去
 - (UIView *) viewForPage:(NSInteger) page inFlipper:(AFKPageFlipper *) pageFlipper {
     NSInteger count;

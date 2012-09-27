@@ -46,26 +46,19 @@
     view3=[[TitleAndTextView alloc] initWithMessageModel:(ArticleModel*)[viewCollectionDictonary objectForKey:@"view3"] WithName:@"5_2_3"];
     view4=[[TitleAndTextView alloc] initWithMessageModel:(ArticleModel*)[viewCollectionDictonary objectForKey:@"view4"] WithName:@"5_2_4"];
     view5=[[TitleAndTextView alloc] initWithMessageModel:(ArticleModel*)[viewCollectionDictonary objectForKey:@"view5"]WithName:@"5_2_5"] ;
-    
-		self.isFullScreen= FALSE;
+    waitFinshViewCount=5;
+    view1.delegate=self;
+    view2.delegate=self;
+	view3.delegate=self;
+    view4.delegate=self;
+    view5.delegate=self;
+    self.isFullScreen= FALSE;
 		view1.isFullScreen = FALSE;
 		view2.isFullScreen = FALSE;
 		view3.isFullScreen = FALSE;
 		view4.isFullScreen = FALSE;
 		view5.isFullScreen = FALSE;
-	
-	//	view1.isMediaAndTextCapable = FALSE;
-	//	view2.isMediaAndTextCapable = TRUE;
-	//	view3.isMediaAndTextCapable = FALSE;
-	//	view4.isMediaAndTextCapable = FALSE;
-	//	view5.isMediaAndTextCapable = FALSE;
-		
-	//[view1 setBackgroundColor:[UIColor whiteColor]];
-	//[view2 setBackgroundColor:[UIColor whiteColor]];
-	//[view3 setBackgroundColor:[UIColor whiteColor]];
-	//[view4 setBackgroundColor:[UIColor whiteColor]];
-	//[view5 setBackgroundColor:[UIColor whiteColor]];
-	self.backgroundColor=[UIColor whiteColor];
+		self.backgroundColor=[UIColor whiteColor];
 		[self addSubview:view1];
 		[self addSubview:view2];
 		[self addSubview:view3];
@@ -88,7 +81,7 @@
 
 -(void)rotate:(UIInterfaceOrientation)orientation animation:(BOOL)animation {
 
-	
+	currrentInterfaceOrientation = orientation;
 	for (UIView* myview in [self subviews]) {
 		if ([myview isKindOfClass:[UIViewExtention class]]) {
 			if (self.isFullScreen) {
@@ -115,9 +108,6 @@
 			[view3 setFrame:CGRectMake(384, 45, 384,245 )];
 			[view4 setFrame:CGRectMake(384, 45+245 , 384,466 )];
 			[view5 setFrame:CGRectMake(384, 45+245+466, 384,247)];
-                        view1.userImageView.frame=CGRectMake(30, 15, 340, 234);
-                        view2.userImageView.frame=CGRectMake(30, 15, 340, 234);
-                        view4.userImageView.frame=CGRectMake(15, 15, 340, 234);
             borderLeftTop.frame=CGRectMake(0, 0, 15, 1024);
             borderLeftTop2.frame=CGRectMake(0, 45, 768, 15);
             borderRightTop.frame=CGRectMake(753, 0, 15, 1024);

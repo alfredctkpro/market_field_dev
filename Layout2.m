@@ -40,14 +40,14 @@
 -(void)initalizeViews:(NSDictionary*)viewCollectionDictonary{
     view1=[[TitleAndTextView alloc] initWithMessageModel:(ArticleModel*)[viewCollectionDictonary objectForKey:@"view1"] WithName:@"2_1"];
     view2=[[TitleAndTextView alloc] initWithMessageModel:(ArticleModel*)[viewCollectionDictonary objectForKey:@"view2"] WithName:@"2_2"];
-   
-		self.isFullScreen= FALSE;
+    waitFinshViewCount=2;
+    view1.delegate=self;
+    view2.delegate=self;
+
+   		self.isFullScreen= FALSE;
 		view1.isFullScreen = FALSE;
 		view2.isFullScreen = FALSE;
-	
-	//	view1.isMediaAndTextCapable = TRUE;
-	//	view2.isMediaAndTextCapable = TRUE;
-self.backgroundColor=[UIColor whiteColor];
+	self.backgroundColor=[UIColor whiteColor];
 	[view1 setBackgroundColor:[UIColor whiteColor]];
 	[view2 setBackgroundColor:[UIColor whiteColor]];
 		
@@ -70,7 +70,7 @@ self.backgroundColor=[UIColor whiteColor];
 
 -(void)rotate:(UIInterfaceOrientation)orientation animation:(BOOL)animation {
 
-	
+	currrentInterfaceOrientation = orientation;
 	for (UIView* myview in [self subviews]) {
 		if ([myview isKindOfClass:[UIViewExtention class]]) {
 			if (self.isFullScreen) {

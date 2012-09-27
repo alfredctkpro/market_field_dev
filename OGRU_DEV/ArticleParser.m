@@ -42,7 +42,7 @@ static NSUInteger kCountForNotification = 6;
     [self downloadStarted];
     if (rssConnection != nil) {
         while (dispatch_semaphore_wait(semaphore, DISPATCH_TIME_NOW)) {
-            [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+            [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:1]];
         }
     }
     self.rssConnection = nil;

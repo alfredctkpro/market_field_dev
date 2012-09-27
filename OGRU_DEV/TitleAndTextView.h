@@ -32,24 +32,24 @@
 #import <Foundation/Foundation.h>
 #import "UIViewExtention.h"
 #import "AppDelegate.h"
-@class ArticleModel;
+@class ArticleModel,TitleAndTextView;
+@protocol TitleAndTextViewDelegate<NSObject>
+@optional
+-(void)titleAndTextViewDidFinishLoad:(TitleAndTextView *)titleAndTextView;
 
-@interface TitleAndTextView : UIViewExtention <UIGestureRecognizerDelegate>{
+@end
+@interface TitleAndTextView : UIViewExtention <UIGestureRecognizerDelegate,UIWebViewDelegate>{
 	UIView* contentView;
-	//UIImageView* userImageView;
-	//UILabel* userNameLabel;
-	//UILabel* timeStampLabel;
-	//UILabel* messageLabel;
-   // UILabel* messageLabel2;
-   // UIActivityIndicatorView* aiv;
-    UIWebView* theWebView;
 
+    UIWebView* theWebView;
+ NSObject <TitleAndTextViewDelegate> *delegate;
    }
 
 - (id) initWithMessageModel:(ArticleModel*)messagemodel WithName:(NSString*)name;
 - (void) initializeFields;
-	
+@property (nonatomic,strong) NSObject <TitleAndTextViewDelegate> *delegate;
 @property (nonatomic,strong) ArticleModel* messageModel;
-@property (nonatomic,strong) UIImageView* userImageView;
+
 @property (nonatomic,strong)  NSString*    name;
+@property (nonatomic,readonly)BOOL isFinishLoad;
 @end

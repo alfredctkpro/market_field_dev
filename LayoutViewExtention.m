@@ -34,12 +34,14 @@
 
 @implementation LayoutViewExtention
 
+
 @synthesize currrentInterfaceOrientation,isFullScreen;//,footerView;
 
 -(void)rotate:(UIInterfaceOrientation)interfaceOrientation animation:(BOOL)animation{
 	currrentInterfaceOrientation = interfaceOrientation;
-	
-	[self reAdjustLayout];
+
+    [self reAdjustLayout];
+
 }
 
 //-(void) setFooterView:(FooterView *)footerview {
@@ -51,7 +53,14 @@
 	//headerView = [headerview retain];
 	//[self addSubview:(UIView*)headerview];
 //}
-
+-(void)titleAndTextViewDidFinishLoad:(TitleAndTextView *)titleAndTextView
+{
+    waitFinshViewCount--;
+}
+-(BOOL)isDidLoadFinsh
+{
+    return waitFinshViewCount==0;
+}
 
 -(void)reAdjustLayout {
 	//view extending this class can overide this method

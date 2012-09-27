@@ -44,13 +44,18 @@
     view2=[[TitleAndTextView alloc] initWithMessageModel:(ArticleModel*)[viewCollectionDictonary objectForKey:@"view2"] WithName:@"4_2_2"];
     view3=[[TitleAndTextView alloc] initWithMessageModel:(ArticleModel*)[viewCollectionDictonary objectForKey:@"view3"] WithName:@"4_2_3"];
     view4=[[TitleAndTextView alloc] initWithMessageModel:(ArticleModel*)[viewCollectionDictonary objectForKey:@"view4"]WithName:@"4_2_4"];
- 
-
-		self.isFullScreen= FALSE;
+    waitFinshViewCount=4;
+    view1.delegate=self;
+    view2.delegate=self;
+	view3.delegate=self;
+    view4.delegate=self;
+    
+	self.isFullScreen= FALSE;
 		view1.isFullScreen = FALSE;
 		view2.isFullScreen = FALSE;
 		view3.isFullScreen = FALSE;
 		view4.isFullScreen = FALSE;
+	
 	
 	//	view1.isMediaAndTextCapable = TRUE;
 		//view2.isMediaAndTextCapable = TRUE;
@@ -85,7 +90,7 @@
 
 -(void)rotate:(UIInterfaceOrientation)orientation animation:(BOOL)animation {
 	
-
+currrentInterfaceOrientation = orientation;
 	
 	for (UIView* myview in [self subviews]) {
 		if ([myview isKindOfClass:[UIViewExtention class]]) {
@@ -111,8 +116,7 @@
 			
 			[view3 setFrame:CGRectMake(0, 45+479, 384,232)];
 			[view4 setFrame:CGRectMake(0,45+479+232, 384 ,247)];
-            view1.userImageView.frame=CGRectMake(30, 15, 340, 234);
-            view4.userImageView.frame=CGRectMake(30, 15, 340, 234);
+
             borderLeftTop.frame=CGRectMake(0, 0, 15, 1024);
             borderLeftTop2.frame=CGRectMake(0, 45, 768, 15);
             borderRightTop.frame=CGRectMake(753, 0, 15, 1024);

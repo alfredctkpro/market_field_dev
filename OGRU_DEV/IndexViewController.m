@@ -35,6 +35,9 @@
 {
      __weak UIPopoverController *searchPopover;
     __weak UIPopoverController *archivePopover;
+     NSMutableDictionary* preIndexView;
+   // NSOperationQueue *queue ;
+    
 }
 @synthesize lblHeader;
 @synthesize searchBarItem;
@@ -47,13 +50,209 @@
 @synthesize aivContentLoading;
 @synthesize bgImage;
 @synthesize viewControlerStack,gestureRecognizer,wallTitle,parser,articles,isInFullScreenMode;
+-(void)preBuild:(NSNumber*)numberPage
+{
+    NSInteger page=[numberPage integerValue];
+    for (id key in preIndexView) {
+        if (abs([key integerValue]-page)>2) {
+            [preIndexView removeObjectForKey:key];
+        }
+    }
+    for (int i=page-2; i<=page+2; i++) {
+        if (i>0 && [preIndexView objectForKey:[NSString stringWithFormat:@"%i",i]]==nil) {
+            [self prepareIndexView:i];
+        }
+    }
+}
+-(void)prepareIndexView:(NSInteger)page
+{
+    if (page==1 || page==[viewControlerStack count]+2) {
+        UIView* view=[[UIView alloc]init];
+        
+        UIImage *img = [[UIImage alloc]initWithContentsOfFile:
+                        [[NSBundle mainBundle]pathForResource:@"flipEND_bg" ofType:@"png"]];
+        [view setBackgroundColor:[UIColor colorWithPatternImage:img]];
+        
+        if (self.interfaceOrientation == UIInterfaceOrientationPortrait || self.interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+            [view setFrame:portraitSize];//直立的大小，遇到橫立的要給另一個大小
+        }else {
+            [view setFrame:landSpaceSize];//直立的大小，遇到橫立的要給另一個大小
+        }
+        
+        view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        [preIndexView setObject:view forKey:[NSString stringWithFormat:@"%i",page]];
+        return;
+    }
+    
+    
+    LayoutViewExtention* layoutToReturn = nil;
+    NSString* layoutNumber = [viewControlerStack objectAtIndex:page-2];
+    
+    int rangeFrom = 0;
+    int rangeTo = 0;
+    BOOL shouldContinue = FALSE;
+    
+    for (int i=0; i<page-2; i++) {
+        rangeFrom+=[[[viewControlerStack objectAtIndex:i] substringWithRange:NSMakeRange(0, 1)] intValue];
+    }
+    rangeTo=[[[viewControlerStack objectAtIndex:page-2]substringWithRange:NSMakeRange(0, 1)]intValue];
+    
+    
+    if (page-1<viewControlerStack.count+2) {
+        shouldContinue=TRUE;
+    }
+    
+    if (shouldContinue) {
+        
+        NSRange rangeForView = NSMakeRange(rangeFrom, rangeTo);
+        
+        NSArray* messageArray= [[AppDelegate instance].IndexArticles subarrayWithRange:rangeForView];
+        
+        NSMutableDictionary* viewDictonary = [[NSMutableDictionary alloc] init];
+        for (int i = 0; i < [messageArray count]; i++) {
+            if (i == 0) {
+                [viewDictonary setObject:[messageArray objectAtIndex:i] forKey:@"view1"];
+            }
+            if (i == 1) {
+                [viewDictonary setObject:[messageArray objectAtIndex:i] forKey:@"view2"];
+            }
+            if (i == 2) {
+                [viewDictonary setObject:[messageArray objectAtIndex:i] forKey:@"view3"];
+            }
+            if (i == 3) {
+                [viewDictonary setObject:[messageArray objectAtIndex:i] forKey:@"view4"];
+            }
+            if (i == 4) {
+                [viewDictonary setObject:[messageArray objectAtIndex:i] forKey:@"view5"];
+            }
+        }
+        
+        Class class =  NSClassFromString([NSString stringWithFormat:@"Layout%@",layoutNumber]);
+        id layoutObject ;
+        if (self.interfaceOrientation == UIInterfaceOrientationPortrait || self.interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+            layoutObject= [[class alloc] initWithFrame:portraitSize];
+         
+            //直立的大小，遇到橫立的要給另一個大小
+        }else {
+            layoutObject= [[class alloc] initWithFrame:landSpaceSize];
+            
+        }
+        if ([layoutObject isKindOfClass:[LayoutViewExtention class]] ) {
+            
+            layoutToReturn = (LayoutViewExtention*)layoutObject;
+            
+            [layoutToReturn initalizeViews:viewDictonary];
+            [layoutToReturn rotate:self.interfaceOrientation animation:NO];
+    
+                while (![layoutToReturn isDidLoadFinsh]) {
+                    [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:1]];
+                 }
+            
+            layoutToReturn.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        }
+    }
+    
+    [preIndexView setObject:layoutToReturn forKey:[NSString stringWithFormat:@"%i",page]];
+    
 
-
+}
+-(void)prepareIndexView2:(NSInteger)page
+{
+    if (page==1 || page==[viewControlerStack count]+2) {
+        UIView* view=[[UIView alloc]init];
+        
+        UIImage *img = [[UIImage alloc]initWithContentsOfFile:
+                        [[NSBundle mainBundle]pathForResource:@"flipEND_bg" ofType:@"png"]];
+        [view setBackgroundColor:[UIColor colorWithPatternImage:img]];
+        
+        if (self.interfaceOrientation == UIInterfaceOrientationPortrait || self.interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+            [view setFrame:portraitSize];//直立的大小，遇到橫立的要給另一個大小
+        }else {
+            [view setFrame:landSpaceSize];//直立的大小，遇到橫立的要給另一個大小
+        }
+        
+        view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        [preIndexView setObject:view forKey:[NSString stringWithFormat:@"%i",page]];
+        return;
+    }
+    
+    
+    LayoutViewExtention* layoutToReturn = nil;
+    NSString* layoutNumber = [viewControlerStack objectAtIndex:page-2];
+    
+    int rangeFrom = 0;
+    int rangeTo = 0;
+    BOOL shouldContinue = FALSE;
+    
+    for (int i=0; i<page-2; i++) {
+        rangeFrom+=[[[viewControlerStack objectAtIndex:i] substringWithRange:NSMakeRange(0, 1)] intValue];
+    }
+    rangeTo=[[[viewControlerStack objectAtIndex:page-2]substringWithRange:NSMakeRange(0, 1)]intValue];
+    
+    
+    if (page-1<viewControlerStack.count+2) {
+        shouldContinue=TRUE;
+    }
+    
+    if (shouldContinue) {
+        
+        NSRange rangeForView = NSMakeRange(rangeFrom, rangeTo);
+        
+        NSArray* messageArray= [[AppDelegate instance].IndexArticles subarrayWithRange:rangeForView];
+        
+        NSMutableDictionary* viewDictonary = [[NSMutableDictionary alloc] init];
+        for (int i = 0; i < [messageArray count]; i++) {
+            if (i == 0) {
+                [viewDictonary setObject:[messageArray objectAtIndex:i] forKey:@"view1"];
+            }
+            if (i == 1) {
+                [viewDictonary setObject:[messageArray objectAtIndex:i] forKey:@"view2"];
+            }
+            if (i == 2) {
+                [viewDictonary setObject:[messageArray objectAtIndex:i] forKey:@"view3"];
+            }
+            if (i == 3) {
+                [viewDictonary setObject:[messageArray objectAtIndex:i] forKey:@"view4"];
+            }
+            if (i == 4) {
+                [viewDictonary setObject:[messageArray objectAtIndex:i] forKey:@"view5"];
+            }
+        }
+        
+        Class class =  NSClassFromString([NSString stringWithFormat:@"Layout%@",layoutNumber]);
+        id layoutObject ;
+        if (self.interfaceOrientation == UIInterfaceOrientationPortrait || self.interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+            layoutObject= [[class alloc] initWithFrame:portraitSize];
+            
+            //直立的大小，遇到橫立的要給另一個大小
+        }else {
+            layoutObject= [[class alloc] initWithFrame:landSpaceSize];
+            
+        }
+        if ([layoutObject isKindOfClass:[LayoutViewExtention class]] ) {
+            
+            layoutToReturn = (LayoutViewExtention*)layoutObject;
+            
+            [layoutToReturn initalizeViews:viewDictonary];
+            [layoutToReturn rotate:self.interfaceOrientation animation:NO];
+            //    while (![layoutToReturn isDidLoadFinsh]) {
+            //        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
+            //     }
+            
+            
+            layoutToReturn.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        }
+    }
+    
+    [preIndexView setObject:layoutToReturn forKey:[NSString stringWithFormat:@"%i",page]];
+    
+    
+}
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
     if(self=[super initWithCoder:aDecoder])
     {
-      
+    
         portraitSize=CGRectMake(0, 0, 768, 1024);
         landSpaceSize=CGRectMake(0, 0, 1024, 768);
 		isInFullScreenMode = FALSE;
@@ -77,6 +276,7 @@
             [[AppDelegate instance].IndexArticles removeAllObjects];
             
         }
+  //   queue = [NSOperationQueue new];
         parser=[[IndexParser alloc]init];
         parser.delegate=self;
         [parser start];
@@ -85,7 +285,45 @@
     }
     return self;
 }
-
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if (fullScreenView != nil) {
+		//[UIView beginAnimations:@"WILLROTATE" context:NULL];
+		//[UIView setAnimationDuration:0.50];
+		//[UIView setAnimationCurve:UIViewAnimationOptionCurveEaseInOut];
+		if (self.interfaceOrientation == UIInterfaceOrientationPortrait || self.interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+            [fullScreenView setFrame:CGRectMake(0, 45, 768, 1024-45)];
+		}else {
+			[fullScreenView setFrame:CGRectMake(0, 45, 1024, 768-45)];
+		}
+		[fullScreenView rotate:self.interfaceOrientation animation:NO];
+		//[UIView setAnimationDelegate:self];
+		//[UIView setAnimationDidStopSelector:@selector(animationEnd:finished:context:)];
+		//[UIView commitAnimations];
+	}
+    
+	if ([viewControlerStack count] > 0 && [flipper.subviews count] > 0) {
+		
+		for (UIView* subview in flipper.subviews) {
+			if ([subview isKindOfClass:[LayoutViewExtention class]]) {
+				LayoutViewExtention* layoutView = (LayoutViewExtention*)subview;
+				[layoutView rotate:self.interfaceOrientation animation:NO];
+                
+			}
+			
+		}
+		
+	}
+    [self setToolbarBackgroundImage:self.interfaceOrientation];
+    if (self.interfaceOrientation == UIInterfaceOrientationPortrait || self.interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
+    {
+        flipper.frame=portraitSize;//直立的大小，遇到橫立的要給另一個大小
+    }else
+    {
+        flipper .frame=landSpaceSize;//直立的大小，遇到橫立的要給另一個大小
+    }
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -110,7 +348,7 @@
     logoutBarItem.customView.userInteractionEnabled=YES;
     [logoutBarItem.customView addGestureRecognizer:tapRecognizer];
     [self setToolbarBackgroundImage:self.interfaceOrientation];
-  
+
     [self.view insertSubview:flipper atIndex:0];
     UIStoryboard* storyBoard=[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     archiveController= [storyBoard instantiateViewControllerWithIdentifier:@"archiveView"];
@@ -167,6 +405,22 @@
 }
 //如果flipper要view的時候，依其隨機分配到的layout組合，把view長出來回傳出去
 - (UIView *) viewForPage:(NSInteger) page inFlipper:(AFKPageFlipper *) pageFlipper {
+    UIView* tempView= [preIndexView objectForKey:[NSString stringWithFormat:@"%i",page]];
+    tempView.alpha=1;
+ 
+    tempView.hidden=NO;
+    if (page!=1 && page !=[viewControlerStack count]+2 ){
+        LayoutViewExtention* layoutView=[preIndexView objectForKey:[NSString stringWithFormat:@"%i",page]];
+    
+    if(    [AppDelegate instance].viewController.interfaceOrientation!=layoutView.currrentInterfaceOrientation) {
+        [layoutView rotate:[AppDelegate instance].viewController.interfaceOrientation animation:NO];
+    }
+    }
+  
+  
+
+    return tempView;
+   /*
     if (page==1 || page==[viewControlerStack count]+2) {
         UIView* view=[[UIView alloc]init];
      
@@ -183,6 +437,16 @@
         view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         return view;
     }
+    UIView* tempView=[[UIView alloc]init];
+    [tempView setBackgroundColor:[UIColor blueColor]];
+    if (self.interfaceOrientation == UIInterfaceOrientationPortrait || self.interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+        [tempView setFrame:portraitSize];//直立的大小，遇到橫立的要給另一個大小
+    }else {
+        [tempView setFrame:landSpaceSize];//直立的大小，遇到橫立的要給另一個大小
+    }
+    
+    tempView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    return tempView;
   	LayoutViewExtention* layoutToReturn = nil;
 	NSString* layoutNumber = [viewControlerStack objectAtIndex:page-2];
 	
@@ -247,6 +511,7 @@
 	}
 	
 	return layoutToReturn;
+    */
 }
 -(void)showViewInFullScreen:(UIViewExtention*)viewToShow withModel:(ArticleModel*)model Mode:(NSString*)mode Animated:(BOOL)anim{
 	if (!isInFullScreenMode) {
@@ -347,7 +612,7 @@
 		}
 		
 	}
-    [self setToolbarBackgroundImage:toInterfaceOrientation];
+        [self setToolbarBackgroundImage:toInterfaceOrientation];
     if (toInterfaceOrientation == UIInterfaceOrientationPortrait || toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
     {
         flipper.frame=portraitSize;//直立的大小，遇到橫立的要給另一個大小
@@ -430,6 +695,8 @@
     fullScreenView=nil;
     viewToShowInFullScreen=nil;
     flipper=nil;
+    preIndexView=nil;
+  
         [super viewDidUnload];
     
 }
@@ -468,6 +735,37 @@
 #pragma mark <iTunesRSSParserDelegate> Implementation
 
 - (void)parserDidEndParsingData:(IndexParser *)parser {
+   
+    /*
+    NSMutableIndexSet *discardedItems = [NSMutableIndexSet indexSet];
+    
+    if ([AppDelegate instance].IndexArticles.count>60) {
+        for (int i=61; i<[AppDelegate instance].IndexArticles.count;i++) {
+            [discardedItems addIndex:i];
+        }
+        [[AppDelegate instance].IndexArticles removeObjectsAtIndexes:discardedItems];
+
+    }
+     */
+  //  NSLog(@"bulid view begin");
+    NSLog(@"Begin");
+    [self buildPages:[AppDelegate instance].IndexArticles];
+    preIndexView=[[NSMutableDictionary alloc]init];
+    
+    
+    for (int page=1; page<=2; page++) {
+        [self prepareIndexView:page];
+    }
+    for (int page=3; page<=[viewControlerStack count]+2; page++) {
+        [self prepareIndexView2:page];
+    }
+    NSLog(@"End");
+   // for (int page=3; page<=[viewControlerStack count]+2; page++){
+   //     [self prepareIndexView2:page];
+   // }
+  // NSLog(@"bulid view end");
+    flipper.dataSource = self;
+    self.parser = nil;
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.5];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
@@ -475,11 +773,6 @@
     [self.lblLoading removeFromSuperview ];
     [self.bgImage removeFromSuperview];
     [UIView commitAnimations];
-
-    [self buildPages:[AppDelegate instance].IndexArticles];
-    flipper.dataSource = self;
-    self.parser = nil;
- 
 }
 
 - (void)parser:(IndexParser *)parser didParseIndex:(NSArray *)parsedArticles{

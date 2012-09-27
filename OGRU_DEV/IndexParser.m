@@ -9,7 +9,7 @@
 #import "IndexParser.h"
 #import "ArticleModel.h"
 
-static NSUInteger kCountForNotification = 6;
+static NSUInteger kCountForNotification = 60;
 
 @implementation IndexParser
 
@@ -42,7 +42,7 @@ static NSUInteger kCountForNotification = 6;
         [self performSelectorOnMainThread:@selector(downloadStarted) withObject:nil waitUntilDone:NO];
         if (rssConnection != nil) {
             while (dispatch_semaphore_wait(semaphore, DISPATCH_TIME_NOW)) {
-                [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+                [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:1]];
             }
         }
         self.rssConnection = nil;

@@ -110,6 +110,7 @@ static NSCache *indexImageCache=nil;
         [alert show];
         [viewController performSegueWithIdentifier:@"Logout" sender:nil];
     }
+   /* 
     else if (curReach==ogruReach && curReach.currentReachabilityStatus==NotReachable) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Can't Get Articles"
                               
@@ -121,6 +122,7 @@ static NSCache *indexImageCache=nil;
         [alert show];
         [viewController performSegueWithIdentifier:@"Logout" sender:nil];
     }
+    */
 }
 	
 
@@ -132,11 +134,11 @@ static NSCache *indexImageCache=nil;
    // [self.window addSubview:viewController.view];
     //[self.window makeKeyAndVisible];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(reachabilityChanged:) name: kReachabilityChangedNotification object: nil];
-	hostReach = [Reachability reachabilityWithHostName: @"ogru.ctkpro.com"];
+	hostReach = [Reachability reachabilityWithHostName: @"ogru.com"];
 	[hostReach startNotifier];
     
-     ogruReach  = [Reachability reachabilityWithHostName: @"65.223.18.5"];
-	[ogruReach startNotifier];
+   //  ogruReach  = [Reachability reachabilityWithHostName: @"65.223.18.5"];
+	//[ogruReach startNotifier];
     
 	//    internetReach = [Reachability reachabilityForInternetConnection];
 	//[internetReach startNotifier];

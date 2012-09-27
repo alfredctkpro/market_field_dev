@@ -361,6 +361,7 @@
 	
 	if (setNewViewOnCompletion) {
 		[self.currentView removeFromSuperview];
+     
        		self.currentView = self.theNewView;
     
 		self.theNewView = nil;
@@ -707,6 +708,7 @@
 				animating = NO;
 				setNewViewOnCompletion = NO;
 			}
+       //     [[AppDelegate instance].viewController.queue setSuspended:YES];
 			break;
 			
 		case UIGestureRecognizerStateChanged:
@@ -810,7 +812,7 @@ else
 			//	setNewViewOnCompletion = YES;
 			//	[self setFlipProgress:1.0 setDelegate:YES animate:YES];
 			}
-			
+		//	[[AppDelegate instance].viewController.queue setSuspended:NO];
 			break;
             case UIGestureRecognizerStateCancelled:
             [self setFlipProgress:0.0 setDelegate:YES animate:YES];

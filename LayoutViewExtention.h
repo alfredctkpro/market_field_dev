@@ -30,20 +30,24 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TitleAndTextView.h"
 //@class HeaderView;
 //@class FooterView;
 
-@interface LayoutViewExtention : UIView {
+@interface LayoutViewExtention : UIView<TitleAndTextViewDelegate> {
 	UIInterfaceOrientation currrentInterfaceOrientation;
 	BOOL isFullScreen;	
 //	HeaderView* headerView;
 //	FooterView* footerView;
+    
+        int waitFinshViewCount;
+    
 
 }
 -(void)initalizeViews:(NSDictionary*)viewCollectionDictonary;
 -(void)rotate:(UIInterfaceOrientation)interfaceOrientation animation:(BOOL)animation;
 -(void)reAdjustLayout;
-
+-(BOOL)isDidLoadFinsh;
 @property (nonatomic,readonly) UIInterfaceOrientation currrentInterfaceOrientation;
 @property (nonatomic,assign) BOOL isFullScreen;
 //@property (nonatomic,retain) HeaderView* headerView;

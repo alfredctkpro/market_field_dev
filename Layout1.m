@@ -38,13 +38,12 @@
 
 -(void)initalizeViews:(NSDictionary*)viewCollectionDictonary{
     view1=[[TitleAndTextView alloc] initWithMessageModel:(ArticleModel*)[viewCollectionDictonary objectForKey:@"view1"] WithName:@"1_1"];
+    waitFinshViewCount=1;
+    view1.delegate=self;
 
 		self.isFullScreen= FALSE;
 		view1.isFullScreen = FALSE;
 		
-	//	view1.isMediaAndTextCapable = TRUE;
-		
-	//[view1 setBackgroundColor:[UIColor whiteColor]];
 	self.backgroundColor=[UIColor whiteColor];	
 		[self addSubview:view1];
     borderLeftTop=[[UIView alloc]init];
@@ -64,7 +63,7 @@
 
 -(void)rotate:(UIInterfaceOrientation)orientation animation:(BOOL)animation {
 	
-	
+	currrentInterfaceOrientation = orientation;
 	
 	for (UIView* myview in [self subviews]) {
 		if ([myview isKindOfClass:[UIViewExtention class]]) {

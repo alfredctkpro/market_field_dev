@@ -57,6 +57,7 @@
 @property (nonatomic, strong) NSMutableArray* viewControlerStack;
 @property (nonatomic, strong) UIGestureRecognizer* gestureRecognizer;
 @property (nonatomic, strong) NSString* wallTitle;
+//@property (nonatomic, strong) NSOperationQueue* queue;
 
 //- (IBAction)btnLogout:(id)sender;
 //@property (retain, nonatomic) IBOutlet UIView *bodyView;

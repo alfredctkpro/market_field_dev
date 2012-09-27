@@ -34,8 +34,8 @@
 @class UIViewExtention;
 
 @interface Layout2 : LayoutViewExtention {
-	UIViewExtention* view1;
-	UIViewExtention* view2;
+	TitleAndTextView* view1;
+	TitleAndTextView* view2;
     UIView* borderLeftTop;
     UIView* borderLeftTop2;
     UIView* borderRightTop;

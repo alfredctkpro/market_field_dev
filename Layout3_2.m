@@ -42,20 +42,17 @@
     view1=[[TitleAndTextView alloc] initWithMessageModel:(ArticleModel*)[viewCollectionDictonary objectForKey:@"view1"] WithName:@"3_2_1"];
     view2=[[TitleAndTextView alloc] initWithMessageModel:(ArticleModel*)[viewCollectionDictonary objectForKey:@"view2"]WithName:@"3_2_2"];
     view3=[[TitleAndTextView alloc] initWithMessageModel:(ArticleModel*)[viewCollectionDictonary objectForKey:@"view3"] WithName:@"3_2_3"];
-		self.isFullScreen= FALSE;
+    
+    waitFinshViewCount=3;
+    view1.delegate=self;
+    view2.delegate=self;
+	view3.delegate=self;
+
+    self.isFullScreen= FALSE;
 		view1.isFullScreen = FALSE;
 		view2.isFullScreen = FALSE;
 		view3.isFullScreen = FALSE;
-	
-	//	view1.isMediaAndTextCapable = TRUE;
-	//	view2.isMediaAndTextCapable = TRUE;
-	//	view3.isMediaAndTextCapable = TRUE;
-	
-		
-	//[view1 setBackgroundColor:[UIColor whiteColor]];
-	//[view2 setBackgroundColor:[UIColor whiteColor]];
-	//[view3 setBackgroundColor:[UIColor whiteColor]];
-	self.backgroundColor=[UIColor whiteColor];
+		self.backgroundColor=[UIColor whiteColor];
 		[self addSubview:view1];
 		[self addSubview:view2];
 		[self addSubview:view3];
@@ -76,7 +73,7 @@
 
 -(void)rotate:(UIInterfaceOrientation)orientation animation:(BOOL)animation {
 	
-
+currrentInterfaceOrientation = orientation;
 	
 	for (UIView* myview in [self subviews]) {
 		if ([myview isKindOfClass:[UIViewExtention class]]) {
@@ -101,9 +98,7 @@
 			[view2 setFrame:CGRectMake(0,45+479,384,479)];
 			
 			[view3 setFrame:CGRectMake(384, 45+479, 384, 479)];
-            view1.userImageView.frame=CGRectMake(30, 15, 340, 234);
-            view2.userImageView.frame=CGRectMake(30, 15,340, 234);
-            view3.userImageView.frame=CGRectMake(30, 15, 340, 234);
+
             borderLeftTop.frame=CGRectMake(0, 0, 15, 1024);
             borderLeftTop2.frame=CGRectMake(0, 45, 768, 15);
             borderRightTop.frame=CGRectMake(753, 0, 15, 1024);
