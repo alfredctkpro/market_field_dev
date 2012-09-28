@@ -37,6 +37,7 @@
     UILabel* lblLoading;
     UIActivityIndicatorView* aivLoading;
     UIImageView* bgLoading;
+    UIImageView* arrow;
 }
 @synthesize messageModel,viewToOverLap,fullScreenBG,mode;
 - (void)layoutScrollImages
@@ -67,16 +68,24 @@
 	[imageScrollView setContentSize:CGSizeMake(( curXLoc), [imageScrollView bounds].size.height)];
   
 }
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+	if(navigationType ==  UIWebViewNavigationTypeLinkClicked) {
+		[[UIApplication sharedApplication] openURL:request.URL];
+		return NO;
+	}
+	else
+		return YES;
+}
 -(id)initWithModel:(NSString*)model {
 	if (self = [super init]) {
         
 		messageModel = model;
 
         
-		[self setBackgroundColor:RGBCOLOR(243,243,243)];
+		[self setBackgroundColor:[UIColor whiteColor]];
 		
 		contentView = [[UIView alloc] init];
-		[contentView setBackgroundColor:RGBCOLOR(243,243,243)];
+		[contentView setBackgroundColor:[UIColor whiteColor]];
 		
         bgLoading=[[UIImageView alloc]initWithFrame:contentView.frame];
         UIImage *img = [[UIImage alloc]initWithContentsOfFile:
@@ -106,11 +115,13 @@
 		//[userNameLabel setText:[NSString stringWithFormat:@"%@",messageModel.title]];
 		[userNameLabel setFrame:CGRectMake(84, 480, 0, 0)];
 		[contentView addSubview:userNameLabel];
-		
+	
 		timeStampLabel = [[UILabel alloc] init];
 	//	[timeStampLabel setText:messageModel.date];
 		timeStampLabel.font =[UIFont fontWithName:@"HelveticaNeue" size:14];
-		[timeStampLabel setTextColor:RGBCOLOR(0,24,128)];
+
+		[timeStampLabel setTextColor:[[AppDelegate instance] getThemeColor]];
+    
 		[timeStampLabel setBackgroundColor:[UIColor clearColor]];
 		[timeStampLabel setFrame:CGRectMake(userNameLabel.frame.origin.x, userNameLabel.frame.origin.y, 0, 0)];
 		timeStampLabel.alpha = 0;
@@ -122,10 +133,11 @@
 		//[contentView addSubview:scrollView];
 		//textLayer=[[CATextLayer alloc]init];
 		messageLabel = [[UIWebView alloc] init];
-
+        messageLabel.delegate=self;
         messageLabel.opaque = NO;
         messageLabel.backgroundColor = [UIColor clearColor];
         messageLabel.frame=CGRectMake(85, 555 , 600, 360);
+        messageLabel.scrollView.delegate=self;
        // messageLabel.font=[UIFont fontWithName:@"HelveticaNeue-Light" size:16];
 	//	textLayer.wrapped=YES   ;
 		//textLayer.font = CFBridgingRetain([UIFont fontWithName:@"HelveticaNeue-Light" size:16].fontName);
@@ -166,6 +178,14 @@
         [pageControl sizeToFit];
         [contentView addSubview:pageControl];
         // load all the images from our bundle and add them to the scroll view
+    
+        NSString* arrowPath=[[NSBundle mainBundle]pathForResource:@"arrow" ofType:@"png"];
+        
+        UIImage* arrowImage=[[UIImage alloc]initWithContentsOfFile:arrowPath];
+        arrow=[[UIImageView alloc]initWithImage:arrowImage];
+        [contentView addSubview:arrow];
+        arrow.alpha=0;
+        
         parser=[[ArticleParser alloc]init ];
         parser.delegate=self;
      
@@ -178,7 +198,7 @@
                                             selector:@selector(loadContent)
                                             object:nil];
         [queue addOperation:operation];
-    
+        
        
          
 
@@ -234,7 +254,7 @@
           [regex replaceMatchesInString:str options:0 range:NSMakeRange(0, [str length]) withTemplate:@"<br><br>"];
           [regex2 replaceMatchesInString:str options:0 range:NSMakeRange(0, [str length]) withTemplate:@""];
           NSString *css = [NSString stringWithFormat:
-                           @"<html><head><style>body { background-color: trasparent; text-align: %@; font-size: %ipx; color: black;font-family:HelveticaNeue-Light;margin: 0px 0px 0px 0px;} a { color: #172983; } </style></head><body>",
+                           @"<html><head><style>body { background-color: trasparent; text-align: %@; font-size: %ipx; color: black;font-family:HelveticaNeue-Light;margin: 0px 0px 0px 0px;} a { color: gray; } </style></head><body>",
                            @"justify",
                            16];
           
@@ -246,7 +266,10 @@
           
           
           [messageLabel loadHTMLString:desc baseURL:nil];
-        
+    
+              arrow.frame=CGRectMake((768-21)/2, 1024-45-26-20,21, 26);
+              arrow.alpha=1;
+
           }
           //[messageLabel sizeToFit];
 		///////////////////////////////////////////////////////////////
@@ -341,7 +364,7 @@
         [regex replaceMatchesInString:str options:0 range:NSMakeRange(0, [str length]) withTemplate:@"<br><br>"];
         [regex2 replaceMatchesInString:str options:0 range:NSMakeRange(0, [str length]) withTemplate:@""];
         NSString *css = [NSString stringWithFormat:
-                         @"<html><head><style>body { background-color: trasparent; text-align: %@; font-size: %ipx; color: black;font-family:HelveticaNeue-Light} a { color: #172983; } </style></head><body>",
+                         @"<html><head><style>body { background-color: trasparent; text-align: %@; font-size: %ipx; color: black;font-family:HelveticaNeue-Light} a { color: gray; } </style></head><body>",
                          @"justify",
                          16];
         
@@ -353,6 +376,11 @@
         
         
         [messageLabel loadHTMLString:desc baseURL:nil];
+    
+
+            arrow.frame=CGRectMake((1024-21)/2, 768-45-26-20,21, 26);
+            arrow.alpha=1;
+
         }
 		///////////////////////////////////////////////////////////////
 		//[messageLabel setText:messageModel.content];
@@ -477,10 +505,13 @@
         [imageScrollView addSubview:imageView];
         //   [imageView release];
     }
-    [aiv stopAnimating];
-    [aiv removeFromSuperview];
-    aiv=nil;
-    [self layoutScrollImages];
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        [aiv stopAnimating];
+        [aiv removeFromSuperview];
+        aiv=nil;
+        
+        [self layoutScrollImages];
+    });
   
 }
 -(void)portraitLoadImage
@@ -621,7 +652,7 @@
 
 -(void) dealloc {
       nextButton=nil;
-
+    arrow=nil;
 	closeButton=nil;
 
 	userImageView=nil;
@@ -654,11 +685,18 @@
 
 }
 
--(void)scrollViewDidScroll:(UIScrollView *)scrollView
+-(void)scrollViewDidScroll:(UIScrollView *)theScrollView
 {
-    CGFloat pageWidth = imageScrollView.frame.size.width;
-    int page = floor((imageScrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-    pageControl.currentPage = page;
+    if (theScrollView==imageScrollView) {
+        CGFloat pageWidth = imageScrollView.frame.size.width;
+        int page = floor((imageScrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+        pageControl.currentPage = page;
+    }
+    else if(theScrollView==messageLabel.scrollView)
+    {
+        [arrow removeFromSuperview];
+    }
+
 }
 - (UIViewController*)viewController {
     for (UIView* next = [self superview]; next; next = next.superview) {
@@ -686,8 +724,8 @@
     [aivLoading stopAnimating];
     [aivLoading removeFromSuperview];
     [bgLoading removeFromSuperview   ];
+    
     if (parsedArticles.count>0) {
-        
         
         detailModel=[parsedArticles objectAtIndex:0];
         pageControl.numberOfPages=detailModel.images.count;
@@ -701,7 +739,7 @@
         [regex replaceMatchesInString:str options:0 range:NSMakeRange(0, [str length]) withTemplate:@"<br><br>"];
          [regex2 replaceMatchesInString:str options:0 range:NSMakeRange(0, [str length]) withTemplate:@""];
         NSString *css = [NSString stringWithFormat:
-                         @"<html><head><style>body { background-color: trasparent; text-align: %@; font-size: %ipx; color: black;font-family:HelveticaNeue-Light;} a { color: #172983; } </style></head><body>",
+                         @"<html><head><style>body { background-color: trasparent; text-align: %@; font-size: %ipx; color: black;font-family:HelveticaNeue-Light;} a { color: gray; } </style></head><body>",
                          @"justify",
                          16];
         

@@ -22,17 +22,19 @@
     }
     return self;
 }
+
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
     self=[super initWithCoder:aDecoder];
     if (self) {
         // Initialization code
         
-              UIView *bgColorView = [[UIView alloc] init];
+        UIView *bgColorView = [[UIView alloc] init];
         
         [bgColorView setBackgroundColor:[UIColor whiteColor]];
         [self setSelectedBackgroundView:bgColorView];
-            
+
+        
     }
     return self;
 }
@@ -42,7 +44,7 @@
     [super setSelected:selected animated:animated];
   
     if (selected) {
-        borderView.backgroundColor=RGBCOLOR(11, 64, 2);
+        borderView.backgroundColor=[[AppDelegate instance]getThemeColor];
     }
   
     // Configure the view for the selected state

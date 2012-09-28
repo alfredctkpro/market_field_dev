@@ -624,13 +624,13 @@
 -(void)setToolbarBackgroundImage:(UIInterfaceOrientation)interfaceOrientation
 {
     if (interfaceOrientation==UIInterfaceOrientationPortrait||interfaceOrientation==UIInterfaceOrientationPortraitUpsideDown) {
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"OG_portrait_MF_title_45" ofType:@"png"];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"portrait_title_45" ofType:@"png"];
         
         [toolbar setBackgroundImage:[UIImage imageWithContentsOfFile:path] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
     }
     else
     {
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"OG_landscape_MF_title_45" ofType:@"png"];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"landscape_title_45" ofType:@"png"];
         
         [toolbar setBackgroundImage:[UIImage imageWithContentsOfFile:path] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
         

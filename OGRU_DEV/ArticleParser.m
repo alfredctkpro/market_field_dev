@@ -20,7 +20,7 @@ static NSUInteger kCountForNotification = 6;
     self.startTimeReference = [NSDate timeIntervalSinceReferenceDate];
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
     self.parsedArticless = [[NSMutableArray alloc]init];
-    NSURL *url = [NSURL URLWithString:[[NSString alloc]initWithFormat: @"http://ogru.com/blog/article.aspx?ID=%@",articleID]];
+    NSURL *url = [NSURL URLWithString:[[NSString alloc]initWithFormat: @"%@?ID=%@",[[AppDelegate instance].configs objectForKey:@"ArticleURL"],articleID]];
     [self downloadAndParse:url];
 }
 

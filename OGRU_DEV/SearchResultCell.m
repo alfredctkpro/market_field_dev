@@ -31,7 +31,7 @@
         lblDate=[[UILabel alloc]init];
         lblDate.frame=CGRectMake(0,5.33,self.frame.size.width,22);
         lblDate.autoresizingMask=UIViewAutoresizingFlexibleBottomMargin;
-        lblDate.textColor=RGBCOLOR(11,64,2);
+        lblDate.textColor=[[AppDelegate instance] getThemeColor];
         //lblDate.backgroundColor=[UIColor redColor];
         lblTitle=[[UILabel alloc]init];
         lblTitle.frame=CGRectMake(0,self.frame.size.height/2-5.33,self.frame.size.width,22);
@@ -52,7 +52,7 @@
     [super setSelected:selected animated:animated];
     if(selected)
     {
-        borderView.backgroundColor=RGBCOLOR(11, 64, 2);
+        borderView.backgroundColor=[[AppDelegate instance]getThemeColor];
     }
     // Configure the view for the selected state
 }

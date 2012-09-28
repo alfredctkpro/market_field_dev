@@ -10,11 +10,11 @@
 #import "IndexViewController.h"
 static NSCache *imageCache = nil;
 static NSCache *indexImageCache=nil;
-
+static NSDictionary * _configs;
 @implementation AppDelegate
 
 @synthesize viewController,IndexArticles,SearchArticles,Archiverticles;
-@synthesize window ,lastSearchString,ogruReach,hostReach;
+@synthesize window ,lastSearchString,ogruReach,hostReach,configs;
 - (void)dealloc
 {
     self.viewController=nil;
@@ -25,6 +25,7 @@ static NSCache *indexImageCache=nil;
     self.lastSearchString=nil;
     self.ogruReach=nil;
     self.hostReach=nil;
+   
     
 }
 + (AppDelegate *) instance {
@@ -51,6 +52,17 @@ static NSCache *indexImageCache=nil;
 }
 /* In case we want to have a per-instance cache.
  */
+-(NSDictionary*)configs
+{
+    if(_configs==nil)
+    {
+    NSString* configPath=[[NSBundle mainBundle]pathForResource:@"Config" ofType:@"plist"];
+    NSURL* configURL=[NSURL fileURLWithPath:configPath];
+    _configs=[[NSDictionary alloc]initWithContentsOfURL:configURL];
+    }
+    return _configs;
+}
+
 - (NSCache *)imageCache {
     return imageCache;
 }
@@ -136,7 +148,7 @@ static NSCache *indexImageCache=nil;
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(reachabilityChanged:) name: kReachabilityChangedNotification object: nil];
 	hostReach = [Reachability reachabilityWithHostName: @"ogru.com"];
 	[hostReach startNotifier];
-    
+   
    //  ogruReach  = [Reachability reachabilityWithHostName: @"65.223.18.5"];
 	//[ogruReach startNotifier];
     
@@ -148,8 +160,14 @@ static NSCache *indexImageCache=nil;
 	
     return YES;
 }
+-(UIColor*)getThemeColor
+{
+    float ThemeColor_R=[[[[AppDelegate instance].configs objectForKey:@"ThemeColorRGB"]objectForKey:@"R"]floatValue];
+    float ThemeColor_G=[[[[AppDelegate instance].configs objectForKey:@"ThemeColorRGB"]objectForKey:@"G"]floatValue];
+    float ThemeColor_B=[[[[AppDelegate instance].configs objectForKey:@"ThemeColorRGB"]objectForKey:@"B"]floatValue];
+    return RGBCOLOR(ThemeColor_R,ThemeColor_G,ThemeColor_B);
+}
 
-							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

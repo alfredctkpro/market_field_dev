@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ArchiveURL</key>
+	<string>http://ogru.com/blog/archive.aspx</string>
+	<key>SearchURL</key>
+	<string>http://ogru.com/blog/search.aspx</string>
+	<key>ArticleURL</key>
+	<string>http://ogru.com/blog/article.aspx</string>
+	<key>IndexURL</key>
+	<string>http://ogru.com/blog/index.aspx</string>
+	<key>ThemeColorRGB</key>
+	<dict>
+		<key>R</key>
+		<integer>11</integer>
+		<key>G</key>
+		<integer>64</integer>
+		<key>B</key>
+		<integer>2</integer>
+	</dict>
+	<key>ThemeColorHTML</key>
+	<string>#0B4002</string>
+</dict>
+</plist>

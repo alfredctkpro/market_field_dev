@@ -35,9 +35,11 @@
 @property (nonatomic,copy) NSString* lastSearchString;
 @property (nonatomic,retain) Reachability* hostReach;
 @property (nonatomic,retain) Reachability* ogruReach;
+@property (nonatomic,readonly) NSDictionary* configs;
 + (NSCache *)imageCache;
 + (NSCache *)indexImageCache;
 + (int)getSplitIndexWithString:(NSString *)str frame:(CGRect)frame andFont:(UIFont *)font;
 - (UIImage *)imageWithURL:(NSString*)url ;
 - (UIImage *)indexImageWithURL:(NSString*)url ;
+-(UIColor*)getThemeColor;
 @end

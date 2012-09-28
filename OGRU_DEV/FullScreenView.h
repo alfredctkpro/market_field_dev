@@ -35,7 +35,7 @@
 #import "OGRUPageControl.h"
 #import "ArticleParser.h"
 #import <QuartzCore/CATextLayer.h>
-@interface FullScreenView : UIViewExtention<UIScrollViewDelegate,ArticleParserDelegate>  {
+@interface FullScreenView : UIViewExtention<UIScrollViewDelegate,ArticleParserDelegate,UIWebViewDelegate>  {
 	NSString* messageModel;
     ArticleModel* detailModel;
 	UIView* contentView;

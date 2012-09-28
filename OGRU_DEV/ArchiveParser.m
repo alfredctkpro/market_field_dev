@@ -31,7 +31,7 @@ static NSUInteger kCountForNotification = 31;
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
     self.parsedArticless = [[NSMutableArray alloc]init];
  //   parsedSet=[[NSMutableDictionary alloc]init];
-    NSURL *url = [NSURL URLWithString:[[NSString alloc]initWithFormat: @"http://ogru.com/blog/archive.aspx?year=%@&month=%@",year    ,month]];
+    NSURL *url = [NSURL URLWithString:[[NSString alloc]initWithFormat: @"%@?year=%@&month=%@",[[AppDelegate instance].configs objectForKey:@"ArchiveURL"],year    ,month]];
     [NSThread detachNewThreadSelector:@selector(downloadAndParse:) toTarget:self withObject:url];
 }
 

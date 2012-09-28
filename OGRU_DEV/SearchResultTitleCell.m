@@ -17,7 +17,7 @@
         // Initialization code
         self.backgroundColor =[UIColor whiteColor];
         lblCount=[[UILabel alloc]init];
-        lblCount.textColor=RGBCOLOR(11, 64, 2);
+        lblCount.textColor=[[AppDelegate instance]getThemeColor];
        	lblCount.font =[UIFont fontWithName:@"HelveticaNeue-Bold" size:34];
         
 
