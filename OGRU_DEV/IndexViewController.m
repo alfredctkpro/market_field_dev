@@ -417,7 +417,22 @@
     }
     }
   
-  
+    UIView* footerViewInLayout = (UIView*) [tempView viewWithTag:200];
+    if(footerViewInLayout!=nil)
+    {
+	[footerViewInLayout removeFromSuperview];
+    }
+    FooterView* footerView = [[FooterView alloc] initWithFrame:CGRectMake(0, tempView.frame.size.height - 45, tempView.frame.size.width, 20)];
+    if ([AppDelegate instance].viewController.interfaceOrientation == UIInterfaceOrientationPortrait || [AppDelegate instance].viewController.interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+        [footerView setFrame:CGRectMake(0, 1004 - 25, 768, footerView.frame.size.height)];
+    }else {
+        [footerView setFrame:CGRectMake(0, 748 - 25, 1024, footerView.frame.size.height)];
+    }
+    [footerView setTag:200];
+    [footerView setFlipperView:flipper];
+    [footerView setViewArray:viewControlerStack];
+    [tempView addSubview:footerView];
+     
 
     return tempView;
    /*
@@ -606,6 +621,19 @@
 			if ([subview isKindOfClass:[LayoutViewExtention class]]) {
 				LayoutViewExtention* layoutView = (LayoutViewExtention*)subview;
 				[layoutView rotate:toInterfaceOrientation animation:YES];
+                FooterView* footerView = (FooterView*)[layoutView viewWithTag:200];
+                footerView.alpha = 0;
+                HeaderView* headerView = (HeaderView*)[layoutView viewWithTag:201];
+                [UIView beginAnimations:nil context:NULL];
+                [UIView setAnimationDuration:0.10];
+                if (toInterfaceOrientation == UIInterfaceOrientationPortrait || toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+                    [footerView setFrame:CGRectMake(0, 1004 - 25, 768, footerView.frame.size.height)];
+                }else {
+                    [footerView setFrame:CGRectMake(0, 748 - 25, 1024, footerView.frame.size.height)];
+                }
+                [footerView rotate:toInterfaceOrientation animation:YES];
+                [headerView rotate:toInterfaceOrientation animation:YES];
+                [UIView commitAnimations];
 
 			}
 			
@@ -637,7 +665,14 @@
     }
 }
 -(void) didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-
+	for (UIView* subview in flipper.subviews) {
+        if ([subview isKindOfClass:[LayoutViewExtention class]]) {
+            LayoutViewExtention* layoutView = (LayoutViewExtention*)subview;
+	
+		FooterView* footerView = (FooterView*)[layoutView viewWithTag:200];
+		footerView.alpha = 1;
+        }
+	}
 }
 
 - (void)animationEnd:(NSString*)animationID finished:(NSNumber*)finished context:(void*)context {

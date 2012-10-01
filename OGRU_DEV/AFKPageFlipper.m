@@ -343,14 +343,14 @@
  
 		blankFlipAnimationLayerOnLeft1 = Nil;
 		blankFlipAnimationLayerOnRight1 = Nil;
-		
+		if (pageDifference > 2) {
 		
 			[blankFlipAnimationLayerOnLeft2 removeFromSuperlayer];
 			[blankFlipAnimationLayerOnRight2 removeFromSuperlayer];
       
 			blankFlipAnimationLayerOnLeft2 = Nil;
 			blankFlipAnimationLayerOnRight2 = Nil;
-		
+		}
 	}
 
 	backgroundAnimationLayer = Nil;

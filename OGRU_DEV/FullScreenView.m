@@ -68,6 +68,14 @@
 	[imageScrollView setContentSize:CGSizeMake(( curXLoc), [imageScrollView bounds].size.height)];
   
 }
+-(void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    if(  [[webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight;"] floatValue]<=webView.frame.size.height)
+    {
+        [arrow removeFromSuperview];
+    };
+    
+}
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
 	if(navigationType ==  UIWebViewNavigationTypeLinkClicked) {
 		[[UIApplication sharedApplication] openURL:request.URL];

@@ -211,26 +211,47 @@
 	[barButtonsView setBackgroundColor:[UIColor whiteColor]];
 	CGFloat left = 10;
 	CGFloat width = 0;
-	for (int i = 1; i <= numberTotal; i++) {
+	for (int i = 2; i <= numberTotal+1; i++) {
+        if(i==2)
+        {
+            UIButton* latestBtn = [[UIButton alloc]init];
+            if (flipperView.currentPage == 2) {
+                [latestBtn setTitleColor:RGBCOLOR(102, 102, 102) forState:UIControlStateNormal];
+            }
+            else
+            {
+            [latestBtn setTitleColor:RGBCOLOR(204, 204, 204) forState:UIControlStateNormal];
+            }
+            [latestBtn setBackgroundColor:[UIColor clearColor]];
+             [latestBtn setTag:i];
+            [latestBtn setTitle:@"LATEST" forState:UIControlStateNormal ];
+            latestBtn.titleLabel.font=[UIFont fontWithName:@"Helvetica-Bold" size:10];
+            [latestBtn sizeToFit];
+            latestBtn.frame=CGRectMake(left,4,latestBtn.frame.size.width,latestBtn.frame.size.height);
+            [latestBtn addTarget:self action:@selector(boxClick:) forControlEvents:UIControlEventTouchUpInside];
+            [barButtonsView addSubview:latestBtn];
+            left+=45;
+        }
+        
 		UIButton* boxButton = [[UIButton alloc] init];
 		[boxButton setBackgroundColor:[UIColor clearColor]];
 		[boxButton setTag:i];
-		[boxButton setFrame:CGRectMake(left, 4, 27, 16)];
+		[boxButton setFrame:CGRectMake(left, 2, 16, 16)];
 		[boxButton addTarget:self action:@selector(boxClick:) forControlEvents:UIControlEventTouchUpInside];
 		width = boxButton.frame.origin.x + boxButton.frame.size.width;
 		
-		[boxButton setImage:[UIImage imageNamed:@"unselected-page.png"] forState:UIControlStateNormal];
+		[boxButton setImage:[UIImage imageNamed:@"OG_portrait_Daily_imageEnlarge_pagination＿01.png"] forState:UIControlStateNormal];
 		
 		//[boxButton setBackgroundColor:[UIColor blackColor]];
 		if (flipperView.currentPage == i) {
 			selectedButtonIndex = i;
-			[boxButton setFrame:CGRectMake(left, 2, 27, 20)];
-			[boxButton setImage:[UIImage imageNamed:@"selected-page.png"] forState:UIControlStateNormal];
+			
+			[boxButton setImage:[UIImage imageNamed:@"OG_portrait_Daily_imageEnlarge_pagination_02.png"] forState:UIControlStateNormal];
 			//[boxButton setBackgroundColor:[UIColor redColor]];
 		}
 		[barButtonsView addSubview:boxButton];
 		[boxButton release];
-		left+=30;
+		left+=23;
 	}
 	width +=10;
 	BOOL shouldScroll = FALSE;
