@@ -230,6 +230,7 @@
             latestBtn.frame=CGRectMake(left,4,latestBtn.frame.size.width,latestBtn.frame.size.height);
             [latestBtn addTarget:self action:@selector(boxClick:) forControlEvents:UIControlEventTouchUpInside];
             [barButtonsView addSubview:latestBtn];
+            [latestBtn release];
             left+=45;
         }
         
