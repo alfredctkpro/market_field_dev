@@ -238,7 +238,7 @@
 		[boxButton setBackgroundColor:[UIColor clearColor]];
 		[boxButton setTag:i];
 		[boxButton setFrame:CGRectMake(left, 2, 16, 16)];
-		[boxButton addTarget:self action:@selector(boxClick:) forControlEvents:UIControlEventTouchUpInside];
+		//[boxButton addTarget:self action:@selector(boxClick:) forControlEvents:UIControlEventTouchUpInside];
 		width = boxButton.frame.origin.x + boxButton.frame.size.width;
 		
 		[boxButton setImage:[UIImage imageNamed:@"OG_portrait_Daily_imageEnlarge_pagination＿01.png"] forState:UIControlStateNormal];
