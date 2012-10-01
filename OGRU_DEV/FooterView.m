@@ -225,7 +225,7 @@
             [latestBtn setBackgroundColor:[UIColor clearColor]];
              [latestBtn setTag:i];
             [latestBtn setTitle:@"LATEST" forState:UIControlStateNormal ];
-            latestBtn.titleLabel.font=[UIFont fontWithName:@"Helvetica-Bold" size:10];
+            latestBtn.titleLabel.font=[UIFont fontWithName:@"HelveticaNeue" size:10];
             [latestBtn sizeToFit];
             latestBtn.frame=CGRectMake(left,4,latestBtn.frame.size.width,latestBtn.frame.size.height);
             [latestBtn addTarget:self action:@selector(boxClick:) forControlEvents:UIControlEventTouchUpInside];
