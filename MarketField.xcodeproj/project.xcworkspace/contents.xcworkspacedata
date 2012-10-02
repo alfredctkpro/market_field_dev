@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:MatketField.xcodeproj">
+      location = "self:MarketField.xcodeproj">
    </FileRef>
 </Workspace>

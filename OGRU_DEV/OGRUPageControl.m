@@ -21,6 +21,7 @@
         // Initialization code
         activeImage = [UIImage imageNamed:@"OG_landscape_02_DAILY_single_PaginationB.png"];
         inactiveImage = [UIImage imageNamed:@"OG_landscape_02_DAILY_single_PaginationW.png"];
+    
         
     }
     return self;
@@ -39,7 +40,9 @@
 {
     for (int i = 0; i < [self.subviews count]; i++)
     {
+    
         UIImageView* dot = [self.subviews objectAtIndex:i];
+        dot.frame=CGRectMake(dot.frame.origin.x, dot.frame.origin.y, 16, 16);
         if (i == self.currentPage) dot.image = activeImage;
         else dot.image = inactiveImage;
     }

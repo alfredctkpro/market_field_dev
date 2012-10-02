@@ -238,6 +238,7 @@
 		[boxButton setBackgroundColor:[UIColor clearColor]];
 		[boxButton setTag:i];
 		[boxButton setFrame:CGRectMake(left, 2, 16, 16)];
+        boxButton.userInteractionEnabled=NO;
 		//[boxButton addTarget:self action:@selector(boxClick:) forControlEvents:UIControlEventTouchUpInside];
 		width = boxButton.frame.origin.x + boxButton.frame.size.width;
 		

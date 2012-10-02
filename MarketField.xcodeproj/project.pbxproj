@@ -118,18 +118,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A601071F159357CA0059246E /* MatketField.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatketField.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A601072B159357CA0059246E /* MatketField-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MatketField-Info.plist"; sourceTree = "<group>"; };
+		A601071F159357CA0059246E /* MarketField.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarketField.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A601072B159357CA0059246E /* MarketField-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MarketField-Info.plist"; sourceTree = "<group>"; };
 		A601072D159357CA0059246E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A601072F159357CA0059246E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A6010731159357CA0059246E /* MatketField-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MatketField-Prefix.pch"; sourceTree = "<group>"; };
+		A6010731159357CA0059246E /* MarketField-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MarketField-Prefix.pch"; sourceTree = "<group>"; };
 		A6010732159357CA0059246E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A6010733159357CA0059246E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A6010736159357CA0059246E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		A6010738159357CA0059246E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		A6010739159357CA0059246E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		A6010740159357CB0059246E /* MatketFieldTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MatketFieldTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A6010749159357CB0059246E /* MatketFieldTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MatketFieldTests-Info.plist"; sourceTree = "<group>"; };
+		A6010740159357CB0059246E /* MarketFieldTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarketFieldTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6010749159357CB0059246E /* MarketFieldTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MarketFieldTests-Info.plist"; sourceTree = "<group>"; };
 		A601074B159357CB0059246E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A601074D159357CB0059246E /* OGRU_DEVTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OGRU_DEVTests.h; sourceTree = "<group>"; };
 		A601074E159357CB0059246E /* OGRU_DEVTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OGRU_DEVTests.m; sourceTree = "<group>"; };
@@ -306,8 +306,8 @@
 		A6010720159357CA0059246E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A601071F159357CA0059246E /* MatketField.app */,
-				A6010740159357CB0059246E /* MatketFieldTests.octest */,
+				A601071F159357CA0059246E /* MarketField.app */,
+				A6010740159357CB0059246E /* MarketFieldTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -347,10 +347,10 @@
 		A601072A159357CA0059246E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A601072B159357CA0059246E /* MatketField-Info.plist */,
+				A601072B159357CA0059246E /* MarketField-Info.plist */,
 				A601072C159357CA0059246E /* InfoPlist.strings */,
 				A601072F159357CA0059246E /* main.m */,
-				A6010731159357CA0059246E /* MatketField-Prefix.pch */,
+				A6010731159357CA0059246E /* MarketField-Prefix.pch */,
 				A6456A5115E27DDD00E92313 /* Property List.plist */,
 			);
 			name = "Supporting Files";
@@ -369,7 +369,7 @@
 		A6010748159357CB0059246E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A6010749159357CB0059246E /* MatketFieldTests-Info.plist */,
+				A6010749159357CB0059246E /* MarketFieldTests-Info.plist */,
 				A601074A159357CB0059246E /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -582,9 +582,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A601071E159357CA0059246E /* MatketField */ = {
+		A601071E159357CA0059246E /* MarketField */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A6010754159357CB0059246E /* Build configuration list for PBXNativeTarget "MatketField" */;
+			buildConfigurationList = A6010754159357CB0059246E /* Build configuration list for PBXNativeTarget "MarketField" */;
 			buildPhases = (
 				A601071B159357CA0059246E /* Sources */,
 				A601071C159357CA0059246E /* Frameworks */,
@@ -594,14 +594,14 @@
 			);
 			dependencies = (
 			);
-			name = MatketField;
+			name = MarketField;
 			productName = OGRU_DEV;
-			productReference = A601071F159357CA0059246E /* MatketField.app */;
+			productReference = A601071F159357CA0059246E /* MarketField.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A601073F159357CB0059246E /* MatketFieldTests */ = {
+		A601073F159357CB0059246E /* MarketFieldTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A6010755159357CB0059246E /* Build configuration list for PBXNativeTarget "MatketFieldTests" */;
+			buildConfigurationList = A6010755159357CB0059246E /* Build configuration list for PBXNativeTarget "MarketFieldTests" */;
 			buildPhases = (
 				A601073B159357CB0059246E /* Sources */,
 				A601073C159357CB0059246E /* Frameworks */,
@@ -613,9 +613,9 @@
 			dependencies = (
 				A6010746159357CB0059246E /* PBXTargetDependency */,
 			);
-			name = MatketFieldTests;
+			name = MarketFieldTests;
 			productName = OGRU_DEVTests;
-			productReference = A6010740159357CB0059246E /* MatketFieldTests.octest */;
+			productReference = A6010740159357CB0059246E /* MarketFieldTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -626,7 +626,7 @@
 			attributes = {
 				LastUpgradeCheck = 0440;
 			};
-			buildConfigurationList = BB1031E315932E5200501B83 /* Build configuration list for PBXProject "MatketField" */;
+			buildConfigurationList = BB1031E315932E5200501B83 /* Build configuration list for PBXProject "MarketField" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -638,8 +638,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A601071E159357CA0059246E /* MatketField */,
-				A601073F159357CB0059246E /* MatketFieldTests */,
+				A601071E159357CA0059246E /* MarketField */,
+				A601073F159357CB0059246E /* MarketFieldTests */,
 			);
 		};
 /* End PBXProject section */
@@ -787,7 +787,7 @@
 /* Begin PBXTargetDependency section */
 		A6010746159357CB0059246E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A601071E159357CA0059246E /* MatketField */;
+			target = A601071E159357CA0059246E /* MarketField */;
 			targetProxy = A6010745159357CB0059246E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -836,7 +836,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "OGRU_DEV/MatketField-Prefix.pch";
+				GCC_PREFIX_HEADER = "OGRU_DEV/MarketField-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -846,9 +846,9 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "OGRU_DEV/MatketField-Info.plist";
+				INFOPLIST_FILE = "OGRU_DEV/MarketField-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				PRODUCT_NAME = MatketField;
+				PRODUCT_NAME = MarketField;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
@@ -869,15 +869,15 @@
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "OGRU_DEV/MatketField-Prefix.pch";
+				GCC_PREFIX_HEADER = "OGRU_DEV/MarketField-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "OGRU_DEV/MatketField-Info.plist";
+				INFOPLIST_FILE = "OGRU_DEV/MarketField-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PRODUCT_NAME = MatketField;
+				PRODUCT_NAME = MarketField;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
@@ -911,9 +911,9 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "OGRU_DEVTests/MatketFieldTests-Info.plist";
+				INFOPLIST_FILE = "OGRU_DEVTests/MarketFieldTests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				PRODUCT_NAME = MatketFieldTests;
+				PRODUCT_NAME = MarketFieldTests;
 				SDKROOT = iphoneos;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -939,9 +939,9 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "OGRU_DEVTests/MatketFieldTests-Info.plist";
+				INFOPLIST_FILE = "OGRU_DEVTests/MarketFieldTests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				PRODUCT_NAME = MatketFieldTests;
+				PRODUCT_NAME = MarketFieldTests;
 				SDKROOT = iphoneos;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				VALIDATE_PRODUCT = YES;
@@ -964,7 +964,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A6010754159357CB0059246E /* Build configuration list for PBXNativeTarget "MatketField" */ = {
+		A6010754159357CB0059246E /* Build configuration list for PBXNativeTarget "MarketField" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A6010750159357CB0059246E /* Debug */,
@@ -973,7 +973,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A6010755159357CB0059246E /* Build configuration list for PBXNativeTarget "MatketFieldTests" */ = {
+		A6010755159357CB0059246E /* Build configuration list for PBXNativeTarget "MarketFieldTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A6010752159357CB0059246E /* Debug */,
@@ -982,7 +982,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BB1031E315932E5200501B83 /* Build configuration list for PBXProject "MatketField" */ = {
+		BB1031E315932E5200501B83 /* Build configuration list for PBXProject "MarketField" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BB1031E515932E5200501B83 /* Debug */,
