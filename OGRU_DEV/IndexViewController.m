@@ -640,6 +640,13 @@
 		}
 		
 	}
+    //for (id key in preIndexView) {
+   //     if ([key intValue]!=flipper.currentPage && [key intValue]!=1 && [key intValue]!=preIndexView.count) {
+    //        [[preIndexView objectForKey:key]rotate:toInterfaceOrientation animation:NO];
+    //    }
+   // }
+
+ 
         [self setToolbarBackgroundImage:toInterfaceOrientation];
     if (toInterfaceOrientation == UIInterfaceOrientationPortrait || toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
     {

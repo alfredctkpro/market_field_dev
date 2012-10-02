@@ -19,7 +19,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        activeImage = [UIImage imageNamed:@"OG_landscape_02_DAILY_single_PaginationB.png"];
+        activeImage = [UIImage imageNamed:@"OG_landscape_02_DAILY_single_PaginationGreen.png"];
         inactiveImage = [UIImage imageNamed:@"OG_landscape_02_DAILY_single_PaginationW.png"];
     
         
@@ -30,7 +30,7 @@
 {
     self = [super initWithCoder:aDecoder];
     
-    activeImage = [UIImage imageNamed:@"OG_landscape_02_DAILY_single_PaginationB.png"];
+    activeImage = [UIImage imageNamed:@"OG_landscape_02_DAILY_single_PaginationGreen.png"];
     inactiveImage = [UIImage imageNamed:@"OG_landscape_02_DAILY_single_PaginationW.png"];
     
     return self;
@@ -42,7 +42,7 @@
     {
     
         UIImageView* dot = [self.subviews objectAtIndex:i];
-        dot.frame=CGRectMake(dot.frame.origin.x, dot.frame.origin.y, 16, 16);
+        dot.frame=CGRectMake(dot.frame.origin.x, dot.frame.origin.y, 9, 9);
         if (i == self.currentPage) dot.image = activeImage;
         else dot.image = inactiveImage;
     }
