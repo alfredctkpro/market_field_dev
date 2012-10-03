@@ -8,7 +8,7 @@
 
 #import "IndexViewController.h"
 #import "TitleAndTextView.h"
-#import "Layout6.h"
+
 #import "Layout5_1.h"
 #import "Layout5_2.h"
 
@@ -22,7 +22,7 @@
 #import "AFKPageFlipper.h"
 #import "FullScreenView.h"
 #import "FooterView.h"
-#import "HeaderView.h"
+
 
 #import "MessageModel.h"
 #import "ArticleModel.h"
@@ -145,7 +145,7 @@
             [layoutToReturn rotate:self.interfaceOrientation animation:NO];
     
                 while (![layoutToReturn isDidLoadFinsh]) {
-                    [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:1]];
+                    [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:0.2]];
                  }
             
             layoutToReturn.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -432,7 +432,7 @@
     [footerView setFlipperView:flipper];
     [footerView setViewArray:viewControlerStack];
     [tempView addSubview:footerView];
-     
+    
 
     return tempView;
    /*
@@ -623,7 +623,7 @@
 				[layoutView rotate:toInterfaceOrientation animation:YES];
                 FooterView* footerView = (FooterView*)[layoutView viewWithTag:200];
                 footerView.alpha = 0;
-                HeaderView* headerView = (HeaderView*)[layoutView viewWithTag:201];
+          
                 [UIView beginAnimations:nil context:NULL];
                 [UIView setAnimationDuration:0.10];
                 if (toInterfaceOrientation == UIInterfaceOrientationPortrait || toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
@@ -632,7 +632,7 @@
                     [footerView setFrame:CGRectMake(0, 748 - 25, 1024, footerView.frame.size.height)];
                 }
                 [footerView rotate:toInterfaceOrientation animation:YES];
-                [headerView rotate:toInterfaceOrientation animation:YES];
+              
                 [UIView commitAnimations];
 
 			}
@@ -640,13 +640,6 @@
 		}
 		
 	}
-    //for (id key in preIndexView) {
-   //     if ([key intValue]!=flipper.currentPage && [key intValue]!=1 && [key intValue]!=preIndexView.count) {
-    //        [[preIndexView objectForKey:key]rotate:toInterfaceOrientation animation:NO];
-    //    }
-   // }
-
- 
         [self setToolbarBackgroundImage:toInterfaceOrientation];
     if (toInterfaceOrientation == UIInterfaceOrientationPortrait || toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
     {
@@ -790,7 +783,7 @@
     }
      */
   //  NSLog(@"bulid view begin");
-    NSLog(@"Begin");
+
     [self buildPages:[AppDelegate instance].IndexArticles];
     preIndexView=[[NSMutableDictionary alloc]init];
     
@@ -801,7 +794,7 @@
     for (int page=3; page<=[viewControlerStack count]+2; page++) {
         [self prepareIndexView2:page];
     }
-    NSLog(@"End");
+ 
    // for (int page=3; page<=[viewControlerStack count]+2; page++){
    //     [self prepareIndexView2:page];
    // }

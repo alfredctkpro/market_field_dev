@@ -73,21 +73,23 @@
 		[self addSubview:view4];
 		[self addSubview:view5];
     borderLeftTop=[[UIView alloc]init];
-      borderLeftTop2=[[UIView alloc]init];
-        borderRightTop=[[UIView alloc]init];
-      borderLeftBottom=[[UIView alloc]init];
+    borderLeftTop.backgroundColor=[UIColor whiteColor];
+    borderLeftTop.userInteractionEnabled=NO;
+    borderLeftTop2=[[UIView alloc]init];
+    borderLeftTop2.backgroundColor=[UIColor whiteColor];
+    borderLeftTop2.userInteractionEnabled=NO;
+    borderRightTop=[[UIView alloc]init];
+    borderRightTop.backgroundColor=[UIColor whiteColor];
+    borderRightTop.userInteractionEnabled=NO;
+    borderLeftBottom=[[UIView alloc]init];
+    borderLeftBottom.backgroundColor=[UIColor whiteColor];
+    borderLeftBottom.userInteractionEnabled=NO;
     
     [self  addSubview:borderLeftTop  ];
     [self  addSubview:borderLeftTop2  ];
     [self  addSubview:borderRightTop  ];
     [self  addSubview:borderLeftBottom  ];
-    borderLeftTop.backgroundColor=[UIColor whiteColor];
-    
-    borderLeftTop2.backgroundColor=[UIColor whiteColor];
-    
-    borderRightTop.backgroundColor=[UIColor whiteColor];
-    
-    borderLeftBottom.backgroundColor=[UIColor whiteColor];
+
 }
 
 

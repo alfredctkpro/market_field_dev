@@ -375,6 +375,7 @@
 	setNewViewOnCompletion = NO;
 	[self.currentView setHidden:FALSE];
 	self.currentView.alpha = 1;
+    
 	[self setDisabled:FALSE];
 	
 }
@@ -461,7 +462,7 @@
 }
 
 - (void) setFlipProgress:(float) progress setDelegate:(BOOL) setDelegate animate:(BOOL) animate {
-	
+	self.userInteractionEnabled=NO;
 	float newAngle = startFlipAngle + progress * (endFlipAngle - startFlipAngle);
 	float duration = animate ? 0.5 * fabs((newAngle - currentAngle) / (endFlipAngle - startFlipAngle)) : 0;
 	
