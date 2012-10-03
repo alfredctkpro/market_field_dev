@@ -788,10 +788,10 @@
     preIndexView=[[NSMutableDictionary alloc]init];
     
     
-    for (int page=1; page<=2; page++) {
-        [self prepareIndexView:page];
-    }
-    for (int page=3; page<=[viewControlerStack count]+2; page++) {
+  //  for (int page=1; page<=2; page++) {
+  //      [self prepareIndexView:page];
+  //  }
+    for (int page=1; page<=[viewControlerStack count]+2; page++) {
         [self prepareIndexView2:page];
     }
  
@@ -801,10 +801,13 @@
   // NSLog(@"bulid view end");
     flipper.dataSource = self;
     self.parser = nil;
+    [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:3]];
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.5];
+ 
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
     [self.aivContentLoading stopAnimating];
+    
     [self.lblLoading removeFromSuperview ];
     [self.bgImage removeFromSuperview];
     [UIView commitAnimations];
