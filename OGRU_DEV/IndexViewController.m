@@ -791,13 +791,13 @@
   //  for (int page=1; page<=2; page++) {
   //      [self prepareIndexView:page];
   //  }
-    for (int page=1; page<=[viewControlerStack count]+2; page++) {
+    for (int page=1; page<=[viewControlerStack count]-1; page++) {
         [self prepareIndexView2:page];
     }
  
-   // for (int page=3; page<=[viewControlerStack count]+2; page++){
-   //     [self prepareIndexView2:page];
-   // }
+    for (int page=[viewControlerStack count]; page<=[viewControlerStack count]+2; page++){
+        [self prepareIndexView:page];
+    }
   // NSLog(@"bulid view end");
     flipper.dataSource = self;
     self.parser = nil;
