@@ -152,7 +152,12 @@
                                    
                                      if([result isEqualToString:@"TRUE"])
                                    {
-                                    
+                                       [dic setValue:txtUsername.text forKey:@"username"];
+                                       NSString* path=[[NSBundle mainBundle]pathForResource:@"Property List" ofType:@"plist"];
+                                       
+                                       [dic writeToFile:path atomically: YES];
+                                       
+
                                        [self performSegueWithIdentifier:@"GoToIndexPage" sender:sender];
                                        self.btnLogin.enabled=YES;
                                    }

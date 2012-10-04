@@ -71,7 +71,7 @@
  
      if (currrentInterfaceOrientation == UIInterfaceOrientationPortrait || currrentInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
      {
-    
+
          if ([self.name isEqualToString:@"5_1_1"])
          {
            
@@ -588,6 +588,18 @@
        }
     else if (currrentInterfaceOrientation == UIInterfaceOrientationLandscapeLeft || currrentInterfaceOrientation == UIInterfaceOrientationLandscapeRight)
     {
+        if (messageModel.images.count>0) {
+            
+            if (str.length>1100) {
+                str=[str substringWithRange:NSMakeRange(0, 1100)];
+            }
+        }
+        else
+        {
+            if (str.length>2000) {
+                str=[str substringWithRange:NSMakeRange(0, 2000)];
+            }
+        }
         if ([self.name isEqualToString:@"5_1_1"])
         {
             

@@ -88,7 +88,7 @@
 	if (self = [super init]) {
         
 		messageModel = model;
-
+        pageControl.currentPage=0;
         
 		[self setBackgroundColor:[UIColor whiteColor]];
 		
@@ -315,7 +315,7 @@
               // pagingEnabled property default is NO, if set the scroller will stop or snap at each photo
               // if you want free-flowing scroll, don't set this property.
               imageScrollView.pagingEnabled = YES;
-              pageControl.currentPage=0;
+             // pageControl.currentPage=0;
               imageScrollView.delegate=self;
               [pageControl setFrame:CGRectMake(0,imageScrollView.frame.origin.y  +imageScrollView.frame.size.height+ 10, pageControl.frame.size.width, pageControl.frame.size.height)];
               //dispatch_async(dispatch_get_main_queue(), ^{
@@ -513,12 +513,14 @@
         [imageScrollView addSubview:imageView];
         //   [imageView release];
     }
+
     dispatch_sync(dispatch_get_main_queue(), ^{
         [aiv stopAnimating];
         [aiv removeFromSuperview];
         aiv=nil;
         
         [self layoutScrollImages];
+                    [imageScrollView setContentOffset:CGPointMake(468*pageControl.currentPage, imageScrollView.contentOffset.y)];
     });
   
 }
@@ -558,13 +560,15 @@
         [imageScrollView addSubview:imageView];
         //  [imageView release];
     }
-       
+   
+  
     dispatch_sync(dispatch_get_main_queue(), ^{
         [aiv stopAnimating];
         [aiv removeFromSuperview];
         aiv=nil;
 
         [self layoutScrollImages];
+            [imageScrollView setContentOffset:CGPointMake(600*pageControl.currentPage, imageScrollView.contentOffset.y)];
     });
 }
 -(void)nextFullScreenView:(id)sender
@@ -793,8 +797,10 @@
 #pragma mark TapDetectingImageViewDelegate methods
 
 - (void)handleDoubleTap:(UIGestureRecognizer *)gestureRecognizer {
- 
-    [[self viewController]performSegueWithIdentifier:@"SigleImage" sender:detailModel];
+
+    NSArray* arr=[[NSArray alloc]initWithObjects:detailModel,[NSNumber numberWithInteger: pageControl.currentPage], nil];
+    
+    [[self viewController]performSegueWithIdentifier:@"SigleImage" sender:arr];
           
 }
 

@@ -838,7 +838,9 @@
     {
         
       PhotoViewController* vc=  segue.destinationViewController;
-            vc.currentModel=(ArticleModel*)sender;
+        NSArray* arr=(NSArray*)sender;
+            vc.currentModel=(ArticleModel*)[arr objectAtIndex:0];
+        vc.initPage=[[arr objectAtIndex:1]integerValue];
         
     }
     

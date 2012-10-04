@@ -74,5 +74,6 @@
 @property (retain, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (retain, nonatomic) IBOutlet UIToolbar *footBar;
 @property (retain, nonatomic) ArticleModel* currentModel;
+@property NSUInteger initPage;
 @end
 

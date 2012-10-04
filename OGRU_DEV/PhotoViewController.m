@@ -52,7 +52,7 @@
 @synthesize close;
 @synthesize pageControl;
 @synthesize footBar;
-@synthesize currentModel;
+@synthesize currentModel,initPage;
 #pragma mark -
 #pragma mark View loading and unloading
 
@@ -92,7 +92,8 @@
     recycledPages = [[NSMutableSet alloc] init];
     visiblePages  = [[NSMutableSet alloc] init];
     [self tilePages];
-    
+    [pagingScrollView setContentOffset:CGPointMake(pagingScrollViewFrame.size.width*initPage, pagingScrollView.contentOffset.y)];
+    pageControl.currentPage=initPage;
    }
 
 - (void)viewDidUnload
@@ -193,9 +194,14 @@
 
 -(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
+     CGRect pagingScrollViewFrame = [self frameForPagingScrollView];
+    pagingScrollView.contentSize = CGSizeMake(pagingScrollViewFrame.size.width * [self imageCount],
+                                              pagingScrollViewFrame.size.height);
     for (ImageScrollView* page in visiblePages) {
         [self configurePage:page forIndex:page.index];
     }
+    [pagingScrollView setContentOffset:CGPointMake(pagingScrollViewFrame.size.width*pageControl.currentPage, pagingScrollView.contentOffset.y) animated:YES];
+
 }
 - (void)configurePage:(ImageScrollView *)page forIndex:(NSUInteger)index
 {
