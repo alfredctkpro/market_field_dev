@@ -31,6 +31,7 @@
 //
 #import "FullScreenView.h"
 #import "ArticleModel.h"
+#import "ImageScrollView.h"
 
 @implementation FullScreenView
 {
@@ -49,10 +50,10 @@
 	CGFloat curXLoc = 0;
 	for (view in subviews)
 	{
-		if ([view isKindOfClass:[UIImageView class]] && view.tag > 0)
+		if ([view isKindOfClass:[ImageScrollView class]] && view.tag > 0)
 		{
 			CGRect frame = view.frame;
-			frame.origin = CGPointMake(curXLoc, 0);
+			frame.origin = CGPointMake(curXLoc, frame.origin.y);
 			view.frame = frame;
 			if (currrentInterfaceOrientation==UIInterfaceOrientationPortrait ||currrentInterfaceOrientation==UIInterfaceOrientationPortraitUpsideDown) {
                 curXLoc += (600);
@@ -328,7 +329,7 @@
                                                   object:nil];
               
               [queue addOperation:operation];
-             // [self portraitLoadImage];
+              //[self portraitLoadImage];
                    }
           
           
@@ -486,13 +487,18 @@
         
         
         UIImage* image =[[AppDelegate instance]imageWithURL:[detailModel.images objectAtIndex:i]];
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+        ImageScrollView *imageView = [[ImageScrollView alloc] init];
         imageView.userInteractionEnabled=YES;
         // setup each frame to a default height and width, it will be properly placed when we call "updateScrollList"
         CGRect rect = imageView.frame;
+        imageView.index=i;
         rect.size.height = imageScrollView.frame.size.height;
         rect.size.width = imageScrollView.frame.size.width;
+        rect.origin.x=rect.size.width*i;
         imageView.frame = rect;
+        imageView.autoresizingMask=UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+        [imageView displayImage:image];
+
         imageView.tag = i+1;	// tag our images for later use when we place them in serial fashion
         // add gesture recognizers to the image view
         //  UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
@@ -511,6 +517,7 @@
         // [twoFingerTap release];
         imageView.contentMode=UIViewContentModeScaleAspectFit;
         [imageScrollView addSubview:imageView];
+          [imageView layoutSubviews];
         //   [imageView release];
     }
 
@@ -524,6 +531,7 @@
     });
   
 }
+
 -(void)portraitLoadImage
 {
   
@@ -533,13 +541,20 @@
         
         
         UIImage* image =[[AppDelegate instance]imageWithURL:[detailModel.images objectAtIndex:i]];
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+        ImageScrollView *imageView = [[ImageScrollView alloc] init];
         imageView.userInteractionEnabled=YES;
         // setup each frame to a default height and width, it will be properly placed when we call "updateScrollList"
         CGRect rect = imageView.frame;
+        imageView.index=i;
         rect.size.height = imageScrollView.frame.size.height;
         rect.size.width = imageScrollView.frame.size.width;
+        rect.origin.x=rect.size.width*i;
+ 
         imageView.frame = rect;
+
+        imageView.autoresizingMask=UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+        [imageView displayImage:image];
+    
         imageView.tag = i+1;	// tag our images for later use when we place them in serial fashion
         // add gesture recognizers to the image view
         //  UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
@@ -557,10 +572,13 @@
         //    [doubleTap release];
         // [twoFingerTap release];
         imageView.contentMode=UIViewContentModeScaleAspectFit;
-        [imageScrollView addSubview:imageView];
+
+ [imageScrollView addSubview:imageView];
+        [imageView layoutSubviews];
+
+        
         //  [imageView release];
     }
-   
   
     dispatch_sync(dispatch_get_main_queue(), ^{
         [aiv stopAnimating];
@@ -569,6 +587,7 @@
 
         [self layoutScrollImages];
             [imageScrollView setContentOffset:CGPointMake(600*pageControl.currentPage, imageScrollView.contentOffset.y)];
+        
     });
 }
 -(void)nextFullScreenView:(id)sender
