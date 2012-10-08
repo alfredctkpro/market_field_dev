@@ -107,6 +107,8 @@ currrentInterfaceOrientation = orientation;
 	}
 	
 	if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown) {
+        if (!animation)
+        self.frame=CGRectMake(0, 0, 768, 1024);
         self.image=[UIImage imageNamed:@"P_5_1.png"];
 		if (view1 != nil) {
 			//v1
@@ -124,6 +126,8 @@ currrentInterfaceOrientation = orientation;
             borderLeftBottom.frame=CGRectMake(0, 1004-15, 768, 15);
 		}
 	}else {
+        if (!animation)
+        self.frame=CGRectMake(0, 0, 1024, 768);
         self.image=[UIImage imageNamed:@"L_5_1.png"];
 		if (view1 != nil) {		
 			

@@ -410,6 +410,7 @@
     tempView.alpha=1;
  
     tempView.hidden=NO;
+    
     if (page!=1 && page !=[viewControlerStack count]+2 ){
         LayoutViewExtention* layoutView=[preIndexView objectForKey:[NSString stringWithFormat:@"%i",page]];
     
@@ -417,6 +418,7 @@
         [layoutView rotate:[AppDelegate instance].viewController.interfaceOrientation animation:NO];
     }
     }
+     
   
     UIView* footerViewInLayout = (UIView*) [tempView viewWithTag:200];
     if(footerViewInLayout!=nil)

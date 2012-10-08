@@ -104,7 +104,10 @@
 	}
 	
 	if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown) {
+        if (!animation)
+        self.frame=CGRectMake(0, 0, 768, 1024);
         self.image=[UIImage imageNamed:@"P_4_1.png"];
+        
 		if (view1 != nil) {
 			[view1 setFrame:CGRectMake(0, 45, 768 , 479)];			
 			[view2 setFrame:CGRectMake(0 ,45+479,384,479)];
@@ -118,7 +121,10 @@
             borderLeftBottom.frame=CGRectMake(0, 1004-15, 768, 15);
 		}
 	}else {
+        if (!animation)
+        self.frame=CGRectMake(0, 0, 1024, 768);
         self.image=[UIImage imageNamed:@"L_4_1.png"];
+       
 		if (view1 != nil) {		
 			[view1 setFrame:CGRectMake(0, 45, 512,351)];
 			[view2 setFrame:CGRectMake(0, 45+351, 512,351)];
