@@ -1,14 +1,15 @@
 //
-//  OGRUPageControl.m
-//  OGRU_DEV
+//  SingleImagePageControl.m
+//  MarketField
 //
-//  Created by yu chihchung on 2012-07-16.
-//  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
+//  Created by yup on 10/8/12.
+//
 //
 
-#import "OGRUPageControl.h"
+#import "SingleImagePageControl.h"
 
-@implementation OGRUPageControl
+@implementation SingleImagePageControl
+
 - (void)dealloc
 {
     activeImage=nil;
@@ -19,9 +20,9 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        activeImage = [UIImage imageNamed:@"daily_single_active_dot.png"];
-        inactiveImage = [UIImage imageNamed:@"daily_single_inactive_dot.png"];
-    
+        activeImage = [UIImage imageNamed:@"daily_single_image_active_dot.png"];
+        inactiveImage = [UIImage imageNamed:@"daily_single_image_inactive_dot.png"];
+        
         
     }
     return self;
@@ -30,8 +31,8 @@
 {
     self = [super initWithCoder:aDecoder];
     
-    activeImage = [UIImage imageNamed:@"daily_single_active_dot.png"];
-    inactiveImage = [UIImage imageNamed:@"daily_single_inactive_dot.png"];
+    activeImage = [UIImage imageNamed:@"daily_single_image_active_dot.png"];
+    inactiveImage = [UIImage imageNamed:@"daily_single_image_inactive_dot.png"];
     
     return self;
 }
@@ -40,7 +41,7 @@
 {
     for (int i = 0; i < [self.subviews count]; i++)
     {
-    
+        
         UIImageView* dot = [self.subviews objectAtIndex:i];
         dot.frame=CGRectMake(dot.frame.origin.x, dot.frame.origin.y, 7, 7);
         if (i == self.currentPage) dot.image = activeImage;
@@ -53,6 +54,7 @@
     [super setCurrentPage:page];
     [self updateDots];
 }
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

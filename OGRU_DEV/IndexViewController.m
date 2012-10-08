@@ -721,7 +721,7 @@
     self.wallTitle=nil;
     self.parser=nil;
     self.articles=nil;
-     dispatch_release(semaphore);
+    
     searchView=nil;
     archiveController=nil;
     messageArrayCollection=nil;

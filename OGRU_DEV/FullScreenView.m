@@ -352,10 +352,10 @@
         }
 
 		
-        userNameLabel.textAlignment=UITextAlignmentCenter;
+        userNameLabel.textAlignment=NSTextAlignmentCenter;
 		[timeStampLabel sizeToFit];
 		[timeStampLabel setFrame:CGRectMake(0, userNameLabel.frame.origin.y + userNameLabel.frame.size.height+15, contentViewArea.width, timeStampLabel.frame.size.height)];
-         timeStampLabel.textAlignment=UITextAlignmentCenter;
+         timeStampLabel.textAlignment=NSTextAlignmentCenter;
         
 		[closeButton setFrame:CGRectMake(0, 0, 46, 52)];
 

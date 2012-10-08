@@ -224,36 +224,36 @@
             }
             [latestBtn setBackgroundColor:[UIColor clearColor]];
              [latestBtn setTag:i];
-            [latestBtn setTitle:@"LATEST" forState:UIControlStateNormal ];
+            [latestBtn setTitle:@"GO TO LATEST" forState:UIControlStateNormal ];
             latestBtn.titleLabel.font=[UIFont fontWithName:@"HelveticaNeue" size:10];
             [latestBtn sizeToFit];
-            latestBtn.frame=CGRectMake(left,4,latestBtn.frame.size.width,latestBtn.frame.size.height);
+            latestBtn.frame=CGRectMake(left,0,latestBtn.frame.size.width,latestBtn.frame.size.height);
             [latestBtn addTarget:self action:@selector(boxClick:) forControlEvents:UIControlEventTouchUpInside];
             [barButtonsView addSubview:latestBtn];
             [latestBtn release];
-            left+=45;
+            left+=81;
         }
         
 		UIButton* boxButton = [[UIButton alloc] init];
 		[boxButton setBackgroundColor:[UIColor clearColor]];
 		[boxButton setTag:i];
-		[boxButton setFrame:CGRectMake(left, 2, 16, 16)];
+		[boxButton setFrame:CGRectMake(left, 2, 7, 7)];
         boxButton.userInteractionEnabled=NO;
 		//[boxButton addTarget:self action:@selector(boxClick:) forControlEvents:UIControlEventTouchUpInside];
 		width = boxButton.frame.origin.x + boxButton.frame.size.width;
 		
-		[boxButton setImage:[UIImage imageNamed:@"OG_portrait_Daily_imageEnlarge_pagination＿01.png"] forState:UIControlStateNormal];
+		[boxButton setImage:[UIImage imageNamed:@"index_inactive_dot.png"] forState:UIControlStateNormal];
 		
 		//[boxButton setBackgroundColor:[UIColor blackColor]];
 		if (flipperView.currentPage == i) {
 			selectedButtonIndex = i;
 			
-			[boxButton setImage:[UIImage imageNamed:@"OG_portrait_Daily_imageEnlarge_pagination_02.png"] forState:UIControlStateNormal];
+			[boxButton setImage:[UIImage imageNamed:@"index_active_dot.png"] forState:UIControlStateNormal];
 			//[boxButton setBackgroundColor:[UIColor redColor]];
 		}
 		[barButtonsView addSubview:boxButton];
 		[boxButton release];
-		left+=23;
+		left+=14;
 	}
 	width +=10;
 	BOOL shouldScroll = FALSE;

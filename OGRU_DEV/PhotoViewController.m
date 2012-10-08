@@ -275,7 +275,7 @@
 }
 
 - (IBAction)btnClose:(id)sender {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
 - (NSString *)imageNameAtIndex:(NSUInteger)index {
