@@ -801,7 +801,8 @@
   // NSLog(@"bulid view end");
     flipper.dataSource = self;
     self.parser = nil;
-   
+    
+    
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.5];
  
