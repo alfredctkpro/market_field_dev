@@ -151,7 +151,7 @@
             layoutToReturn.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         }
     }
-    
+
     [preIndexView setObject:layoutToReturn forKey:[NSString stringWithFormat:@"%i",page]];
     
 
@@ -243,7 +243,7 @@
             layoutToReturn.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         }
     }
-    
+
     [preIndexView setObject:layoutToReturn forKey:[NSString stringWithFormat:@"%i",page]];
     
     
@@ -384,7 +384,8 @@
         }
          remainingMessageCount = remainingMessageCount -randomNumber;
 		int verNumber=[self getRandomNumber:1 to:2];
-		[viewControlerStack addObject:[NSString stringWithFormat:@"%d_%d",randomNumber,verNumber]];    
+		[viewControlerStack addObject:[NSString stringWithFormat:@"%d_%d",randomNumber,verNumber]];
+        
     }
 	if (remainingMessageCount > 0) {
 		[viewControlerStack addObject:[NSString stringWithFormat:@"%d",remainingMessageCount]];

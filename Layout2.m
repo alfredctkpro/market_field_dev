@@ -93,6 +93,7 @@
 	}
 	
 	if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown) {
+        self.image=[UIImage imageNamed:@"P_2.png"];
 		if (view1 != nil) {
 			[view1 setFrame:CGRectMake(0, 50, 768, (954/2) - 10)];			
 			[view2 setFrame:CGRectMake(0,(954/2) + 40, 768, (954/2) - 10)];
@@ -102,6 +103,7 @@
             borderLeftBottom.frame=CGRectMake(0, 1004-15, 768, 15);
 		}
 	}else {
+        self.image=[UIImage imageNamed:@"L_2.png"];
 		if (view1 != nil) {		
 			[view1 setFrame:CGRectMake(0, 50, (1024 /2), 698 -20)];
 			[view2 setFrame:CGRectMake((1024 /2), 50, (1024 /2), 698 -20)];
@@ -123,8 +125,7 @@
 				[((UIViewExtention*)myview) setAlpha:1];
 			}
 		}
-		[view1 setBackgroundColor:[UIColor colorWithRed:213.0f/255.0f green:213.0f/255.0f blue:213.0f/255.0f alpha:0.9]];
-		[view2 setBackgroundColor:[UIColor colorWithRed:213.0f/255.0f green:213.0f/255.0f blue:213.0f/255.0f alpha:0.9]];
+
 
 	}
 	
@@ -143,8 +144,7 @@
 			[((UIViewExtention*)myview) setAlpha:1];
 		}
 	}
-	[view1 setBackgroundColor:[UIColor colorWithRed:213.0f/255.0f green:213.0f/255.0f blue:213.0f/255.0f alpha:0.9]];
-	[view2 setBackgroundColor:[UIColor colorWithRed:213.0f/255.0f green:213.0f/255.0f blue:213.0f/255.0f alpha:0.9]];
+
 
 }
 -(void)dealloc

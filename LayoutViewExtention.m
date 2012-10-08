@@ -39,8 +39,9 @@
 
 -(void)rotate:(UIInterfaceOrientation)interfaceOrientation animation:(BOOL)animation{
 	currrentInterfaceOrientation = interfaceOrientation;
-
+    
     [self reAdjustLayout];
+    
 
 }
 

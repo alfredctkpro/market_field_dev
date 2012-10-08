@@ -1061,10 +1061,10 @@
     theWebView.scrollView.scrollEnabled=NO;
     theWebView.userInteractionEnabled=NO;
     theWebView.delegate=self;
-     [contentView addSubview:theWebView];
+    //[contentView addSubview:theWebView];
     
     
-	[self addSubview:contentView];
+	[self addSubview:theWebView];
 	
 	//[self reAdjustLayout];
 }

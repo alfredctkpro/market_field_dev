@@ -54,18 +54,10 @@
     view4.delegate=self;
     view5.delegate=self;
     
+
     
-	//	view1.isMediaAndTextCapable = TRUE;
-	//	view2.isMediaAndTextCapable = FALSE;
-	//	view3.isMediaAndTextCapable = FALSE;
-	//	view4.isMediaAndTextCapable = FALSE;
-	//	view5.isMediaAndTextCapable = FALSE;
-		
-//	[view1 setBackgroundColor:[UIColor whiteColor]];
-//	[view2 setBackgroundColor:[UIColor whiteColor]];
-//	[view3 setBackgroundColor:[UIColor whiteColor]];
-//	[view4 setBackgroundColor:[UIColor whiteColor]];
-//	[view5 setBackgroundColor:[UIColor whiteColor]];
+    
+
 	self.backgroundColor=[UIColor whiteColor];
 		[self addSubview:view1];
 		[self addSubview:view2];
@@ -115,6 +107,7 @@ currrentInterfaceOrientation = orientation;
 	}
 	
 	if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown) {
+        self.image=[UIImage imageNamed:@"P_5_1.png"];
 		if (view1 != nil) {
 			//v1
 			[view1 setFrame:CGRectMake(0, 45, 768,479)];
@@ -131,6 +124,7 @@ currrentInterfaceOrientation = orientation;
             borderLeftBottom.frame=CGRectMake(0, 1004-15, 768, 15);
 		}
 	}else {
+        self.image=[UIImage imageNamed:@"L_5_1.png"];
 		if (view1 != nil) {		
 			
 			[view1 setFrame:CGRectMake(0, 45, 512, 702)];
@@ -161,11 +155,7 @@ currrentInterfaceOrientation = orientation;
 			}
 		}
      
-		[view1 setBackgroundColor:[UIColor colorWithRed:213.0f/255.0f green:213.0f/255.0f blue:213.0f/255.0f alpha:0.9]];
-		[view2 setBackgroundColor:[UIColor colorWithRed:213.0f/255.0f green:213.0f/255.0f blue:213.0f/255.0f alpha:0.9]];
-		[view3 setBackgroundColor:[UIColor colorWithRed:213.0f/255.0f green:213.0f/255.0f blue:213.0f/255.0f alpha:0.9]];
-		[view4 setBackgroundColor:[UIColor colorWithRed:213.0f/255.0f green:213.0f/255.0f blue:213.0f/255.0f alpha:0.9]];
-		[view5 setBackgroundColor:[UIColor colorWithRed:213.0f/255.0f green:213.0f/255.0f blue:213.0f/255.0f alpha:0.9]];		
+		
 		
 	}
 	
@@ -186,11 +176,7 @@ currrentInterfaceOrientation = orientation;
 			[((UIViewExtention*)myview) setAlpha:1];
 		}
 	}
-	[view1 setBackgroundColor:[UIColor colorWithRed:213.0f/255.0f green:213.0f/255.0f blue:213.0f/255.0f alpha:0.9]];
-	[view2 setBackgroundColor:[UIColor colorWithRed:213.0f/255.0f green:213.0f/255.0f blue:213.0f/255.0f alpha:0.9]];
-	[view3 setBackgroundColor:[UIColor colorWithRed:213.0f/255.0f green:213.0f/255.0f blue:213.0f/255.0f alpha:0.9]];
-	[view4 setBackgroundColor:[UIColor colorWithRed:213.0f/255.0f green:213.0f/255.0f blue:213.0f/255.0f alpha:0.9]];
-	[view5 setBackgroundColor:[UIColor colorWithRed:213.0f/255.0f green:213.0f/255.0f blue:213.0f/255.0f alpha:0.9]];
+
 	
 	
 }

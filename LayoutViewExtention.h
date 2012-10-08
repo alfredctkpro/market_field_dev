@@ -34,7 +34,7 @@
 //@class HeaderView;
 //@class FooterView;
 
-@interface LayoutViewExtention : UIView<TitleAndTextViewDelegate> {
+@interface LayoutViewExtention : UIImageView<TitleAndTextViewDelegate> {
 	UIInterfaceOrientation currrentInterfaceOrientation;
 	BOOL isFullScreen;	
 //	HeaderView* headerView;

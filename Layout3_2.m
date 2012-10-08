@@ -97,6 +97,7 @@ currrentInterfaceOrientation = orientation;
 	}
 	
 	if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown) {
+        self.image=[UIImage imageNamed:@"P_3_2.png"];
 		if (view1 != nil) {
 			[view1 setFrame:CGRectMake(0, 45, 768, 479)];			
 			[view2 setFrame:CGRectMake(0,45+479,384,479)];
@@ -110,6 +111,7 @@ currrentInterfaceOrientation = orientation;
 
 		}
 	}else {
+        self.image=[UIImage imageNamed:@"L_3_2.png"];
 		if (view1 != nil) {		
 			[view1 setFrame:CGRectMake(0, 45, 1024 , 351)];
 			[view2 setFrame:CGRectMake(0, 45+351, 512, 351)];
@@ -133,9 +135,7 @@ currrentInterfaceOrientation = orientation;
 				[((UIViewExtention*)myview) setAlpha:1];
 			}
 		}
-		[view1 setBackgroundColor:[UIColor colorWithRed:213.0f/255.0f green:213.0f/255.0f blue:213.0f/255.0f alpha:0.9]];
-		[view2 setBackgroundColor:[UIColor colorWithRed:213.0f/255.0f green:213.0f/255.0f blue:213.0f/255.0f alpha:0.9]];
-		[view3 setBackgroundColor:[UIColor colorWithRed:213.0f/255.0f green:213.0f/255.0f blue:213.0f/255.0f alpha:0.9]];
+
 		
 	}
 	
@@ -156,9 +156,7 @@ currrentInterfaceOrientation = orientation;
 			[((UIViewExtention*)myview) setAlpha:1];
 		}
 	}
-	[view1 setBackgroundColor:[UIColor colorWithRed:213.0f/255.0f green:213.0f/255.0f blue:213.0f/255.0f alpha:0.9]];
-	[view2 setBackgroundColor:[UIColor colorWithRed:213.0f/255.0f green:213.0f/255.0f blue:213.0f/255.0f alpha:0.9]];
-	[view3 setBackgroundColor:[UIColor colorWithRed:213.0f/255.0f green:213.0f/255.0f blue:213.0f/255.0f alpha:0.9]];
+
 	
 }
 
