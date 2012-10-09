@@ -27,18 +27,18 @@
     [super viewDidLoad];
     if (self.interfaceOrientation==UIInterfaceOrientationPortrait||self.interfaceOrientation==UIInterfaceOrientationPortraitUpsideDown) {
         bgImage.frame=CGRectMake(143, 125, 481, 560);
-        txtUsername.frame=CGRectMake(207, 306, 350, 45);
-        txtPassword.frame=CGRectMake(207, 395, 350, 45);
-        btnLogin.frame=CGRectMake(207, 479, 350, 49);
-      //  btnRequest.frame=CGRectMake(209, 514, 350, 45);
+        txtUsername.frame=CGRectMake(217, 306, 330, 45);
+        txtPassword.frame=CGRectMake(217, 395, 330, 45);
+        btnLogin.frame=CGRectMake(217, 479, 330, 49);
+      //  btnRequest.frame=CGRectMake(209, 514, 330, 45);
     }
     else
     {
         
         bgImage.frame=CGRectMake(271, 15, 481, 560);
-        txtUsername.frame=CGRectMake(335, 197, 350, 45);
-        txtPassword.frame=CGRectMake(335, 285, 350, 45);
-        btnLogin.frame=CGRectMake(335, 368, 350, 49);
+        txtUsername.frame=CGRectMake(345, 197, 330, 45);
+        txtPassword.frame=CGRectMake(345, 285, 330, 45);
+        btnLogin.frame=CGRectMake(345, 368, 330, 49);
     }
     NSString* path=[[NSBundle mainBundle]pathForResource:@"Property List" ofType:@"plist"];
     dic= [[NSMutableDictionary alloc]initWithContentsOfFile:path];
@@ -78,18 +78,18 @@
 {
     if (toInterfaceOrientation==UIInterfaceOrientationPortrait||toInterfaceOrientation==UIInterfaceOrientationPortraitUpsideDown) {
         bgImage.frame=CGRectMake(143, 125, 481, 560);
-        txtUsername.frame=CGRectMake(207, 306, 350, 45);
-        txtPassword.frame=CGRectMake(207, 395, 350, 45);
-        btnLogin.frame=CGRectMake(207, 479, 350, 49);
-        //  btnRequest.frame=CGRectMake(209, 514, 350, 45);
+        txtUsername.frame=CGRectMake(217, 306, 330, 45);
+        txtPassword.frame=CGRectMake(217, 395, 330, 45);
+        btnLogin.frame=CGRectMake(217, 479, 330, 49);
+        //  btnRequest.frame=CGRectMake(209, 514, 330, 45);
     }
     else
     {
         
         bgImage.frame=CGRectMake(271, 15, 481, 560);
-        txtUsername.frame=CGRectMake(335, 197, 350, 45);
-        txtPassword.frame=CGRectMake(335, 285, 350, 45);
-        btnLogin.frame=CGRectMake(335, 368, 350, 49);
+        txtUsername.frame=CGRectMake(345, 197, 330, 45);
+        txtPassword.frame=CGRectMake(345, 285, 330, 45);
+        btnLogin.frame=CGRectMake(345, 368, 330, 49);
     }
 }
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
