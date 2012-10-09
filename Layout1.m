@@ -37,6 +37,7 @@
 @synthesize view1;
 
 -(void)initalizeViews:(NSDictionary*)viewCollectionDictonary{
+    self.userInteractionEnabled=YES;
     view1=[[TitleAndTextView alloc] initWithMessageModel:(ArticleModel*)[viewCollectionDictonary objectForKey:@"view1"] WithName:@"1_1"];
     waitFinshViewCount=1;
     view1.delegate=self;

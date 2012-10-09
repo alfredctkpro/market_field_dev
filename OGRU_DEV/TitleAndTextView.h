@@ -39,7 +39,7 @@
 
 @end
 @interface TitleAndTextView : UIViewExtention <UIGestureRecognizerDelegate,UIWebViewDelegate>{
-	UIView* contentView;
+
 
     UIWebView* theWebView;
  NSObject <TitleAndTextViewDelegate> *delegate;

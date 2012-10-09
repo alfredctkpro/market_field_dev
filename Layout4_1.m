@@ -40,6 +40,7 @@
 @synthesize view4;
 
 -(void)initalizeViews:(NSDictionary*)viewCollectionDictonary{
+    self.userInteractionEnabled=YES;
     view1=[[TitleAndTextView alloc] initWithMessageModel:(ArticleModel*)[viewCollectionDictonary objectForKey:@"view1"] WithName:@"4_1_1"];
     view2=[[TitleAndTextView alloc] initWithMessageModel:(ArticleModel*)[viewCollectionDictonary objectForKey:@"view2"] WithName:@"4_1_2"];
     view3=[[TitleAndTextView alloc] initWithMessageModel:(ArticleModel*)[viewCollectionDictonary objectForKey:@"view3"] WithName:@"4_1_3"];
@@ -105,7 +106,7 @@
 	
 	if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown) {
         if (!animation)
-        self.frame=CGRectMake(0, 0, 768, 1024);
+        self.frame=CGRectMake(0, 0, 768, 1004);
         self.image=[UIImage imageNamed:@"P_4_1.png"];
         
 		if (view1 != nil) {
@@ -122,7 +123,7 @@
 		}
 	}else {
         if (!animation)
-        self.frame=CGRectMake(0, 0, 1024, 768);
+        self.frame=CGRectMake(0, 0, 1024, 748);
         self.image=[UIImage imageNamed:@"L_4_1.png"];
        
 		if (view1 != nil) {		
