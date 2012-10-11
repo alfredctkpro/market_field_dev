@@ -12,8 +12,7 @@
 #import "Layout5_1.h"
 #import "Layout5_2.h"
 
-#import "Layout1.h"
-#import "Layout2.h"
+
 #import "Layout3_1.h"
 #import "Layout3_2.h"
 #import "Layout4_1.h"
@@ -366,22 +365,23 @@
 
 
 - (int)getRandomNumber:(int)from to:(int)to {
+
 	return (int)from + random() % (to-from+1);
 }
 
 //計算頁數
 //隨機選layout
 -(void)buildPages:(NSArray*)messageArray {
+    NSMutableArray* cards=[[NSMutableArray alloc]initWithObjects: @"5",@"5",@"5",@"5",@"5",@"4",@"4",@"4",@"4",@"4",@"3",@"3",@"3",@"3",@"3", nil];
 	
 
 	viewControlerStack = [[NSMutableArray alloc] init]; 
 	int remainingMessageCount = [messageArray count];
     //因為除5會有餘數。1~4分別是可以顯示1~4個 message的 layout。這次的project應該用不到
-    while (remainingMessageCount>=3) {
-		int randomNumber = [self getRandomNumber:3 to:5];//隨機選layout
-        if (remainingMessageCount<=5) {
-            randomNumber=remainingMessageCount;
-        }
+    while (remainingMessageCount>0) {
+        int index=[self getRandomNumber:0 to:cards.count-1];
+		int randomNumber = [[cards objectAtIndex: index]intValue];//隨機選layout
+        [cards removeObjectAtIndex:index];
          remainingMessageCount = remainingMessageCount -randomNumber;
 		int verNumber=[self getRandomNumber:1 to:2];
 		[viewControlerStack addObject:[NSString stringWithFormat:@"%d_%d",randomNumber,verNumber]];
@@ -774,17 +774,17 @@
 
 - (void)parserDidEndParsingData:(IndexParser *)parser {
    
-    /*
+    
     NSMutableIndexSet *discardedItems = [NSMutableIndexSet indexSet];
     
     if ([AppDelegate instance].IndexArticles.count>60) {
-        for (int i=61; i<[AppDelegate instance].IndexArticles.count;i++) {
+        for (int i=60; i<[AppDelegate instance].IndexArticles.count;i++) {
             [discardedItems addIndex:i];
         }
         [[AppDelegate instance].IndexArticles removeObjectsAtIndexes:discardedItems];
 
     }
-     */
+     
   //  NSLog(@"bulid view begin");
 
     [self buildPages:[AppDelegate instance].IndexArticles];

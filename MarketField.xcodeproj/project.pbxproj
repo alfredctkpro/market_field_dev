@@ -78,14 +78,10 @@
 		A66EF8F0161441100068D246 /* LoginPanel.png in Resources */ = {isa = PBXBuildFile; fileRef = A66EF8EF161441100068D246 /* LoginPanel.png */; };
 		A678B5121598AF91006A92F7 /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A678B5111598AF91006A92F7 /* MessageModel.m */; };
 		A678B5131598AFD7006A92F7 /* LayoutViewExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = A678B4E51598AE4C006A92F7 /* LayoutViewExtention.m */; };
-		A678B5141598AFD7006A92F7 /* Layout5.m in Sources */ = {isa = PBXBuildFile; fileRef = A678B4E71598AE4C006A92F7 /* Layout5.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		A678B5151598AFD7006A92F7 /* Layout6.m in Sources */ = {isa = PBXBuildFile; fileRef = A678B4E91598AE4C006A92F7 /* Layout6.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A678B5161598AFD7006A92F7 /* Layout5_1.m in Sources */ = {isa = PBXBuildFile; fileRef = A678B4EB1598AE4C006A92F7 /* Layout5_1.m */; };
 		A678B5171598AFD7006A92F7 /* Layout5_2.m in Sources */ = {isa = PBXBuildFile; fileRef = A678B4ED1598AE4C006A92F7 /* Layout5_2.m */; };
 		A678B5181598AFD7006A92F7 /* Layout4_1.m in Sources */ = {isa = PBXBuildFile; fileRef = A678B4EF1598AE4C006A92F7 /* Layout4_1.m */; };
 		A678B5191598AFD7006A92F7 /* Layout3_1.m in Sources */ = {isa = PBXBuildFile; fileRef = A678B4F11598AE4C006A92F7 /* Layout3_1.m */; };
-		A678B51A1598AFD7006A92F7 /* Layout2.m in Sources */ = {isa = PBXBuildFile; fileRef = A678B4F31598AE4C006A92F7 /* Layout2.m */; };
-		A678B51B1598AFD7006A92F7 /* Layout1.m in Sources */ = {isa = PBXBuildFile; fileRef = A678B4F51598AE4C006A92F7 /* Layout1.m */; };
 		A678B51C1598B08C006A92F7 /* UIViewExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = A678B5051598AEA8006A92F7 /* UIViewExtention.m */; };
 		A678B51D1598B091006A92F7 /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A678B5071598AEA8006A92F7 /* HeaderView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A678B51E1598B095006A92F7 /* FooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = A678B5091598AEA8006A92F7 /* FooterView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -248,10 +244,6 @@
 		A66EF8EF161441100068D246 /* LoginPanel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoginPanel.png; sourceTree = "<group>"; };
 		A678B4E41598AE4C006A92F7 /* LayoutViewExtention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutViewExtention.h; sourceTree = "<group>"; };
 		A678B4E51598AE4C006A92F7 /* LayoutViewExtention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayoutViewExtention.m; sourceTree = "<group>"; };
-		A678B4E61598AE4C006A92F7 /* Layout5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Layout5.h; sourceTree = "<group>"; };
-		A678B4E71598AE4C006A92F7 /* Layout5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Layout5.m; sourceTree = "<group>"; };
-		A678B4E81598AE4C006A92F7 /* Layout6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Layout6.h; sourceTree = "<group>"; };
-		A678B4E91598AE4C006A92F7 /* Layout6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Layout6.m; sourceTree = "<group>"; };
 		A678B4EA1598AE4C006A92F7 /* Layout5_1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Layout5_1.h; sourceTree = "<group>"; };
 		A678B4EB1598AE4C006A92F7 /* Layout5_1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Layout5_1.m; sourceTree = "<group>"; };
 		A678B4EC1598AE4C006A92F7 /* Layout5_2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Layout5_2.h; sourceTree = "<group>"; };
@@ -260,10 +252,6 @@
 		A678B4EF1598AE4C006A92F7 /* Layout4_1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Layout4_1.m; sourceTree = "<group>"; };
 		A678B4F01598AE4C006A92F7 /* Layout3_1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Layout3_1.h; sourceTree = "<group>"; };
 		A678B4F11598AE4C006A92F7 /* Layout3_1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Layout3_1.m; sourceTree = "<group>"; };
-		A678B4F21598AE4C006A92F7 /* Layout2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Layout2.h; sourceTree = "<group>"; };
-		A678B4F31598AE4C006A92F7 /* Layout2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Layout2.m; sourceTree = "<group>"; };
-		A678B4F41598AE4C006A92F7 /* Layout1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Layout1.h; sourceTree = "<group>"; };
-		A678B4F51598AE4C006A92F7 /* Layout1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Layout1.m; sourceTree = "<group>"; };
 		A678B5001598AEA8006A92F7 /* FullScreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullScreenView.h; sourceTree = "<group>"; };
 		A678B5011598AEA8006A92F7 /* FullScreenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullScreenView.m; sourceTree = "<group>"; };
 		A678B5021598AEA8006A92F7 /* TitleAndTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleAndTextView.h; sourceTree = "<group>"; };
@@ -619,10 +607,6 @@
 				A6BFA77315A96C4000ED50F9 /* Layout4_2.m */,
 				A678B4E41598AE4C006A92F7 /* LayoutViewExtention.h */,
 				A678B4E51598AE4C006A92F7 /* LayoutViewExtention.m */,
-				A678B4E61598AE4C006A92F7 /* Layout5.h */,
-				A678B4E71598AE4C006A92F7 /* Layout5.m */,
-				A678B4E81598AE4C006A92F7 /* Layout6.h */,
-				A678B4E91598AE4C006A92F7 /* Layout6.m */,
 				A678B4EA1598AE4C006A92F7 /* Layout5_1.h */,
 				A678B4EB1598AE4C006A92F7 /* Layout5_1.m */,
 				A678B4EC1598AE4C006A92F7 /* Layout5_2.h */,
@@ -631,10 +615,6 @@
 				A678B4EF1598AE4C006A92F7 /* Layout4_1.m */,
 				A678B4F01598AE4C006A92F7 /* Layout3_1.h */,
 				A678B4F11598AE4C006A92F7 /* Layout3_1.m */,
-				A678B4F21598AE4C006A92F7 /* Layout2.h */,
-				A678B4F31598AE4C006A92F7 /* Layout2.m */,
-				A678B4F41598AE4C006A92F7 /* Layout1.h */,
-				A678B4F51598AE4C006A92F7 /* Layout1.m */,
 			);
 			name = Layouts;
 			path = ..;
@@ -833,14 +813,10 @@
 				A6EC868015960602006102AB /* IndexViewController.m in Sources */,
 				A678B5121598AF91006A92F7 /* MessageModel.m in Sources */,
 				A678B5131598AFD7006A92F7 /* LayoutViewExtention.m in Sources */,
-				A678B5141598AFD7006A92F7 /* Layout5.m in Sources */,
-				A678B5151598AFD7006A92F7 /* Layout6.m in Sources */,
 				A678B5161598AFD7006A92F7 /* Layout5_1.m in Sources */,
 				A678B5171598AFD7006A92F7 /* Layout5_2.m in Sources */,
 				A678B5181598AFD7006A92F7 /* Layout4_1.m in Sources */,
 				A678B5191598AFD7006A92F7 /* Layout3_1.m in Sources */,
-				A678B51A1598AFD7006A92F7 /* Layout2.m in Sources */,
-				A678B51B1598AFD7006A92F7 /* Layout1.m in Sources */,
 				A678B51C1598B08C006A92F7 /* UIViewExtention.m in Sources */,
 				A678B51D1598B091006A92F7 /* HeaderView.m in Sources */,
 				A678B51E1598B095006A92F7 /* FooterView.m in Sources */,
