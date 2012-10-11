@@ -161,8 +161,8 @@
 	rightLayer.contentsGravity = kCAGravityRight;
 	
         [backgroundAnimationLayer addSublayer:rightLayer];
-        rightLayer.contentsScale=2.0;
-        leftLayer.contentsScale=2.0;
+        rightLayer.contentsScale=[UIScreen mainScreen].scale;
+        leftLayer.contentsScale=[UIScreen mainScreen].scale;
 	if (flipDirection == AFKPageFlipperDirectionRight) {
         
 		leftLayer.contents = (id) [newImage CGImage];
@@ -320,8 +320,8 @@
 
 	
 	
-	backLayer.contentsScale=2.0;
-        frontLayer.contentsScale=2.0;
+	backLayer.contentsScale=[UIScreen mainScreen].scale;
+        frontLayer.contentsScale=[UIScreen mainScreen].scale;
 	if (flipDirection == AFKPageFlipperDirectionRight) {
 		
 		backLayer.contents = (id) [currentImage CGImage];
