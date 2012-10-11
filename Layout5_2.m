@@ -116,10 +116,10 @@
 			[view3 setFrame:CGRectMake(384, 45, 384,245 )];
 			[view4 setFrame:CGRectMake(384, 45+245 , 384,466 )];
 			[view5 setFrame:CGRectMake(384, 45+245+466, 384,247)];
-            borderLeftTop.frame=CGRectMake(0, 0, 15, 1024);
-            borderLeftTop2.frame=CGRectMake(0, 45, 768, 15);
-            borderRightTop.frame=CGRectMake(753, 0, 15, 1024);
-            borderLeftBottom.frame=CGRectMake(0, 1004-15, 768, 15);
+            borderLeftTop.frame=CGRectMake(0, 0, 30, 1024);
+            borderLeftTop2.frame=CGRectMake(0, 45, 768, 30);
+            borderRightTop.frame=CGRectMake(738, 0, 30, 1024);
+            borderLeftBottom.frame=CGRectMake(0, 1004-30, 768, 30);
 			
 		}
 	}else {
@@ -134,10 +134,11 @@
 			[view3 setFrame:CGRectMake(261, 45, 498,351)];
 			[view4 setFrame:CGRectMake(0, 45, 261,351)];
 			[view5 setFrame:CGRectMake(261+498, 45, 265,351)];
-            borderLeftTop.frame=CGRectMake(0, 0, 15, 1024);
-            borderLeftTop2.frame=CGRectMake(0, 45, 1024, 15);
-            borderRightTop.frame=CGRectMake(1024-15, 0, 15, 768);
-            borderLeftBottom.frame=CGRectMake(0, 748-15, 1024, 15);
+           		
+            borderLeftTop.frame=CGRectMake(0, 0, 30, 1024);
+            borderLeftTop2.frame=CGRectMake(0, 45, 1024, 30);
+            borderRightTop.frame=CGRectMake(1024-30, 0, 30, 768);
+            borderLeftBottom.frame=CGRectMake(0, 748-30, 1024, 30);
 
 		}
 	}

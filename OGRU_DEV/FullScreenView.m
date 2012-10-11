@@ -104,10 +104,11 @@
         bgLoading.autoresizingMask=UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
         [contentView addSubview:bgLoading];
         
-        lblLoading=[[UILabel alloc]initWithFrame:CGRectMake(312, 491, 145, 21)];
-        lblLoading.text=@"Fetching Content...";
+        lblLoading=[[UILabel alloc]init];
+        lblLoading.text=@"   Fetching Content...";
         lblLoading.backgroundColor=[UIColor clearColor];
-
+        [lblLoading sizeToFit];
+     
         [contentView addSubview:lblLoading];
 
         aivLoading=[[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(379, 519, 20, 20)];
@@ -232,8 +233,11 @@
           [contentView setFrame:CGRectMake(0, 0, 768, 1024-45)];
                   
           if (lblLoading.superview!=nil) {
-              lblLoading.frame=CGRectMake(312, 491, 145, 21);
-              aivLoading.frame= CGRectMake(379, 519, 20, 20);
+           
+              lblLoading.center=contentView.center;
+              
+              aivLoading.center=contentView.center;
+              aivLoading.frame=CGRectMake(aivLoading.frame.origin.x,aivLoading.frame.origin.y+lblLoading.frame.size.height,aivLoading.frame.size.height,aivLoading.frame.size.height);
           }
           
           CGSize contentViewArea = CGSizeMake(contentView.frame.size.width, contentView.frame.size.height);
@@ -338,8 +342,10 @@
     {
         [contentView setFrame:CGRectMake(0, 0, 1024, 768-45)];
         if (lblLoading.superview!=nil) {
-            lblLoading.frame=CGRectMake(440, 363, 145, 21);
-              aivLoading.frame= CGRectMake(508, 384, 20, 20);
+            lblLoading.center=contentView.center;
+            
+            aivLoading.center=contentView.center;
+            aivLoading.frame=CGRectMake(aivLoading.frame.origin.x,aivLoading.frame.origin.y+lblLoading.frame.size.height,aivLoading.frame.size.height,aivLoading.frame.size.height);
         }
         CGSize contentViewArea = CGSizeMake(contentView.frame.size.width, contentView.frame.size.height);
         [userNameLabel sizeToFit];

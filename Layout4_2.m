@@ -125,10 +125,10 @@ currrentInterfaceOrientation = orientation;
 			[view3 setFrame:CGRectMake(0, 45+479, 384,232)];
 			[view4 setFrame:CGRectMake(0,45+479+232, 384 ,247)];
 
-            borderLeftTop.frame=CGRectMake(0, 0, 15, 1024);
-            borderLeftTop2.frame=CGRectMake(0, 45, 768, 15);
-            borderRightTop.frame=CGRectMake(753, 0, 15, 1024);
-            borderLeftBottom.frame=CGRectMake(0, 1004-15, 768, 15);
+            borderLeftTop.frame=CGRectMake(0, 0, 30, 1024);
+            borderLeftTop2.frame=CGRectMake(0, 45, 768, 30);
+            borderRightTop.frame=CGRectMake(738, 0, 30, 1024);
+            borderLeftBottom.frame=CGRectMake(0, 1004-30, 768, 30);
 		}
 	}else {
         if (!animation)
@@ -140,10 +140,11 @@ currrentInterfaceOrientation = orientation;
 			
 			[view3 setFrame:CGRectMake(512+247,  45,265,351)];
 			[view4 setFrame:CGRectMake(512, 45+351, 512, 351)];
-            borderLeftTop.frame=CGRectMake(0, 0, 15, 1024);
-            borderLeftTop2.frame=CGRectMake(0, 45, 1024, 15);
-            borderRightTop.frame=CGRectMake(1024-15, 0, 15, 768);
-            borderLeftBottom.frame=CGRectMake(0, 748-15, 1024, 15);
+           	
+            borderLeftTop.frame=CGRectMake(0, 0, 30, 1024);
+            borderLeftTop2.frame=CGRectMake(0, 45, 1024, 30);
+            borderRightTop.frame=CGRectMake(1024-30, 0, 30, 768);
+            borderLeftBottom.frame=CGRectMake(0, 748-30, 1024, 30);
 
 		}
 	}
