@@ -254,7 +254,7 @@
 
 		[closeButton setFrame:CGRectMake(0, 0, 46, 52)];
 
-		[messageLabel setFrame:CGRectMake(85, timeStampLabel.frame.origin.y   +timeStampLabel.frame.size.height+10, 600, contentViewArea.height-45-timeStampLabel.frame.origin.y -timeStampLabel.frame.size.height-10)];
+		[messageLabel setFrame:CGRectMake(85, timeStampLabel.frame.origin.y   +timeStampLabel.frame.size.height+10, 600, contentViewArea.height-45-timeStampLabel.frame.origin.y -timeStampLabel.frame.size.height-14)];
           if (detailModel) {
               
           
@@ -366,7 +366,7 @@
 		[closeButton setFrame:CGRectMake(0, 0, 46, 52)];
 
 		
-        [messageLabel setFrame:CGRectMake(152, timeStampLabel.frame.origin.y   +timeStampLabel.frame.size.height+10, 720, contentViewArea.height-45-timeStampLabel.frame.origin.y -timeStampLabel.frame.size.height-10)];
+        [messageLabel setFrame:CGRectMake(152, timeStampLabel.frame.origin.y   +timeStampLabel.frame.size.height+10, 720, contentViewArea.height-45-timeStampLabel.frame.origin.y -timeStampLabel.frame.size.height-14)];
         if (detailModel) {
             
         
