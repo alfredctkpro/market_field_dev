@@ -21,6 +21,8 @@ static NSUInteger kCountForNotification = 60;
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
     self.parsedArticless = [[NSMutableArray alloc]init];
     NSURL *url = [NSURL URLWithString:[[AppDelegate instance].configs objectForKey:@"IndexURL"]];
+   
+  //  url=[[NSURL alloc]initFileURLWithPath: [[NSBundle mainBundle]pathForResource:@"index" ofType:@"xml"]];
     [NSThread detachNewThreadSelector:@selector(downloadAndParse:) toTarget:self withObject:url];
 }
 

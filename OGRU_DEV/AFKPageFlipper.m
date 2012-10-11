@@ -18,7 +18,7 @@
 @interface UIView(Extended) 
 
 - (UIImage *) imageByRenderingView;
-
+-(UIImage *) screenshot;
 @end
 
 
@@ -26,23 +26,70 @@
 
 
 - (UIImage *) imageByRenderingView {
-	CGFloat oldAlpha = self.alpha;
-    CGSize size;
+   
+	    CGSize size;
     if ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait || [UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown) {
-		size=CGSizeMake(768, 1024);
+		size=CGSizeMake(768, 1004);
 	}else {
-		size=CGSizeMake(1024, 768);
+		size=CGSizeMake(2048, 748*2);
 	}
-	self.alpha = 1;
+	
 	UIGraphicsBeginImageContext(size);
+    UIGraphicsBeginImageContextWithOptions(size, NO, 1.0);
 	[self.layer renderInContext:UIGraphicsGetCurrentContext()];
 	UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
 	UIGraphicsEndImageContext();
-	self.alpha = oldAlpha;
 	
+
 	return resultingImage;
 }
+- (UIImage*)screenshot
+{
+    // Create a graphics context with the target size
+    // On iOS 4 and later, use UIGraphicsBeginImageContextWithOptions to take the scale into consideration
+    // On iOS prior to 4, fall back to use UIGraphicsBeginImageContext
+    CGSize imageSize;
+    if ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait || [UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+		imageSize=CGSizeMake(768, 1004);
+	}else {
+		imageSize=CGSizeMake(1024, 748);
+	}
+    if (NULL != UIGraphicsBeginImageContextWithOptions)
+        UIGraphicsBeginImageContextWithOptions(imageSize, NO, 0);
+    else
+        UIGraphicsBeginImageContext(imageSize);
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    // Iterate over every window from back to front
 
+            // -renderInContext: renders in the coordinate space of the layer,
+            // so we must first apply the layer's geometry to the graphics context
+            CGContextSaveGState(context);
+            // Center the context around the window's anchor point
+            CGContextTranslateCTM(context, [self center].x, [self center].y);
+            // Apply the window's transform about the anchor point
+            CGContextConcatCTM(context, [self transform]);
+            // Offset by the portion of the bounds left of and above the anchor point
+            CGContextTranslateCTM(context,
+                                  -[self bounds].size.width * [[self layer] anchorPoint].x,
+                                  -[self bounds].size.height * [[self layer] anchorPoint].y);
+            
+            // Render the layer hierarchy to the current context
+            [[self layer] renderInContext:context];
+            
+            // Restore the context
+            CGContextRestoreGState(context);
+        
+    
+    
+    // Retrieve the screenshot image
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
 @end
 
 
@@ -71,10 +118,14 @@
 	@autoreleasepool {
      
    	// Create screenshots of view
-	UIImage *currentImage = [self.currentView imageByRenderingView];
+    //    NSDate* startDate;
+    //    startDate = [NSDate date];
         
-	UIImage *newImage = [self.theNewView imageByRenderingView];
-	
+       
+	UIImage *currentImage = [self.currentView screenshot];
+        
+	UIImage *newImage = [self.theNewView screenshot];
+	// NSLog(@"%f",  -[startDate timeIntervalSinceNow]);
 
 	// Hide existing views
 	[self.currentView setHidden:TRUE];
@@ -86,9 +137,9 @@
 	
         CGRect rect ;
     if ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait || [UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown) {
-		rect=CGRectMake(0, 0, 768, 1024);
+		rect=CGRectMake(0, 0, 768, 1004);
 	}else {
-		rect=CGRectMake(0, 0, 1024, 768);
+		rect=CGRectMake(0, 0, 1024, 748);
 	}
 	backgroundAnimationLayer = [CALayer layer];
 	backgroundAnimationLayer.frame = rect;
@@ -109,16 +160,18 @@
 	rightLayer.masksToBounds = YES;
 	rightLayer.contentsGravity = kCAGravityRight;
 	
-	[backgroundAnimationLayer addSublayer:rightLayer];
-	
+        [backgroundAnimationLayer addSublayer:rightLayer];
+        rightLayer.contentsScale=2.0;
+        leftLayer.contentsScale=2.0;
 	if (flipDirection == AFKPageFlipperDirectionRight) {
+        
 		leftLayer.contents = (id) [newImage CGImage];
 		rightLayer.contents = (id) [currentImage CGImage];
 	} else {
 		leftLayer.contents = (id) [currentImage CGImage];
 		rightLayer.contents = (id) [newImage CGImage];
 	}
-	
+    
 	[self.layer addSublayer:backgroundAnimationLayer];
 	
 	rect.origin.x = 0;
@@ -267,8 +320,8 @@
 
 	
 	
-	
-	
+	backLayer.contentsScale=2.0;
+        frontLayer.contentsScale=2.0;
 	if (flipDirection == AFKPageFlipperDirectionRight) {
 		
 		backLayer.contents = (id) [currentImage CGImage];
@@ -615,7 +668,7 @@
 	
 	if (animated) {
 		[self setDisabled:TRUE];
-		[self initFlip];
+		//[self initFlip];
 		//[self setFlipProgress:0.01 setDelegate:NO animate:NO];
 		
 		if (pageDifference > 1) {
@@ -741,8 +794,10 @@
 				initialized = TRUE;
 				animating = YES;
 				setNewViewOnCompletion = NO;
-				
+				//NSDate* startDate;
+               // startDate = [NSDate date];
 				[self initFlip];
+              //  NSLog(@"%f",  -[startDate timeIntervalSinceNow]);
 			}
             if (self.currentPage==numberOfPages && translation<=-384) {
                 hasFailed = YES;
