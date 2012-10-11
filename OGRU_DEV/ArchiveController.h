@@ -18,5 +18,7 @@
 - (IBAction)closeArchive:(id)sender;
 @property (weak, nonatomic) IBOutlet UIView *archiveView;
 @property (weak, nonatomic) IBOutlet UIButton *bgView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *aivLoading;
+@property (weak, nonatomic) IBOutlet UILabel *lblLoading;
 
 @end

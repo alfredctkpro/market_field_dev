@@ -28,6 +28,11 @@
         
         [[self monthTableView]selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionMiddle];
         [self tableView:self.monthTableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        
+        self.lblLoading.center=self.dayTableView.center;
+        self.aivLoading.center=self.dayTableView.center;
+        self.aivLoading.frame=CGRectMake(self.aivLoading.frame.origin.x,self.aivLoading.frame.origin.y+self.lblLoading.frame.size.height , self.aivLoading.frame.size.width, self.aivLoading.frame.size.height);
+        self.lblLoading.hidden=YES;
     }
 	// Do any additional setup after loading the view.
 }
@@ -132,6 +137,8 @@
         ArchiveParser* parser=[[ArchiveParser alloc]init];
          parser.delegate=self;
         [parser startWithYear:[[NSString alloc]initWithFormat:@"%i",[tableView cellForRowAtIndexPath:indexPath].tag/100] Month:[[NSString alloc]initWithFormat:@"%i",[tableView cellForRowAtIndexPath:indexPath].tag%100]];
+        [self.aivLoading startAnimating];
+        self.lblLoading.hidden=NO;
 
     }
     else if(tableView==self.dayTableView)
@@ -142,6 +149,8 @@
 
 - (void)parserDidEndParsingData:(ArchiveParser *)parser
 {
+    [self.aivLoading stopAnimating];
+    self.lblLoading.hidden=YES;
     [self.dayTableView reloadData];
     self.monthTableView.allowsSelection=YES;
 }

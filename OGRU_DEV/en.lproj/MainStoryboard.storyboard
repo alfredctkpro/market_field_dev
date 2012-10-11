@@ -236,6 +236,17 @@
                                             <outlet property="delegate" destination="9IJ-jC-17V" id="g8H-DA-jqe"/>
                                         </connections>
                                     </tableView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="   Fetching Content..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="j8q-PN-Vis">
+                                        <rect key="frame" x="229" y="492" width="163" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" id="uKu-41-5bL">
+                                        <rect key="frame" x="82" y="492" width="336" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </activityIndicatorView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="3rB-g8-ME6">
                                         <rect key="frame" x="0.0" y="70" width="152" height="928"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
@@ -263,9 +274,11 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="aivLoading" destination="uKu-41-5bL" id="skS-uI-NzO"/>
                         <outlet property="archiveView" destination="8hC-iP-2UW" id="eyx-bJ-riK"/>
                         <outlet property="bgView" destination="8Th-x1-Epf" id="l2Q-0p-4ih"/>
                         <outlet property="dayTableView" destination="vC7-2h-Orw" id="hBu-TL-qkk"/>
+                        <outlet property="lblLoading" destination="j8q-PN-Vis" id="htN-VO-DAD"/>
                         <outlet property="monthTableView" destination="3rB-g8-ME6" id="EhW-B5-GIJ"/>
                     </connections>
                 </viewController>
