@@ -20,8 +20,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        activeImage = [UIImage imageNamed:@"daily_single_image_active_dot.png"];
-        inactiveImage = [UIImage imageNamed:@"daily_single_image_inactive_dot.png"];
+        activeImage = [UIImage imageNamed:@"daily_single_image_active.png"];
+        inactiveImage = [UIImage imageNamed:@"daily_single_image_inactive.png"];
         
         
     }
@@ -31,8 +31,8 @@
 {
     self = [super initWithCoder:aDecoder];
     
-    activeImage = [UIImage imageNamed:@"daily_single_image_active_dot.png"];
-    inactiveImage = [UIImage imageNamed:@"daily_single_image_inactive_dot.png"];
+    activeImage = [UIImage imageNamed:@"daily_single_image_active.png"];
+    inactiveImage = [UIImage imageNamed:@"daily_single_image_inactive.png"];
     
     return self;
 }

@@ -39,6 +39,7 @@
 @synthesize view3;
 
 -(void)initalizeViews:(NSDictionary*)viewCollectionDictonary{
+    self.userInteractionEnabled=YES;
     view1=[[TitleAndTextView alloc] initWithMessageModel:(ArticleModel*)[viewCollectionDictonary objectForKey:@"view1"] WithName:@"3_1_1"];
     view2=[[TitleAndTextView alloc] initWithMessageModel:(ArticleModel*)[viewCollectionDictonary objectForKey:@"view2"] WithName:@"3_1_2"];
     view3=[[TitleAndTextView alloc] initWithMessageModel:(ArticleModel*)[viewCollectionDictonary objectForKey:@"view3"] WithName:@"3_1_3"];
