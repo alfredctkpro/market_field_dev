@@ -17,5 +17,7 @@
 - (IBAction)closeSearch:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *bgView;
 @property (weak, nonatomic) IBOutlet UIView *searchView;
+@property (weak, nonatomic) IBOutlet UILabel *lblLoading;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *aivLoading;
 
 @end

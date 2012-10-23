@@ -201,6 +201,7 @@ static NSDictionary * _configs;
         [viewController closeFullScreen];
     }
 	[viewController showViewInFullScreen:viewToShow withModel:model Mode:mode Animated:anim];
+
 }
 -(void)closeFullScreen {
 	[viewController closeFullScreen];

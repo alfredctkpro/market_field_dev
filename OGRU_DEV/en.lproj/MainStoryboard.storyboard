@@ -237,9 +237,9 @@
                                         </connections>
                                     </tableView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="   Fetching Content..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="j8q-PN-Vis">
-                                        <rect key="frame" x="229" y="492" width="163" height="21"/>
+                                        <rect key="frame" x="229" y="492" width="218" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -332,6 +332,17 @@
                                             <outlet property="delegate" destination="ZX6-Gj-A5s" id="KF6-mQ-iRe"/>
                                         </connections>
                                     </tableView>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" id="pk6-OB-Vhb">
+                                        <rect key="frame" x="0.0" y="108" width="336" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </activityIndicatorView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="   Fetching Content..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vqh-x7-MOy">
+                                        <rect key="frame" x="177" y="110" width="218" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -339,7 +350,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="aivLoading" destination="pk6-OB-Vhb" id="HtO-gs-cPu"/>
                         <outlet property="bgView" destination="zfb-xV-KFO" id="dxk-Hr-vuc"/>
+                        <outlet property="lblLoading" destination="vqh-x7-MOy" id="InD-U6-8fe"/>
                         <outlet property="searchBar" destination="dhp-NP-kxK" id="ST0-ak-WGg"/>
                         <outlet property="searchResultTable" destination="aOk-dX-ai1" id="s6i-d9-Ix2"/>
                         <outlet property="searchView" destination="3Kb-0P-bz7" id="eLx-sM-Gc1"/>
@@ -400,92 +413,6 @@
         <image name="OG_portrait_Header_icon_search.png" width="40" height="45"/>
         <image name="semi_transpatent_btn.png" width="1024" height="768"/>
     </resources>
-    <classes>
-        <class className="ArchiveCellLabel" superclassName="UILabel">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveCellLabel.h"/>
-        </class>
-        <class className="ArchiveController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveController.h"/>
-            <relationships>
-                <relationship kind="action" name="closeArchive:"/>
-                <relationship kind="outlet" name="aivLoading" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="archiveView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="bgView" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="dayTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="lblLoading" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="monthTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="ArchiveDayLabel" superclassName="UILabel">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArchiveDayLabel.h"/>
-        </class>
-        <class className="DayCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DayCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="borderView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="lblDay" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblDayOfWeek" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblTitle" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="IndexViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/IndexViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="btnArchive:"/>
-                <relationship kind="action" name="btnSearchClick:"/>
-                <relationship kind="action" name="doXMLParser:"/>
-                <relationship kind="outlet" name="aivContentLoading" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="archiveBarItem" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="bgImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="indicator" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="indicator2" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="lblHeader" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblLoading" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="logoutBarItem" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="searchBarItem" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
-            </relationships>
-        </class>
-        <class className="MonthCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MonthCell.h"/>
-        </class>
-        <class className="PhotoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="btnClose:"/>
-                <relationship kind="outlet" name="close" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="footBar" candidateClass="UIToolbar"/>
-                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
-            </relationships>
-        </class>
-        <class className="SearchView" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchView.h"/>
-            <relationships>
-                <relationship kind="action" name="closeSearch:"/>
-                <relationship kind="outlet" name="bgView" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="displayController" candidateClass="UISearchDisplayController"/>
-                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
-                <relationship kind="outlet" name="searchResultTable" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="searchView" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="SingleImagePageControl" superclassName="UIPageControl">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SingleImagePageControl.h"/>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="btnLoginClick:"/>
-                <relationship kind="action" name="btnRequestClick:"/>
-                <relationship kind="action" name="pwdDone:"/>
-                <relationship kind="outlet" name="bgImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="btnLogin" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnRequest" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="txtPassword" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtUsername" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

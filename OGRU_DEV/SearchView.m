@@ -74,6 +74,11 @@
          displayController.searchBar.text=[AppDelegate instance].lastSearchString;
           [displayController.searchResultsTableView reloadData];
     }
+    self.lblLoading.center=self.searchResultTable.center;
+    self.aivLoading.center=self.searchResultTable.center;
+    self.aivLoading.frame=CGRectMake(self.aivLoading.frame.origin.x,self.aivLoading.frame.origin.y+self.lblLoading.frame.size.height , self.aivLoading.frame.size.width, self.aivLoading.frame.size.height);
+    self.lblLoading.hidden=YES;
+
 }
 - (BOOL)textFieldShouldClear:(UITextField *)textField {
     
@@ -177,6 +182,11 @@
     searchPaser=[[SearchParser alloc]init];
     searchPaser.delegate=self;
     [searchPaser startWithArticleID:searchBar.text];
+    if([AppDelegate instance].SearchArticles.count==0)
+    {
+        [self.aivLoading startAnimating];
+        self.lblLoading.hidden=NO;
+    }
 
 }
 #pragma mark <iTunesRSSParserDelegate> Implementation
@@ -188,7 +198,8 @@
     //  self.navigationItem.rightBarButtonItem.enabled = YES;
   //  [self buildPages:articles];
    // flipper.dataSource = self;
-    
+    [self.aivLoading stopAnimating];
+    self.lblLoading.hidden=YES;
   [[AppDelegate instance].SearchArticles removeAllObjects];
       [[AppDelegate instance].SearchArticles addObjectsFromArray:temp];
     [AppDelegate instance].lastSearchString=self.searchBar.text;
