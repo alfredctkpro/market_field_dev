@@ -39,6 +39,8 @@
     UIActivityIndicatorView* aivLoading;
     UIImageView* bgLoading;
     UIImageView* arrow;
+    NSOperationQueue *queue;
+    NSOperationQueue *mainQueue;
 }
 @synthesize messageModel,viewToOverLap,fullScreenBG,mode;
 - (void)layoutScrollImages
@@ -85,6 +87,7 @@
 	else
 		return YES;
 }
+
 -(id)initWithModel:(NSString*)model {
 	if (self = [super init]) {
         
@@ -198,11 +201,11 @@
         
         parser=[[ArticleParser alloc]init ];
         parser.delegate=self;
-     
+        queue= [NSOperationQueue new];
     
+        mainQueue=[NSOperationQueue mainQueue];
         
         
-        NSOperationQueue *queue = [NSOperationQueue new];
         NSInvocationOperation *operation = [[NSInvocationOperation alloc]
                                             initWithTarget:self
                                             selector:@selector(loadContent)
@@ -326,7 +329,7 @@
               //dispatch_async(dispatch_get_main_queue(), ^{
              //   [self portraitLoadImage];
              // });
-              NSOperationQueue *queue = [NSOperationQueue new];
+          
               NSInvocationOperation *operation = [[NSInvocationOperation alloc]
                                                   initWithTarget:self
                                                   selector:@selector(portraitLoadImage)
@@ -437,7 +440,7 @@
                 imageScrollView.delegate=self;
                 [pageControl setFrame:CGRectMake(0,imageScrollView.frame.origin.y  +imageScrollView.frame.size.height+ 10, pageControl.frame.size.width, pageControl.frame.size.height)];
            //     [self    landSpaceLoadImage];
-               NSOperationQueue *queue = [NSOperationQueue new];
+           
                 NSInvocationOperation *operation = [[NSInvocationOperation alloc]
                                                     initWithTarget:self
                                                     selector:@selector(landSpaceLoadImage)
@@ -450,6 +453,8 @@
 
 
 -(void)closeFullScreenView:(id)sender {
+    [queue cancelAllOperations];
+    [mainQueue cancelAllOperations];
     if (viewToOverLap!=nil) {
         viewToOverLap.alpha = 1;
         [self setBackgroundColor:[UIColor whiteColor]];
@@ -527,15 +532,16 @@
         //   [imageView release];
     }
 
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        [aiv stopAnimating];
-        [aiv removeFromSuperview];
-        aiv=nil;
-        
-        [self layoutScrollImages];
-                    [imageScrollView setContentOffset:CGPointMake(468*pageControl.currentPage, imageScrollView.contentOffset.y)];
-    });
-  
+   [mainQueue addOperationWithBlock:^{
+       [aiv stopAnimating];
+       [aiv removeFromSuperview];
+       aiv=nil;
+       
+       [self layoutScrollImages];
+       [imageScrollView setContentOffset:CGPointMake(468*pageControl.currentPage, imageScrollView.contentOffset.y)];
+   }];
+ 
+
 }
 
 -(void)portraitLoadImage
@@ -585,16 +591,16 @@
         
         //  [imageView release];
     }
-  
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        [aiv stopAnimating];
-        [aiv removeFromSuperview];
-        aiv=nil;
+  [mainQueue addOperationWithBlock:^{
+      [aiv stopAnimating];
+      [aiv removeFromSuperview];
+      aiv=nil;
+      
+      [self layoutScrollImages];
+      [imageScrollView setContentOffset:CGPointMake(600*pageControl.currentPage, imageScrollView.contentOffset.y)];
 
-        [self layoutScrollImages];
-            [imageScrollView setContentOffset:CGPointMake(600*pageControl.currentPage, imageScrollView.contentOffset.y)];
-        
-    });
+  }];
+   
 }
 -(void)nextFullScreenView:(id)sender
 {
@@ -786,16 +792,21 @@
                                
                                  @"</body></html>"];
         
-     
-        [messageLabel loadHTMLString:desc baseURL:nil];
-       // messageLabel.text=str;
-        userNameLabel.text=detailModel.title;
-        timeStampLabel.text=detailModel.date;
+     [mainQueue addOperationWithBlock:^{
+         [messageLabel loadHTMLString:desc baseURL:nil];
+         // messageLabel.text=str;
+         userNameLabel.text=detailModel.title;
+         timeStampLabel.text=detailModel.date;
+     }];
+       
         
     }
-    dispatch_sync(dispatch_get_main_queue(), ^{
+    
+    [mainQueue addOperationWithBlock:^{
         [self reAdjustLayout];
-    });
+    }];
+
+   
     
 
 }
