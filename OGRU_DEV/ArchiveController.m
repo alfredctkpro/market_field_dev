@@ -91,7 +91,7 @@
         [dateFormat setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
         NSString *dateString = [dateFormat stringFromDate:nextMonthDay];
         
-        NSString *CellIdentifier = [NSString stringWithFormat:@"monthCell"];
+        NSString *CellIdentifier = @"monthCell";
         MonthCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
             cell = [[MonthCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
@@ -102,7 +102,7 @@
     }else 
     {
         
-        NSString *CellIdentifier = [NSString stringWithFormat:@"dayCell"];
+        NSString *CellIdentifier = @"dayCell";
         DayCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
             cell = [[DayCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];

@@ -134,7 +134,7 @@
 
 
 -(void) generateButtons {
-	
+	/*
 	if (previousView) {
 		for (UIView* view in previousView.subviews) {
 			[view removeFromSuperview];
@@ -198,7 +198,7 @@
 	[buttonNext addSubview:nextView];
 	[buttonNext sizeToFit];
 	[buttonNext addTarget:self action:@selector(nextClick:) forControlEvents:UIControlEventTouchUpInside];
-	
+	*/
 	if (barButtonsView) {
 		for (UIView* view in barButtonsView.subviews) {
 			[view removeFromSuperview];
@@ -309,7 +309,7 @@
 	
 	if (flipperView != nil) {
 		if (flipperView.currentPage != button.tag) {
-			[flipperView setCurrentPage:button.tag animated:TRUE];
+			[flipperView setCurrentPage:button.tag ];
 		}
 	}		
 }

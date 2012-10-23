@@ -68,8 +68,9 @@
     if (page==1 || page==[viewControlerStack count]+2) {
         UIView* view=[[UIView alloc]init];
         
-        UIImage *img = [[UIImage alloc]initWithContentsOfFile:
-                        [[NSBundle mainBundle]pathForResource:@"flipEND_bg" ofType:@"png"]];
+        //UIImage *img = [[UIImage alloc]initWithContentsOfFile:
+        //                [[NSBundle mainBundle]pathForResource:@"flipEND_bg" ofType:@"png"]];
+        UIImage* img=[UIImage imageNamed:@"flipEND_bg.png"];
         [view setBackgroundColor:[UIColor colorWithPatternImage:img]];
         
         if (self.interfaceOrientation == UIInterfaceOrientationPortrait || self.interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
@@ -136,6 +137,7 @@
             layoutObject= [[class alloc] initWithFrame:landSpaceSize];
             
         }
+        
         if ([layoutObject isKindOfClass:[LayoutViewExtention class]] ) {
             
             layoutToReturn = (LayoutViewExtention*)layoutObject;
@@ -160,8 +162,9 @@
     if (page==1 || page==[viewControlerStack count]+2) {
         UIView* view=[[UIView alloc]init];
         
-        UIImage *img = [[UIImage alloc]initWithContentsOfFile:
-                        [[NSBundle mainBundle]pathForResource:@"flipEND_bg" ofType:@"png"]];
+        //UIImage *img = [[UIImage alloc]initWithContentsOfFile:
+        //                [[NSBundle mainBundle]pathForResource:@"flipEND_bg" ofType:@"png"]];
+        UIImage* img=[UIImage imageNamed:@"flipEND_bg.png"];
         [view setBackgroundColor:[UIColor colorWithPatternImage:img]];
         
         if (self.interfaceOrientation == UIInterfaceOrientationPortrait || self.interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
@@ -326,8 +329,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIImage *img = [[UIImage alloc]initWithContentsOfFile:
-                    [[NSBundle mainBundle]pathForResource:@"COLOR" ofType:@"png"]];
+    //UIImage *img = [[UIImage alloc]initWithContentsOfFile:
+     //               [[NSBundle mainBundle]pathForResource:@"COLOR" ofType:@"png"]];
+    UIImage* img=[UIImage imageNamed:@"COLOR.png"];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:img]];
     self.view.autoresizesSubviews = YES;
 	self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -655,15 +659,15 @@
 -(void)setToolbarBackgroundImage:(UIInterfaceOrientation)interfaceOrientation
 {
     if (interfaceOrientation==UIInterfaceOrientationPortrait||interfaceOrientation==UIInterfaceOrientationPortraitUpsideDown) {
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"portrait_title_45" ofType:@"png"];
+       
         
-        [toolbar setBackgroundImage:[UIImage imageWithContentsOfFile:path] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
+        [toolbar setBackgroundImage:[UIImage imageNamed:@"portrait_title_45.png"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
     }
     else
     {
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"landscape_title_45" ofType:@"png"];
+       
         
-        [toolbar setBackgroundImage:[UIImage imageWithContentsOfFile:path] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
+        [toolbar setBackgroundImage:[UIImage imageNamed:@"landscape_title_45.png"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
         
     }
 }

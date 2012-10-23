@@ -43,9 +43,8 @@
     NSString* path=[[NSBundle mainBundle]pathForResource:@"Property List" ofType:@"plist"];
     dic= [[NSMutableDictionary alloc]initWithContentsOfFile:path];
 
-    UIImage *img = [[UIImage alloc]initWithContentsOfFile:
-                    [[NSBundle mainBundle]pathForResource:@"COLOR" ofType:@"png"]];
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:img]];
+    
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"COLOR.png"]]];
   //  [img release];
     //self.view.backgroundColor=RGBCOLOR(31,31,31);
     txtPassword.secureTextEntry=YES;//設定成密碼格式

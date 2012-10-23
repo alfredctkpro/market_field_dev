@@ -97,9 +97,9 @@
 		[contentView setBackgroundColor:[UIColor whiteColor]];
 		
         bgLoading=[[UIImageView alloc]initWithFrame:contentView.frame];
-        UIImage *img = [[UIImage alloc]initWithContentsOfFile:
-                        [[NSBundle mainBundle]pathForResource:@"COLOR" ofType:@"png"]];
-        bgLoading.image=img;
+        //UIImage *img = [[UIImage alloc]initWithContentsOfFile:
+        //                [[NSBundle mainBundle]pathForResource:@"COLOR" ofType:@"png"]];
+        bgLoading.image=[UIImage imageNamed:@"COLOR.png"];
       //  [img release];
         bgLoading.autoresizingMask=UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
         [contentView addSubview:bgLoading];
@@ -189,10 +189,10 @@
         [contentView addSubview:pageControl];
         // load all the images from our bundle and add them to the scroll view
     
-        NSString* arrowPath=[[NSBundle mainBundle]pathForResource:@"arrow" ofType:@"png"];
+        //NSString* arrowPath=[[NSBundle mainBundle]pathForResource:@"arrow" ofType:@"png"];
         
-        UIImage* arrowImage=[[UIImage alloc]initWithContentsOfFile:arrowPath];
-        arrow=[[UIImageView alloc]initWithImage:arrowImage];
+        //UIImage* arrowImage=[[UIImage alloc]initWithContentsOfFile:arrowPath];
+        arrow=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"arrow.png"]];
         [contentView addSubview:arrow];
         arrow.alpha=0;
         

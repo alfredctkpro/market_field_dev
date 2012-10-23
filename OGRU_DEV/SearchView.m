@@ -107,7 +107,7 @@
         blank.backgroundColor=[UIColor whiteColor];
         return blank;
     }
-    NSString *CellIdentifier = [NSString stringWithFormat:@"TitleCell"];
+    NSString *CellIdentifier = @"TitleCell";
     SearchResultTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[SearchResultTitleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
@@ -118,7 +118,7 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *CellIdentifier = [NSString stringWithFormat:@"Cell"];
+    NSString *CellIdentifier = @"Cell";
     SearchResultCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[SearchResultCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];

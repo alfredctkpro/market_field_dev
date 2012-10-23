@@ -92,8 +92,9 @@
     }
     if (page==1 || page== count+2) {
         UIView* view=[[UIView alloc]init];
-        UIImage *img = [[UIImage alloc]initWithContentsOfFile:
-                        [[NSBundle mainBundle]pathForResource:@"flipEND_bg" ofType:@"png"]];
+        //UIImage *img = [[UIImage alloc]initWithContentsOfFile:
+        //                [[NSBundle mainBundle]pathForResource:@"flipEND_bg" ofType:@"png"]];
+        UIImage* img=[UIImage imageNamed:@"flipEND_bg.png"];
         [view setBackgroundColor:[UIColor colorWithPatternImage:img]];
    //     [img release];
         if ([AppDelegate instance].viewController.interfaceOrientation == UIInterfaceOrientationPortrait || [AppDelegate instance].viewController.interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
