@@ -171,7 +171,7 @@
         minScale = maxScale;
     }
     
-    self.maximumZoomScale = maxScale;
+    self.maximumZoomScale = maxScale*2;
     self.minimumZoomScale = minScale;
 }
 

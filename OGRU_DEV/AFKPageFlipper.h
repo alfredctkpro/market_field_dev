@@ -10,7 +10,7 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
-
+#import "LayoutViewExtention.h"
 
 @class AFKPageFlipper;
 
@@ -37,8 +37,8 @@ typedef enum {
 	
 	NSInteger pageDifference;
 	
-	UIView *currentView;
-	UIView *theNewView;
+	LayoutViewExtention *currentView;
+	LayoutViewExtention *theNewView;
 	
 	// shadows
 	CALayer *frontLayerShadow;
@@ -76,8 +76,8 @@ typedef enum {
 @property (nonatomic,assign) NSInteger numberOfPages;
 @property (nonatomic,assign) NSInteger pageDifference;
 @property (nonatomic,assign) BOOL disabled;
-@property (nonatomic,assign) UIView *currentView;
-@property (nonatomic,strong) UIView *theNewView;
+@property (nonatomic,assign) LayoutViewExtention *currentView;
+@property (nonatomic,strong) LayoutViewExtention *theNewView;
 @property (nonatomic,readonly) BOOL animating;
 
 

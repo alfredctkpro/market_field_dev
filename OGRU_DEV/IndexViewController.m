@@ -307,14 +307,14 @@
     
 	if ([viewControlerStack count] > 0 && [flipper.subviews count] > 0) {
 		
-		for (UIView* subview in flipper.subviews) {
-			if ([subview isKindOfClass:[LayoutViewExtention class]]) {
-				LayoutViewExtention* layoutView = (LayoutViewExtention*)subview;
-				[layoutView rotate:self.interfaceOrientation animation:NO];
-                
-			}
-			
-		}
+        [flipper.currentView rotate:self.interfaceOrientation animation:YES];
+        UIView* footerViewInLayout = (UIView*) [flipper.currentView viewWithTag:200];
+      if ([AppDelegate instance].viewController.interfaceOrientation == UIInterfaceOrientationPortrait || [AppDelegate instance].viewController.interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+            [footerViewInLayout setFrame:CGRectMake(0, 1004 - 25, 768, footerViewInLayout.frame.size.height)];
+        }else {
+            [footerViewInLayout setFrame:CGRectMake(0, 748 - 25, 1024, footerViewInLayout.frame.size.height)];
+        }
+
 		
 	}
     [self setToolbarBackgroundImage:self.interfaceOrientation];

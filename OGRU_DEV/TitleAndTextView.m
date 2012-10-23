@@ -1091,7 +1091,14 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer
                                                     *)otherGestureRecognizer {
     return YES;
 }
-
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+	if(navigationType ==  UIWebViewNavigationTypeLinkClicked) {
+		
+		return NO;
+	}
+	else
+		return YES;
+}
 -(NSString*)removeBR:(NSString*)input
 {
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:

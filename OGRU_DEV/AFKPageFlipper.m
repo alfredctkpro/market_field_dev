@@ -588,7 +588,7 @@
 @synthesize currentView;
 
 
-- (void) setCurrentView:(UIView *) value {
+- (void) setCurrentView:(LayoutViewExtention *) value {
 	if (currentView) {
 		[currentView release];
 	}
@@ -600,7 +600,7 @@
 
 
 
-- (void) setTheNewView:(UIView *) value {
+- (void) setTheNewView:(LayoutViewExtention *) value {
 	if (theNewView) {
 		[theNewView release];
 	}
