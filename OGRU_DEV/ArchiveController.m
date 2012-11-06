@@ -56,7 +56,24 @@
 {
     if (tableView==self.monthTableView)
     {
-          return 12;
+        NSCalendar* calendar=[[NSCalendar alloc]initWithCalendarIdentifier:NSGregorianCalendar];
+        NSDateComponents *components = [[NSDateComponents alloc] init];
+        [components setYear:2008];
+        [components setMonth:7];
+        [components setDay:1];
+        
+        
+        NSDate* fromDate=[calendar dateFromComponents:components];
+        NSDateComponents* components2=[calendar components:NSYearCalendarUnit|NSMonthCalendarUnit fromDate:[NSDate date]];
+        [components2 setDay:1];
+        [components2 setHour:0];
+        [components2 setMinute:0];
+        [components2 setSecond:0];
+        NSDate* toDate=[calendar dateFromComponents:components2];
+        
+        NSDateComponents* result=[calendar components:NSMonthCalendarUnit fromDate:fromDate toDate:toDate options:0];
+       
+        return result.month+1;
     }
     else
     {
