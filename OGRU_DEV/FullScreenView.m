@@ -305,7 +305,8 @@
           //if (imageScrollView==nil) {
           if (detailModel.images.count>0) {
               imageScrollView=[[UIScrollView alloc]init];
-              
+              imageScrollView.layer.borderWidth=1;
+              imageScrollView.layer.borderColor=[RGBCOLOR(236, 236, 236) CGColor];
               [imageScrollView setFrame:CGRectMake(84, 41, 600, 400)];
               aiv=[[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
               
@@ -418,7 +419,8 @@
             if (detailModel.images.count>0) {
                 //if (imageScrollView==nil) {
                 imageScrollView=[[UIScrollView alloc]init];
-                
+                imageScrollView.layer.borderWidth=1;
+                imageScrollView.layer.borderColor=[RGBCOLOR(236, 236, 236) CGColor];
                 [imageScrollView setFrame:CGRectMake(275, 30, 468, 306)];
                 aiv=[[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
                 
