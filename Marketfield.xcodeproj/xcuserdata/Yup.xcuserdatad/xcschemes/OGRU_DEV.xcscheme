@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A601071E159357CA0059246E"
                BuildableName = "MarketField.app"
-               BlueprintName = "MarketField"
-               ReferencedContainer = "container:MarketField.xcodeproj">
+               BlueprintName = "Marketfield.temp_caseinsensitive_rename"
+               ReferencedContainer = "container:Marketfield.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A601073F159357CB0059246E"
                BuildableName = "MarketFieldTests.octest"
-               BlueprintName = "MarketFieldTests"
-               ReferencedContainer = "container:MarketField.xcodeproj">
+               BlueprintName = "Marketfield.temp_caseinsensitive_renameTests"
+               ReferencedContainer = "container:Marketfield.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,8 +44,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A601071E159357CA0059246E"
             BuildableName = "MarketField.app"
-            BlueprintName = "MarketField"
-            ReferencedContainer = "container:MarketField.xcodeproj">
+            BlueprintName = "Marketfield.temp_caseinsensitive_rename"
+            ReferencedContainer = "container:Marketfield.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A601071E159357CA0059246E"
             BuildableName = "MarketField.app"
-            BlueprintName = "MarketField"
-            ReferencedContainer = "container:MarketField.xcodeproj">
+            BlueprintName = "Marketfield.temp_caseinsensitive_rename"
+            ReferencedContainer = "container:Marketfield.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -81,8 +81,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A601071E159357CA0059246E"
             BuildableName = "MarketField.app"
-            BlueprintName = "MarketField"
-            ReferencedContainer = "container:MarketField.xcodeproj">
+            BlueprintName = "Marketfield.temp_caseinsensitive_rename"
+            ReferencedContainer = "container:Marketfield.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

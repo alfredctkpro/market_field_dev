@@ -34,19 +34,6 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OGRU_DEV/TitleAndTextView.m"
-         timestampString = "373947734.83702"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "421"
-         endingLineNumber = "421"
-         landmarkName = "-reAdjustLayout"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "OGRU_DEV/TitleAndTextView.m"
          timestampString = "373947780.400208"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
@@ -65,19 +52,6 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "493"
          endingLineNumber = "493"
-         landmarkName = "-reAdjustLayout"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "OGRU_DEV/TitleAndTextView.m"
-         timestampString = "373947820.120564"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "485"
-         endingLineNumber = "485"
          landmarkName = "-reAdjustLayout"
          landmarkType = "5">
       </FileBreakpoint>
