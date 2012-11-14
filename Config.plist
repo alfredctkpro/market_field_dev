@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>ArchiveURL</key>
-	<string>http://ogru.com/blog/archive.aspx</string>
+	<string>http://marketfield.com/blog/archive.aspx</string>
 	<key>SearchURL</key>
-	<string>http://ogru.com/blog/search.aspx</string>
+	<string>http://marketfield.com/blog/search.aspx</string>
 	<key>ArticleURL</key>
-	<string>http://ogru.com/blog/article.aspx</string>
+	<string>http://marketfield.com/blog/article.aspx</string>
 	<key>IndexURL</key>
-	<string>http://ogru.com/blog/index.aspx</string>
+	<string>http://marketfield.com/blog/index.aspx</string>
 	<key>ThemeColorRGB</key>
 	<dict>
 		<key>R</key>

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A601071E159357CA0059246E"
-               BuildableName = "MarketField.app"
+               BuildableName = "Marketfield.app"
                BlueprintName = "Marketfield.temp_caseinsensitive_rename"
                ReferencedContainer = "container:Marketfield.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A601073F159357CB0059246E"
-               BuildableName = "MarketFieldTests.octest"
+               BuildableName = "Marketfield.temp_caseinsensitive_renameTests.octest"
                BlueprintName = "Marketfield.temp_caseinsensitive_renameTests"
                ReferencedContainer = "container:Marketfield.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A601071E159357CA0059246E"
-            BuildableName = "MarketField.app"
+            BuildableName = "Marketfield.app"
             BlueprintName = "Marketfield.temp_caseinsensitive_rename"
             ReferencedContainer = "container:Marketfield.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A601071E159357CA0059246E"
-            BuildableName = "MarketField.app"
+            BuildableName = "Marketfield.app"
             BlueprintName = "Marketfield.temp_caseinsensitive_rename"
             ReferencedContainer = "container:Marketfield.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A601071E159357CA0059246E"
-            BuildableName = "MarketField.app"
+            BuildableName = "Marketfield.app"
             BlueprintName = "Marketfield.temp_caseinsensitive_rename"
             ReferencedContainer = "container:Marketfield.xcodeproj">
          </BuildableReference>

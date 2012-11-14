@@ -370,7 +370,7 @@
 
 - (int)getRandomNumber:(int)from to:(int)to {
 
-	return (int)from + random() % (to-from+1);
+	return (int)from + arc4random() % (to-from+1);
 }
 
 //計算頁數
