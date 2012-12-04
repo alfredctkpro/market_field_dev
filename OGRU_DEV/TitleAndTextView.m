@@ -100,8 +100,8 @@
          }
          else if ([self.name isEqualToString:@"5_1_2"])
          {
-             if (str.length>400) {
-                 str=[str substringWithRange:NSMakeRange(0, 400)];
+             if (str.length>600) {
+                 str=[str substringWithRange:NSMakeRange(0, 600)];
              }
              float top=15;
              float right=15;
@@ -116,8 +116,8 @@
          }
          else if ([self.name isEqualToString:@"5_1_3"])
          {
-             if (str.length>400) {
-                 str=[str substringWithRange:NSMakeRange(0, 400)];
+             if (str.length>600) {
+                 str=[str substringWithRange:NSMakeRange(0, 600)];
              }
              float top=15;
              float right=30;
@@ -131,8 +131,8 @@
          }
          else if ([self.name isEqualToString:@"5_1_4"])
          {
-             if (str.length>400) {
-                 str=[str substringWithRange:NSMakeRange(0, 400)];
+             if (str.length>600) {
+                 str=[str substringWithRange:NSMakeRange(0, 600)];
              }
              float top=15;
              float right=15;
@@ -145,8 +145,8 @@
          }
          else if ([self.name isEqualToString:@"5_1_5"])
          {
-             if (str.length>400) {
-                 str=[str substringWithRange:NSMakeRange(0, 400)];
+             if (str.length>600) {
+                 str=[str substringWithRange:NSMakeRange(0, 600)];
              }
              float top=15;
              float right=30;
@@ -167,8 +167,8 @@
              
              
              if (messageModel.images.count>0) {
-                 if (str.length>300) {
-                     str=[str substringWithRange:NSMakeRange(0, 300)];
+                 if (str.length>600) {
+                     str=[str substringWithRange:NSMakeRange(0, 600)];
                  }
                  NSString* desc= [[NSString alloc]initWithFormat:@"<html><head><meta charset=\"utf-8\" /><script type=\"text/javascript\" src=\"%@\"></script><script type=\"text/javascript\">(function($) {$.fn.ellipsis = function(){return this.each(function(){var el = $(this);if(el.css(\"overflow\") == \"hidden\"){var text = el.html();var multiline = el.hasClass('multiline');var t = $(this.cloneNode(true)).hide().css('position', 'absolute').css('overflow', 'visible').width(multiline ? el.width() : 'auto').height(multiline ? 'auto' : el.height());el.after(t);var el_height=el.height();function height() { return t.height() > el_height; };function width() { return t.width() > el.width(); };var func = multiline ? height : width;while (text.length > 0 && func()){text = text.substr(0, text.length - 20);t.html(text + \"...\");}el.html(t.html());t.remove();}});};})(jQuery);$(function(){$(\".multiline\").ellipsis();});</script><style type=\"text/css\">.content{text-align:justify;text-justify:inter-word;overflow:hidden;text-overflow:ellipsis;}a{color:gray;}</style></head><body style=\"margin: %fpx %fpx %fpx %fpx;background-color: trasparent;\"><div class=\"content multiline\" style=\"width: %fpx;height: %f px; \"><img style=\"border-style:solid;border-width:2px;border-color:#D2D2D2;width:335px;height:235px;margin-bottom:15px; \" src=\"%@\" /><p style=\"font-family:HelveticaNeue-CondensedBold;font-size: 24px;margin-top: 0px;margin-bottom: 15px;color:#333333;text-align:left;\">%@</p><p style=\"font-family: HelveticaNeue;font-size: 14px;margin-top: 0px;margin-bottom: 15px;color:%@;\">%@</p><div style=\"font-family: HelveticaNeue-Light;font-size: 16px;color:#333333; \">%@</div></div></body></html>",fileURL,top,right,bottom,left, self.frame.size.width-(right+left),self.frame.size.height-(top+bottom),[messageModel.images objectAtIndex:0],messageModel.title,dateColor,messageModel.date,str ];
                  [theWebView loadHTMLString:desc baseURL:nil];
@@ -192,8 +192,8 @@
              
              
              if (messageModel.images.count>0) {
-                 if (str.length>300) {
-                     str=[str substringWithRange:NSMakeRange(0, 300)];
+                 if (str.length>600) {
+                     str=[str substringWithRange:NSMakeRange(0, 600)];
                  }
                  NSString* desc= [[NSString alloc]initWithFormat:@"<html><head><meta charset=\"utf-8\" /><script type=\"text/javascript\" src=\"%@\"></script><script type=\"text/javascript\">(function($) {$.fn.ellipsis = function(){return this.each(function(){var el = $(this);if(el.css(\"overflow\") == \"hidden\"){var text = el.html();var multiline = el.hasClass('multiline');var t = $(this.cloneNode(true)).hide().css('position', 'absolute').css('overflow', 'visible').width(multiline ? el.width() : 'auto').height(multiline ? 'auto' : el.height());el.after(t);var el_height=el.height();function height() { return t.height() > el_height; };function width() { return t.width() > el.width(); };var func = multiline ? height : width;while (text.length > 0 && func()){text = text.substr(0, text.length - 20);t.html(text + \"...\");}el.html(t.html());t.remove();}});};})(jQuery);$(function(){$(\".multiline\").ellipsis();});</script><style type=\"text/css\">.content{text-align:justify;text-justify:inter-word;overflow:hidden;text-overflow:ellipsis;}a{color:gray;}</style></head><body style=\"margin: %fpx %fpx %fpx %fpx;background-color: trasparent;\"><div class=\"content multiline\" style=\"width: %fpx;height: %f px; \"><img style=\"border-style:solid;border-width:2px;border-color:#D2D2D2;width:335px;height:235px;margin-bottom:15px; \" src=\"%@\" /><p style=\"font-family:HelveticaNeue-CondensedBold;font-size: 24px;margin-top: 0px;margin-bottom: 15px;color:#333333;text-align:left;\">%@</p><p style=\"font-family: HelveticaNeue;font-size: 14px;margin-top: 0px;margin-bottom: 15px;color:%@;\">%@</p><div style=\"font-family: HelveticaNeue-Light;font-size: 16px;color:#333333; \">%@</div></div></body></html>",fileURL,top,right,bottom,left, self.frame.size.width-(right+left),self.frame.size.height-(top+bottom),[messageModel.images objectAtIndex:0],messageModel.title,dateColor,messageModel.date,str ];
                  [theWebView loadHTMLString:desc baseURL:nil];
@@ -209,8 +209,8 @@
          }
          else if ([self.name isEqualToString:@"5_2_3"])
          {
-             if (str.length>400) {
-                 str=[str substringWithRange:NSMakeRange(0, 400)];
+             if (str.length>600) {
+                 str=[str substringWithRange:NSMakeRange(0, 600)];
              }
              float top=30;
              float right=30;
@@ -231,8 +231,8 @@
              
              
              if (messageModel.images.count>0) {
-                 if (str.length>300) {
-                     str=[str substringWithRange:NSMakeRange(0, 300)];
+                 if (str.length>600) {
+                     str=[str substringWithRange:NSMakeRange(0, 600)];
                  }
                  NSString* desc= [[NSString alloc]initWithFormat:@"<html><head><meta charset=\"utf-8\" /><script type=\"text/javascript\" src=\"%@\"></script><script type=\"text/javascript\">(function($) {$.fn.ellipsis = function(){return this.each(function(){var el = $(this);if(el.css(\"overflow\") == \"hidden\"){var text = el.html();var multiline = el.hasClass('multiline');var t = $(this.cloneNode(true)).hide().css('position', 'absolute').css('overflow', 'visible').width(multiline ? el.width() : 'auto').height(multiline ? 'auto' : el.height());el.after(t);var el_height=el.height();function height() { return t.height() > el_height; };function width() { return t.width() > el.width(); };var func = multiline ? height : width;while (text.length > 0 && func()){text = text.substr(0, text.length - 20);t.html(text + \"...\");}el.html(t.html());t.remove();}});};})(jQuery);$(function(){$(\".multiline\").ellipsis();});</script><style type=\"text/css\">.content{text-align:justify;text-justify:inter-word;overflow:hidden;text-overflow:ellipsis;}a{color:gray;}</style></head><body style=\"margin: %fpx %fpx %fpx %fpx;background-color: trasparent;\"><div class=\"content multiline\" style=\"width: %fpx;height: %f px; \"><img style=\"border-style:solid;border-width:2px;border-color:#D2D2D2;width:335px;height:235px;margin-bottom:15px; \" src=\"%@\" /><p style=\"font-family:HelveticaNeue-CondensedBold;font-size: 24px;margin-top: 0px;margin-bottom: 15px;color:#333333;text-align:left;\">%@</p><p style=\"font-family: HelveticaNeue;font-size: 14px;margin-top: 0px;margin-bottom: 15px;color:%@;\">%@</p><div style=\"font-family: HelveticaNeue-Light;font-size: 16px;color:#333333; \">%@</div></div></body></html>",fileURL,top,right,bottom,left, self.frame.size.width-(right+left),self.frame.size.height-(top+bottom),[messageModel.images objectAtIndex:0],messageModel.title,dateColor,messageModel.date,str ];
                  [theWebView loadHTMLString:desc baseURL:nil];
@@ -248,8 +248,8 @@
          }
          else if ([self.name isEqualToString:@"5_2_5"])
          {
-             if (str.length>300) {
-                 str=[str substringWithRange:NSMakeRange(0, 300)];
+             if (str.length>600) {
+                 str=[str substringWithRange:NSMakeRange(0, 600)];
              }
              float top=15;
              float right=30;
@@ -287,8 +287,8 @@
          }
          else if ([self.name isEqualToString:@"4_1_2"])
          {
-             if (str.length>500) {
-                 str=[str substringWithRange:NSMakeRange(0, 500)];
+             if (str.length>600) {
+                 str=[str substringWithRange:NSMakeRange(0, 600)];
              }
              float top=15;
              float right=15;
@@ -308,8 +308,8 @@
          }
          else if ([self.name isEqualToString:@"4_1_3"])
          {
-             if (str.length>500) {
-                 str=[str substringWithRange:NSMakeRange(0, 500)];
+             if (str.length>600) {
+                 str=[str substringWithRange:NSMakeRange(0,600)];
              }
              float top=15;
              float right=30;
@@ -322,8 +322,8 @@
          }
          else if ([self.name isEqualToString:@"4_1_4"])
          {
-             if (str.length>500) {
-                 str=[str substringWithRange:NSMakeRange(0, 500)];
+             if (str.length>600) {
+                 str=[str substringWithRange:NSMakeRange(0, 600)];
              }
              float top=15;
              float right=30;
@@ -357,8 +357,8 @@
          }
          else if ([self.name isEqualToString:@"4_2_3"])
          {
-             if (str.length>500) {
-                 str=[str substringWithRange:NSMakeRange(0, 500)];
+             if (str.length>600) {
+                 str=[str substringWithRange:NSMakeRange(0, 600)];
              }
              float top=15;
              float right=15;
@@ -371,8 +371,8 @@
          }
          else if ([self.name isEqualToString:@"4_2_4"])
          {
-             if (str.length>500) {
-                 str=[str substringWithRange:NSMakeRange(0, 500)];
+             if (str.length>600) {
+                 str=[str substringWithRange:NSMakeRange(0, 600)];
              }
              float top=15;
              float right=15;
@@ -385,8 +385,8 @@
          }
          else if ([self.name isEqualToString:@"4_2_2"])
          {
-             if (str.length>500) {
-                 str=[str substringWithRange:NSMakeRange(0, 500)];
+             if (str.length>600) {
+                 str=[str substringWithRange:NSMakeRange(0, 600)];
              }
              float top=15;
              float right=30;
@@ -431,8 +431,8 @@
          }
          else if ([self.name isEqualToString:@"3_1_2"])
          {
-             if (str.length>500) {
-                 str=[str substringWithRange:NSMakeRange(0, 500)];
+             if (str.length>600) {
+                 str=[str substringWithRange:NSMakeRange(0, 600)];
              }
              float top=30;
              float right=30;
@@ -453,16 +453,16 @@
              
              
              if (messageModel.images.count>0) {
-                 if (str.length>300) {
-                     str=[str substringWithRange:NSMakeRange(0, 300)];
+                 if (str.length>600) {
+                     str=[str substringWithRange:NSMakeRange(0, 600)];
                  }
                  NSString* desc= [[NSString alloc]initWithFormat:@"<html><head><meta charset=\"utf-8\" /><script type=\"text/javascript\" src=\"%@\"></script><script type=\"text/javascript\">(function($) {$.fn.ellipsis = function(){return this.each(function(){var el = $(this);if(el.css(\"overflow\") == \"hidden\"){var text = el.html();var multiline = el.hasClass('multiline');var t = $(this.cloneNode(true)).hide().css('position', 'absolute').css('overflow', 'visible').width(multiline ? el.width() : 'auto').height(multiline ? 'auto' : el.height());el.after(t);var el_height=el.height();function height() { return t.height() > el_height; };function width() { return t.width() > el.width(); };var func = multiline ? height : width;while (text.length > 0 && func()){text = text.substr(0, text.length - 20);t.html(text + \"...\");}el.html(t.html());t.remove();}});};})(jQuery);$(function(){$(\".multiline\").ellipsis();});</script><style type=\"text/css\">.content{text-align:justify;text-justify:inter-word;overflow:hidden;text-overflow:ellipsis;}a{color:gray;}</style></head><body style=\"margin: %fpx %fpx %fpx %fpx;background-color: trasparent;\"><div class=\"content multiline\" style=\"width: %fpx;height: %f px; \"><img style=\"border-style:solid;border-width:2px;border-color:#D2D2D2;width:335px;height:235px;margin-bottom:15px; \" src=\"%@\" /><p style=\"font-family:HelveticaNeue-CondensedBold;font-size: 24px;margin-top: 0px;margin-bottom: 15px;color:#333333;text-align:left;\">%@</p><p style=\"font-family: HelveticaNeue;font-size: 14px;margin-top: 0px;margin-bottom: 15px;color:%@;\">%@</p><div style=\"font-family: HelveticaNeue-Light;font-size: 16px;color:#333333; \">%@</div></div></body></html>",fileURL,top,right,bottom,left, self.frame.size.width-(right+left),self.frame.size.height-(top+bottom),[messageModel.images objectAtIndex:0],messageModel.title,dateColor,messageModel.date,str ];
                  [theWebView loadHTMLString:desc baseURL:nil];
              }
              else
              {
-                 if (str.length>500) {
-                     str=[str substringWithRange:NSMakeRange(0, 500)];
+                 if (str.length>600) {
+                     str=[str substringWithRange:NSMakeRange(0, 600)];
                  }
                  NSString* desc= [[NSString alloc]initWithFormat:@"<html><head><meta charset=\"utf-8\" /><script type=\"text/javascript\" src=\"%@\"></script><script type=\"text/javascript\">(function($) {$.fn.ellipsis = function(){return this.each(function(){var el = $(this);if(el.css(\"overflow\") == \"hidden\"){var text = el.html();var multiline = el.hasClass('multiline');var t = $(this.cloneNode(true)).hide().css('position', 'absolute').css('overflow', 'visible').width(multiline ? el.width() : 'auto').height(multiline ? 'auto' : el.height());el.after(t);var el_height=el.height();function height() { return t.height() > el_height; };function width() { return t.width() > el.width(); };var func = multiline ? height : width;while (text.length > 0 && func()){text = text.substr(0, text.length - 20);t.html(text + \"...\");}el.html(t.html());t.remove();}});};})(jQuery);$(function(){$(\".multiline\").ellipsis();});</script><style type=\"text/css\">.content{text-align:justify;text-justify:inter-word;overflow:hidden;text-overflow:ellipsis;}a{color:gray;}</style></head><body style=\"margin: %fpx %fpx %fpx %fpx;background-color: trasparent;\"><div class=\"content multiline\" style=\"width: %fpx;height: %f px; \"><p style=\"font-family:HelveticaNeue-CondensedBold;font-size: 24px;margin-top: 0px;margin-bottom: 15px;color:#333333;text-align:left;\">%@</p><p style=\"font-family: HelveticaNeue;font-size: 14px;margin-top: 0px;margin-bottom: 15px;color:%@;\">%@</p><div style=\"font-family: HelveticaNeue-Light;font-size: 16px;color:#333333; \">%@</div></div></body></html>",fileURL,top,right,bottom,left,self.frame.size.width-(right+left),self.frame.size.height-(top+bottom),messageModel.title,dateColor,messageModel.date,str ];
                  [theWebView loadHTMLString:desc baseURL:nil];
@@ -503,16 +503,16 @@
              
              
              if (messageModel.images.count>0) {
-                 if (str.length>300) {
-                     str=[str substringWithRange:NSMakeRange(0, 300)];
+                 if (str.length>600) {
+                     str=[str substringWithRange:NSMakeRange(0, 600)];
                  }
                  NSString* desc= [[NSString alloc]initWithFormat:@"<html><head><meta charset=\"utf-8\" /><script type=\"text/javascript\" src=\"%@\"></script><script type=\"text/javascript\">(function($) {$.fn.ellipsis = function(){return this.each(function(){var el = $(this);if(el.css(\"overflow\") == \"hidden\"){var text = el.html();var multiline = el.hasClass('multiline');var t = $(this.cloneNode(true)).hide().css('position', 'absolute').css('overflow', 'visible').width(multiline ? el.width() : 'auto').height(multiline ? 'auto' : el.height());el.after(t);var el_height=el.height();function height() { return t.height() > el_height; };function width() { return t.width() > el.width(); };var func = multiline ? height : width;while (text.length > 0 && func()){text = text.substr(0, text.length - 20);t.html(text + \"...\");}el.html(t.html());t.remove();}});};})(jQuery);$(function(){$(\".multiline\").ellipsis();});</script><style type=\"text/css\">.content{text-align:justify;text-justify:inter-word;overflow:hidden;text-overflow:ellipsis;}a{color:gray;}</style></head><body style=\"margin: %fpx %fpx %fpx %fpx;background-color: trasparent;\"><div class=\"content multiline\" style=\"width: %fpx;height: %f px; \"><img style=\"border-style:solid;border-width:2px;border-color:#D2D2D2;width:335px;height:235px;margin-bottom:15px; \" src=\"%@\" /><p style=\"font-family:HelveticaNeue-CondensedBold;font-size: 24px;margin-top: 0px;margin-bottom: 15px;color:#333333;text-align:left;\">%@</p><p style=\"font-family: HelveticaNeue;font-size: 14px;margin-top: 0px;margin-bottom: 15px;color:%@;\">%@</p><div style=\"font-family: HelveticaNeue-Light;font-size: 16px;color:#333333; \">%@</div></div></body></html>",fileURL,top,right,bottom,left, self.frame.size.width-(right+left),self.frame.size.height-(top+bottom),[messageModel.images objectAtIndex:0],messageModel.title,dateColor,messageModel.date,str ];
                  [theWebView loadHTMLString:desc baseURL:nil];
              }
              else
              {
-                 if (str.length>500) {
-                     str=[str substringWithRange:NSMakeRange(0, 500)];
+                 if (str.length>600) {
+                     str=[str substringWithRange:NSMakeRange(0, 600)];
                  }
                  NSString* desc= [[NSString alloc]initWithFormat:@"<html><head><meta charset=\"utf-8\" /><script type=\"text/javascript\" src=\"%@\"></script><script type=\"text/javascript\">(function($) {$.fn.ellipsis = function(){return this.each(function(){var el = $(this);if(el.css(\"overflow\") == \"hidden\"){var text = el.html();var multiline = el.hasClass('multiline');var t = $(this.cloneNode(true)).hide().css('position', 'absolute').css('overflow', 'visible').width(multiline ? el.width() : 'auto').height(multiline ? 'auto' : el.height());el.after(t);var el_height=el.height();function height() { return t.height() > el_height; };function width() { return t.width() > el.width(); };var func = multiline ? height : width;while (text.length > 0 && func()){text = text.substr(0, text.length - 20);t.html(text + \"...\");}el.html(t.html());t.remove();}});};})(jQuery);$(function(){$(\".multiline\").ellipsis();});</script><style type=\"text/css\">.content{text-align:justify;text-justify:inter-word;overflow:hidden;text-overflow:ellipsis;}a{color:gray;}</style></head><body style=\"margin: %fpx %fpx %fpx %fpx;background-color: trasparent;\"><div class=\"content multiline\" style=\"width: %fpx;height: %f px; \"><p style=\"font-family:HelveticaNeue-CondensedBold;font-size: 24px;margin-top: 0px;margin-bottom: 15px;color:#333333;text-align:left;\">%@</p><p style=\"font-family: HelveticaNeue;font-size: 14px;margin-top: 0px;margin-bottom: 15px;color:%@;\">%@</p><div style=\"font-family: HelveticaNeue-Light;font-size: 16px;color:#333333; \">%@</div></div></body></html>",fileURL,top,right,bottom,left,self.frame.size.width-(right+left),self.frame.size.height-(top+bottom),messageModel.title,dateColor,messageModel.date,str ];
                  [theWebView loadHTMLString:desc baseURL:nil];
@@ -528,16 +528,16 @@
              
              
              if (messageModel.images.count>0) {
-                 if (str.length>300) {
-                     str=[str substringWithRange:NSMakeRange(0, 300)];
+                 if (str.length>600) {
+                     str=[str substringWithRange:NSMakeRange(0, 600)];
                  }
                  NSString* desc= [[NSString alloc]initWithFormat:@"<html><head><meta charset=\"utf-8\" /><script type=\"text/javascript\" src=\"%@\"></script><script type=\"text/javascript\">(function($) {$.fn.ellipsis = function(){return this.each(function(){var el = $(this);if(el.css(\"overflow\") == \"hidden\"){var text = el.html();var multiline = el.hasClass('multiline');var t = $(this.cloneNode(true)).hide().css('position', 'absolute').css('overflow', 'visible').width(multiline ? el.width() : 'auto').height(multiline ? 'auto' : el.height());el.after(t);var el_height=el.height();function height() { return t.height() > el_height; };function width() { return t.width() > el.width(); };var func = multiline ? height : width;while (text.length > 0 && func()){text = text.substr(0, text.length - 20);t.html(text + \"...\");}el.html(t.html());t.remove();}});};})(jQuery);$(function(){$(\".multiline\").ellipsis();});</script><style type=\"text/css\">.content{text-align:justify;text-justify:inter-word;overflow:hidden;text-overflow:ellipsis;}a{color:gray;}</style></head><body style=\"margin: %fpx %fpx %fpx %fpx;background-color: trasparent;\"><div class=\"content multiline\" style=\"width: %fpx;height: %f px; \"><img style=\"border-style:solid;border-width:2px;border-color:#D2D2D2;width:335px;height:235px;margin-bottom:15px; \" src=\"%@\" /><p style=\"font-family:HelveticaNeue-CondensedBold;font-size: 24px;margin-top: 0px;margin-bottom: 15px;color:#333333;text-align:left;\">%@</p><p style=\"font-family: HelveticaNeue;font-size: 14px;margin-top: 0px;margin-bottom: 15px;color:%@;\">%@</p><div style=\"font-family: HelveticaNeue-Light;font-size: 16px;color:#333333; \">%@</div></div></body></html>",fileURL,top,right,bottom,left, self.frame.size.width-(right+left),self.frame.size.height-(top+bottom),[messageModel.images objectAtIndex:0],messageModel.title,dateColor,messageModel.date,str ];
                  [theWebView loadHTMLString:desc baseURL:nil];
              }
              else
              {
-                 if (str.length>500) {
-                     str=[str substringWithRange:NSMakeRange(0, 500)];
+                 if (str.length>600) {
+                     str=[str substringWithRange:NSMakeRange(0, 600)];
                  }
                  NSString* desc= [[NSString alloc]initWithFormat:@"<html><head><meta charset=\"utf-8\" /><script type=\"text/javascript\" src=\"%@\"></script><script type=\"text/javascript\">(function($) {$.fn.ellipsis = function(){return this.each(function(){var el = $(this);if(el.css(\"overflow\") == \"hidden\"){var text = el.html();var multiline = el.hasClass('multiline');var t = $(this.cloneNode(true)).hide().css('position', 'absolute').css('overflow', 'visible').width(multiline ? el.width() : 'auto').height(multiline ? 'auto' : el.height());el.after(t);var el_height=el.height();function height() { return t.height() > el_height; };function width() { return t.width() > el.width(); };var func = multiline ? height : width;while (text.length > 0 && func()){text = text.substr(0, text.length - 20);t.html(text + \"...\");}el.html(t.html());t.remove();}});};})(jQuery);$(function(){$(\".multiline\").ellipsis();});</script><style type=\"text/css\">.content{text-align:justify;text-justify:inter-word;overflow:hidden;text-overflow:ellipsis;}a{color:gray;}</style></head><body style=\"margin: %fpx %fpx %fpx %fpx;background-color: trasparent;\"><div class=\"content multiline\" style=\"width: %fpx;height: %f px; \"><p style=\"font-family:HelveticaNeue-CondensedBold;font-size: 24px;margin-top: 0px;margin-bottom: 15px;color:#333333;text-align:left;\">%@</p><p style=\"font-family: HelveticaNeue;font-size: 14px;margin-top: 0px;margin-bottom: 15px;color:%@;\">%@</p><div style=\"font-family: HelveticaNeue-Light;font-size: 16px;color:#333333; \">%@</div></div></body></html>",fileURL,top,right,bottom,left,self.frame.size.width-(right+left),self.frame.size.height-(top+bottom),messageModel.title,dateColor,messageModel.date,str ];
                  [theWebView loadHTMLString:desc baseURL:nil];

@@ -940,8 +940,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: chihchung yu (28Z8GV2P3H)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: chihchung yu (28Z8GV2P3H)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -964,6 +964,8 @@
 				INFOPLIST_FILE = "OGRU_DEV/Marketfield.temp_caseinsensitive_rename-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = Marketfield;
+				PROVISIONING_PROFILE = "2FAD1D64-B226-45F0-B238-919F32FB2C72";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2FAD1D64-B226-45F0-B238-919F32FB2C72";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
