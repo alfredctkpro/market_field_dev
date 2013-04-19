@@ -26,7 +26,7 @@
 -(void)loginWithUsername:(NSString *)username Password:(NSString *)password Complete:(void (^)(NSString*))complete Error:(void(^)(NSError* ))error
 {
 
-    NSURL *url=[NSURL URLWithString:@"http://ogru.com"];
+    NSURL *url=[NSURL URLWithString:@"http://marketfield.com"];
     AFHTTPClient *httpClient=[[[AFHTTPClient alloc]initWithBaseURL:url] autorelease];
     //[httpClient defaultValueForHeader:@"Accept"];
     
