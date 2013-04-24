@@ -108,7 +108,16 @@
                                        NSString* path=[[NSBundle mainBundle]pathForResource:@"Property List" ofType:@"plist"];
                                        
                                        [dic writeToFile:path atomically: YES];
+                                       NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                                       [formatter setDateFormat:@"yyyy-MM-dd"];
                                        
+                                       //Optionally for time zone converstions
+                                       [formatter setTimeZone:[NSTimeZone systemTimeZone]];
+                                       
+                                       NSString *stringFromDate = [formatter stringFromDate:[NSDate date]];
+                                       [[NSUserDefaults standardUserDefaults] setValue:stringFromDate forKey:@"loginDate"];
+                                       [[NSUserDefaults standardUserDefaults] synchronize];
+
                                        [self performSegueWithIdentifier:@"GoToIndexPage" sender:sender];
                                         self.btnLogin.enabled=YES;
                                        
@@ -155,8 +164,15 @@
                                        NSString* path=[[NSBundle mainBundle]pathForResource:@"Property List" ofType:@"plist"];
                                        
                                        [dic writeToFile:path atomically: YES];
+                                       NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                                       [formatter setDateFormat:@"yyyy-MM-dd"];
                                        
-
+                                       //Optionally for time zone converstions
+                                       [formatter setTimeZone:[NSTimeZone systemTimeZone]];
+                                       
+                                       NSString *stringFromDate = [formatter stringFromDate:[NSDate date]];
+                                       [[NSUserDefaults standardUserDefaults] setValue:stringFromDate forKey:@"loginDate"];
+                                       [[NSUserDefaults standardUserDefaults] synchronize];
                                        [self performSegueWithIdentifier:@"GoToIndexPage" sender:sender];
                                        self.btnLogin.enabled=YES;
                                    }

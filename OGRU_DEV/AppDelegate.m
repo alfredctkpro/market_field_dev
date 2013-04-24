@@ -187,6 +187,23 @@ static NSDictionary * _configs;
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
+    if (self.viewController!=nil && [[NSUserDefaults standardUserDefaults] objectForKey:@"loginDate"]!=nil) {
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"yyyy-MM-dd"];
+        
+        //Optionally for time zone converstions
+        [formatter setTimeZone:[NSTimeZone systemTimeZone]];
+        
+        NSString *stringFromDate = [formatter stringFromDate:[NSDate date]];
+        if (![stringFromDate isEqualToString:[[NSUserDefaults standardUserDefaults] objectForKey:@"loginDate"]]) {
+            [[NSUserDefaults standardUserDefaults] setValue:nil forKey:@"loginDate"];
+            
+            
+            [self.viewController performSegueWithIdentifier:@"Logout" sender:self.viewController];
+        }
+     
+    }
+    
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
